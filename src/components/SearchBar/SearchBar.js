@@ -10,6 +10,8 @@ class SearchBar extends Component {
       <div className="SearchBar-wrapper">
         <input
           className="SearchBar"
+          onFocus={this.props.onFocus}
+          onBlur={this.props.onBlur}
           type="text"
           placeholder="Where do you want to drink?"
         />

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "./HomeScreen.css";
-import SearchBar from "../SearchBar/SearchBar";
+
 
 class HomeScreen extends Component {
   render() {
@@ -13,7 +13,6 @@ class HomeScreen extends Component {
             Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum
             dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
           </p>
-          <SearchBar />
           <button className="HomeScreen-btn">Zaawansowane</button>
           <button className="HomeScreen-btn">Lokalizacja</button>
         </div>

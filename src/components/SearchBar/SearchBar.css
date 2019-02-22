@@ -12,8 +12,12 @@
 }
 
 .SearchBar-wrapper {
-  display: inherit;
-  position: relative;
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  position: absolute;
+  width: 100%;
 }
 
 .SearchBar-icon {
@@ -21,4 +25,30 @@
   bottom: 19px;
   right: 29px;
   font-size: 1.2rem;
+}
+
+.SearchBar-menu {
+  font-size: 1.5rem;
+
+  margin-left: 15px;
+
+  margin-right: 10px;
+}
+
+.SearchBar-side-menu {
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0, 0.52, 0, 1);
+  top: 0;
+  width: 60%;
+  height: 100vh;
+  background-color: blue;
+}
+
+.SearchBar-side-menu.hide {
+  transform: translate3d(-100vw, 0, 0);
+}
+
+.SearchBar-side-menu.show {
+  transform: translate3d(0vw, 0, 0);
+  overflow: hidden;
 }

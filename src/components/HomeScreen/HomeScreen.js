@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBeer } from "@fortawesome/free-solid-svg-icons";
 
 import "./HomeScreen.css";
-
 
 class HomeScreen extends Component {
   render() {
@@ -16,7 +15,19 @@ class HomeScreen extends Component {
             Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum
             dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
           </p>
-          <Link to="/publist"><button className='HomeScreen-btn-main'>Where do you want to drink?<FontAwesomeIcon style={{ verticalAlign: 'middle', marginLeft: '20px' }} icon={faBeer} className="SearchBar-icon" /></button></Link> 
+          <NavLink
+            style={{ display: "flex", textDecoration: "none" }}
+            to="/publist"
+          >
+            <button className="HomeScreen-btn-main">
+              Where do you want to drink?
+              <FontAwesomeIcon
+                style={{ verticalAlign: "middle", marginLeft: "20px" }}
+                icon={faBeer}
+                className="SearchBar-icon"
+              />
+            </button>
+          </NavLink>
           <button className="HomeScreen-btn">Zaawansowane</button>
           <button className="HomeScreen-btn">Lokalizacja</button>
         </div>

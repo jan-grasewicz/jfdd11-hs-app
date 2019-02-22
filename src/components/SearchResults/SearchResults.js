@@ -9,11 +9,9 @@ class SearchResults extends Component {
   };
 
   componentDidMount() {
-    fetch(process.env.PUBLIC_URL + "/data/pub-list.json")
-      .then(data => data.json())
-      .then(data => {
-        this.setState({ data });
-      });
+    this.setState({
+      data: this.props.publist
+    })
   }
 
   render() {

@@ -41,3 +41,11 @@
   background-color: transparent;
   color: white;
 }
+
+.HomeScreen-btn-main{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 60px;
+  background-color: white;
+}

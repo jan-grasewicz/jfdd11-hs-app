@@ -4,6 +4,7 @@ import HomeScreen from "../HomeScreen";
 import SearchResults from "../SearchResults/SearchResults";
 
 class Root extends Component {
+
   render() {
     return (
       <Router>

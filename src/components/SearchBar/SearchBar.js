@@ -13,20 +13,7 @@ class SearchBar extends Component {
     this.setState({
       isMenuOpen: true
     });
-    console.log("opeeeeen");
   };
-
-  // sideMenuOpen = () => {
-  //   return (
-  //     <div
-  //       className={
-  //         this.state.isMenuOpen
-  //           ? "SearchBar-side-menu show"
-  //           : "SearchBar-side-menu hide"
-  //       }
-  //     />
-  //   );
-  // };
 
   render() {
     return (

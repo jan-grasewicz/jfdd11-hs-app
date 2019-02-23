@@ -14,10 +14,11 @@
 .SearchBar-wrapper {
   display: flex;
   flex-direction: row;
-
+  top: 0;
   align-items: center;
-  position: absolute;
+  position: fixed;
   width: 100%;
+  background-color: white;
 }
 
 .SearchBar-icon {
@@ -36,7 +37,7 @@
 }
 
 .SearchBar-side-menu {
-  position: absolute;
+  position: fixed;
   transition: transform 0.4s cubic-bezier(0, 0.52, 0, 1);
   top: 0;
   width: 60%;
@@ -50,5 +51,4 @@
 
 .SearchBar-side-menu.show {
   transform: translate3d(0vw, 0, 0);
-  overflow: hidden;
 }

@@ -11,30 +11,26 @@ class SearchResults extends Component {
   componentDidMount() {
     fetch(process.env.PUBLIC_URL + "/data/publist.json")
       .then(data => data.json())
-      .then(stuff => Object.entries(stuff).map(([id, value]) => ({ id, ...value })))
-      .then(publist => this.setState({ publist }))
+      .then(stuff =>
+        Object.entries(stuff).map(([id, value]) => ({ id, ...value }))
+      )
+      .then(publist => this.setState({ publist }));
   }
 
   render() {
-    console.log(this.state.publist)
+    console.log(this.state.publist);
     return (
-      <div className="searching-screen-wrapper">
-        <div className="searchbar">
-          <SearchBar />
-        </div>
-        <div className="list-of-pubs">
+      <div>
+        <SearchBar />
+        <div className="SearchResults-list">
           <ol>
-            {
-              this.state.publist.map(pub => (
-                <li key={pub.id}>
-                  {pub.name}
-                </li>
-              ))
-            }
+            {this.state.publist.map(pub => (
+              <li key={pub.id}>{pub.name}</li>
+            ))}
           </ol>
         </div>
-
-      </div>);
+      </div>
+    );
   }
 }
 

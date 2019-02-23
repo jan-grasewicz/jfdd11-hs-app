@@ -5,21 +5,36 @@ import SearchBar from "../SearchBar/SearchBar";
 
 class SearchResults extends Component {
   state = {
-    data: []
+    publist: []
   };
 
   componentDidMount() {
-    this.setState({
-      data: this.props.publist
-    })
+    fetch(process.env.PUBLIC_URL + "/data/publist.json")
+      .then(data => data.json())
+      .then(stuff => Object.entries(stuff).map(([id, value]) => ({ id, ...value })))
+      .then(publist => this.setState({ publist }))
   }
 
   render() {
+    console.log(this.state.publist)
     return (
-      <>
-        <SearchBar />
-      </>
-    );
+      <div className="searching-screen-wrapper">
+        <div className="searchbar">
+          <SearchBar />
+        </div>
+        <div className="list-of-pubs">
+          <ol>
+            {
+              this.state.publist.map(pub => (
+                <li key={pub.id}>
+                  {pub.name}
+                </li>
+              ))
+            }
+          </ol>
+        </div>
+
+      </div>);
   }
 }
 

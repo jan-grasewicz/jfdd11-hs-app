@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import "./SearchResults.css";
 import SearchBar from "../SearchBar/SearchBar";
+import Publist from "../Publist";
 
 class SearchResults extends Component {
   state = {
@@ -23,11 +24,7 @@ class SearchResults extends Component {
       <div>
         <SearchBar />
         <div className="SearchResults-list">
-          <ol>
-            {this.state.publist.map(pub => (
-              <li key={pub.id}>{pub.name}</li>
-            ))}
-          </ol>
+          <Publist publistdata={this.state.publist} />
         </div>
       </div>
     );

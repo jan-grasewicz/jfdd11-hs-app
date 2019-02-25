@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 import "./SearchResults.css";
-import SearchBar from "../SearchBar/SearchBar";
 import Publist from "../Publist";
+import SearchBar from "../SearchBar/SearchBar";
 
 class SearchResults extends Component {
   state = {
@@ -17,6 +17,7 @@ class SearchResults extends Component {
       <div>
         <SearchBar>
           {searchPhrase => (
+
             <div className="SearchResults-list">
               <Publist
                 publistdata={this.state.publist.filter(pub =>
@@ -28,6 +29,7 @@ class SearchResults extends Component {
             </div>
           )}
         </SearchBar>
+
       </div>
     );
   }

@@ -24,8 +24,11 @@ class Root extends Component {
       <Router>
         <div>
           <Route exact path="/" component={HomeScreen} />
+
+
           <Route exact path="/publist" component={(props) => <SearchResults {...props} pubs={this.state.publist} />} />
           <Route path="/publist/:pubId" component={PubScreen} />
+
         </div>
       </Router>
     );

@@ -11,8 +11,17 @@
     padding: 5px;
     margin: 5px;
     list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.Publist-h2 {
+    margin: 0 auto;
+    grid-column: span 2;
 }
 
 .Publist-img {
+    /* grid-row: 1; */
     width: 100px;
+    height: 100px;
 }

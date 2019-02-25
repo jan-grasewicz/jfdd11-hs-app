@@ -6,7 +6,8 @@ import "./SearchBar.css";
 
 class SearchBar extends Component {
   state = {
-    isMenuOpen: false
+    isMenuOpen: false,
+    searchPhrase: ''
   };
 
   sideMenuToggle = () => {
@@ -15,8 +16,27 @@ class SearchBar extends Component {
     });
   };
 
+  componentDidMount() {
+    window.addEventListener('click', () => {
+      this.setState({ isMenuOpen: false })
+    })
+  }
+
+  handleMenuToggle = event => {
+    event.stopPropagation()
+    this.sideMenuToggle()
+  }
+
+  handleChange = event => {
+    const inputValue = event.target.value
+    this.setState({
+      searchPhrase: inputValue
+    })
+  }
+
   render() {
     return (
+      <>
       <div className="SearchBar-wrapper">
         <div
           className={
@@ -25,7 +45,7 @@ class SearchBar extends Component {
               : "SearchBar-side-menu hide"
           }
         />
-        <div onClick={() => this.sideMenuToggle()} className="SearchBar-menu">
+        <div onClick={this.handleMenuToggle} className="SearchBar-menu">
           <FontAwesomeIcon icon={faBars} style={{ verticalAlign: "middle" }} />
         </div>
         <input
@@ -33,9 +53,12 @@ class SearchBar extends Component {
           type="text"
           placeholder="Where do you want to drink?"
           onFocus={() => this.setState({ isMenuOpen: false })}
+          onChange={this.handleChange}
         />
         <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />
       </div>
+          {this.props.children(this.state.searchPhrase)}
+      </>
     );
   }
 }

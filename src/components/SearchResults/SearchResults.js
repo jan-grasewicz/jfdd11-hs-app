@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import "./SearchResults.css";
 import SearchBar from "../SearchBar/SearchBar";
+import Publist from "../Publist";
 
 class SearchResults extends Component {
   state = {
@@ -21,14 +22,19 @@ class SearchResults extends Component {
     console.log(this.state.publist);
     return (
       <div>
-        <SearchBar />
-        <div className="SearchResults-list">
-          <ol>
-            {this.state.publist.map(pub => (
-              <li key={pub.id}>{pub.name}</li>
-            ))}
-          </ol>
-        </div>
+        <SearchBar>
+          {searchPhrase => (
+            <div className="SearchResults-list">
+              <Publist
+                publistdata={this.state.publist.filter(pub =>
+                  pub.city
+                    .toLocaleLowerCase()
+                    .includes(searchPhrase.toLocaleLowerCase())
+                )}
+              />
+            </div>
+          )}
+        </SearchBar>
       </div>
     );
   }

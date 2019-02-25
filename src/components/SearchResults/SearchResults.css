@@ -1,2 +1,7 @@
-.SearchResults {
+* {
+  box-sizing: border-box;
+}
+
+.SearchResults-list {
+  margin-top: 90px;
 }

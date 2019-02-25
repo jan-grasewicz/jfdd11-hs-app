@@ -1,3 +1,18 @@
 .Publist {
-  
+    box-sizing: border-box;
+}
+
+.Publist-ul {
+    padding: 0px;
+}
+
+.Publist-li {
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+    list-style: none;
+}
+
+.Publist-img {
+    width: 100px;
 }

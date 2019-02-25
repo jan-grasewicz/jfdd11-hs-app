@@ -9,8 +9,6 @@ class SearchResults extends Component {
     publist: this.props.pubs
   };
 
-
-
   render() {
     console.log(this.state.publist);
     return (

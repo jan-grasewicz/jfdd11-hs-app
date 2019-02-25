@@ -5,10 +5,9 @@ import SearchResults from "../SearchResults/SearchResults";
 import PubScreen from "../PubScreen";
 
 class Root extends Component {
-
   state = {
     publist: []
-  }
+  };
 
   componentDidMount() {
     fetch(process.env.PUBLIC_URL + "/data/publist.json")
@@ -24,7 +23,13 @@ class Root extends Component {
       <Router>
         <div>
           <Route exact path="/" component={HomeScreen} />
-          <Route exact path="/publist" component={(props) => <SearchResults {...props} pubs={this.state.publist} />} />
+          <Route
+            exact
+            path="/publist"
+            component={props => (
+              <SearchResults {...props} pubs={this.state.publist} />
+            )}
+          />
           <Route path="/publist/:pubId" component={PubScreen} />
         </div>
       </Router>

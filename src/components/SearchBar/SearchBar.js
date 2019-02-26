@@ -37,27 +37,27 @@ class SearchBar extends Component {
   render() {
     return (
       <>
-      <div className="SearchBar-wrapper">
-        <div
-          className={
-            this.state.isMenuOpen
-              ? "SearchBar-side-menu show"
-              : "SearchBar-side-menu hide"
-          }
-        />
-        <div onClick={this.handleMenuToggle} className="SearchBar-menu">
-          <FontAwesomeIcon icon={faBars} style={{ verticalAlign: "middle" }} />
+        <div className="SearchBar-wrapper">
+          <div
+            className={
+              this.state.isMenuOpen
+                ? "SearchBar-side-menu show"
+                : "SearchBar-side-menu hide"
+            }
+          />
+          <div onClick={this.handleMenuToggle} className="SearchBar-menu">
+            <FontAwesomeIcon icon={faBars} style={{ verticalAlign: "middle" }} />
+          </div>
+          <input
+            className="SearchBar"
+            type="text"
+            placeholder="Where do you want to drink?"
+            onFocus={() => this.setState({ isMenuOpen: false })}
+            onChange={this.handleChange}
+          />
+          <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />
         </div>
-        <input
-          className="SearchBar"
-          type="text"
-          placeholder="Where do you want to drink?"
-          onFocus={() => this.setState({ isMenuOpen: false })}
-          onChange={this.handleChange}
-        />
-        <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />
-      </div>
-          {this.props.children(this.state.searchPhrase)}
+        {this.props.children(this.state.searchPhrase)}
       </>
     );
   }

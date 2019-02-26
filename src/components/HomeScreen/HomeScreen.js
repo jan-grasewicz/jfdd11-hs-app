@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBeer } from "@fortawesome/free-solid-svg-icons";
 
@@ -28,7 +28,11 @@ class HomeScreen extends Component {
               />
             </button>
           </NavLink>
-          <button className="HomeScreen-btn">Zaawansowane</button>
+
+          <NavLink to="/advancedSearch" className="HomeScreen-btn">
+            Zaawansowane
+          </NavLink>
+
           <button className="HomeScreen-btn">Lokalizacja</button>
         </div>
       </div>

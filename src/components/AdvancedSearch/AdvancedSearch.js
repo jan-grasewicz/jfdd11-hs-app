@@ -68,13 +68,11 @@ class AdvancedSearch extends Component {
   fittingPubs = event => {
     event.preventDefault();
     const { city, cout, openedFrom, openedTill } = this.state;
-    console.log(
-      this.state.publist
-        .filter(pub => (city === "all" ? pub : pub.city === city))
-        .filter(pub => pub.space >= cout)
-        .filter(pub => pub.openhour >= openedFrom)
-        .filter(pub => pub.closehour >= openedTill)
-    );
+    return this.state.publist
+      .filter(pub => (city === "all" ? pub : pub.city === city))
+      .filter(pub => pub.space >= cout)
+      .filter(pub => (openedFrom ? pub.openhour >= openedFrom : pub))
+      .filter(pub => (openedTill ? pub.closehour >= openedTill : pub));
   };
 
   componentDidMount() {
@@ -143,7 +141,7 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <button onClick={this.fittingPubs}> Submit</button>
+            <button onClick={this.fittingPubs}>Submit</button>
           </form>
         </div>
       </div>

@@ -33,7 +33,7 @@ class AdvancedSearch extends Component {
           closinghours.push(pub.closehour);
         }
       });
-    this.setState({ closeButtons: closinghours });
+    this.setState({ closeButtons: closinghours.sort() });
   };
 
   checkOpeningHours = () => {
@@ -47,7 +47,7 @@ class AdvancedSearch extends Component {
           openinghoursarr.push(pub.openhour);
         }
       });
-    this.setState({ openButtons: openinghoursarr });
+    this.setState({ openButtons: openinghoursarr.sort() });
   };
 
   componentDidMount() {
@@ -115,7 +115,7 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <button onClick={this.submitForm}> Submit</button>
+            <button onClick={this.submitForm}>Submit</button>
           </form>
         </div>
       </div>

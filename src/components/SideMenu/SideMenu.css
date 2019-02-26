@@ -1,0 +1,52 @@
+ .SideMenu-menu{
+     list-style: none;
+     padding: 10px;
+ }
+
+ .SideMenu-h1{
+    margin-left: 10px;
+ }
+
+ .SideMenu-icon-profile{
+     font-size: 2.5rem;
+ }
+
+ .SideMenu-profile-p{
+     margin: 0;
+     text-transform: uppercase;
+ }
+
+ .SideMenu-profile-a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    text-decoration: none;
+ }
+
+ .SideMenu-menu>li{
+     display: flex;
+     padding: 10px;
+     border-bottom: 1px solid black;
+     text-align: center;
+     font-size: 1.2rem;
+ }
+
+ .SideMenu-menu>li>a{
+     text-decoration: none;
+ }
+
+.SideMenu-icon{
+    width: 15px;
+}
+
+
+.SideMenu-link>p{
+    margin: 0 10px 0 10px;
+}
+
+.SideMenu-link{
+ display: flex;
+ flex-direction: row;
+ width: 100%;
+}

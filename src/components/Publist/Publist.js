@@ -12,8 +12,10 @@ class Publist extends Component {
             <li key={pub.id} className="Publist-li">
               <h2 className="Publist-h2">{pub.name}</h2>
 
-              <img className="Publist-img" src={pub.img} />
-              <div>
+              <div className="Publist-imgcontainer">
+                <img className="Publist-img" src={pub.img} />
+              </div>
+              <div className="Publist-info">
                 <p>{pub.city}</p>
                 <p>{pub.address}</p>
                 <p>

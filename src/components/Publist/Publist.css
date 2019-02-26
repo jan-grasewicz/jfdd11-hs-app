@@ -1,3 +1,7 @@
+* {
+    margin: 0px;
+}
+
 .Publist {
     box-sizing: border-box;
 }
@@ -8,20 +12,34 @@
 
 .Publist-li {
     border: 1px solid black;
-    padding: 5px;
-    margin: 5px;
+    margin: 8px;
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 2fr;
+    grid-template-rows: 2.5rem;
 }
 
 .Publist-h2 {
-    margin: 0 auto;
-    grid-column: span 2;
+    padding: 0.5rem;
 }
 
 .Publist-img {
-    margin: 0 auto;
-    max-width: 100px;
-    min-height: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.Publist-imgcontainer {
+    grid-row: 1/3;
+    grid-column: 1;
+    padding: 5px;
+}
+
+.Publist-info {
+    align-self: center;
+}
+
+.Publist p {
+    padding: 0.3rem;
 }

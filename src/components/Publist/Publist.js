@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import "./Publist.css";
-
+import { Link } from "react-router-dom";
 class Publist extends Component {
   render() {
     return (
@@ -9,8 +9,11 @@ class Publist extends Component {
         <h1>Publist</h1>
         <ul className="Publist-ul">
           {this.props.publistdata.map(pub => (
+            //
             <li key={pub.id} className="Publist-li">
-              <h2 className="Publist-h2">{pub.name}</h2>
+              <h2 className="Publist-h2">
+                <Link to={`/publist/${pub.id}`}>{pub.name}</Link>
+              </h2>
 
               <div className="Publist-imgcontainer">
                 <img className="Publist-img" src={pub.img} />

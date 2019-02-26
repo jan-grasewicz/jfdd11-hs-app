@@ -25,7 +25,12 @@ class Root extends Component {
         <div>
           <Route exact path="/" component={HomeScreen} />
 
-          <Route path="/advancedSearch" component={AdvancedSearch} />
+          <Route
+            path="/advancedSearch"
+            component={props => (
+              <AdvancedSearch {...props} pubs={this.state.publist} />
+            )}
+          />
           <Route
             exact
             path="/publist"

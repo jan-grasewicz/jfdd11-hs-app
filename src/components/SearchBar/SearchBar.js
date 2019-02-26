@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars } from "@fortawesome/free-solid-svg-icons";
+import SideMenu from '../SideMenu'
 
 import "./SearchBar.css";
 
@@ -16,10 +17,16 @@ class SearchBar extends Component {
     });
   };
 
+  handleClick = () => {
+    this.setState({ isMenuOpen: false })
+  }
+
   componentDidMount() {
-    window.addEventListener('click', () => {
-      this.setState({ isMenuOpen: false })
-    })
+    window.addEventListener('click', this.handleClick)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.handleClick)
   }
 
   handleMenuToggle = event => {
@@ -44,7 +51,7 @@ class SearchBar extends Component {
                 ? "SearchBar-side-menu show"
                 : "SearchBar-side-menu hide"
             }
-          />
+          > <SideMenu /></div>
           <div onClick={this.handleMenuToggle} className="SearchBar-menu">
             <FontAwesomeIcon icon={faBars} style={{ verticalAlign: "middle" }} />
           </div>

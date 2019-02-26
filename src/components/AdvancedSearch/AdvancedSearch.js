@@ -10,7 +10,8 @@ class AdvancedSearch extends Component {
     openedFrom: "",
     openedTill: "",
     openButtons: [],
-    closeButtons: []
+    closeButtons: [],
+    cities: []
   };
 
   handleChange = event => {
@@ -50,13 +51,39 @@ class AdvancedSearch extends Component {
     this.setState({ openButtons: openinghoursarr.sort() });
   };
 
+  checkCityOptions = () => {
+    let possiblecities = [];
+    Object.entries(this.state.publist)
+      .map(([id, value]) => ({ id, ...value }))
+      .forEach(pub => {
+        if (possiblecities.includes(pub.city)) {
+          return;
+        } else {
+          possiblecities.push(pub.city);
+        }
+      });
+    this.setState({ cities: possiblecities.sort() });
+  };
+
+  fittingPubs = event => {
+    event.preventDefault();
+    const { city, cout, openedFrom, openedTill } = this.state;
+    console.log(
+      this.state.publist
+        .filter(pub => (city === "all" ? pub : pub.city === city))
+        .filter(pub => pub.space >= cout)
+        .filter(pub => pub.openhour >= openedFrom)
+        .filter(pub => pub.closehour >= openedTill)
+    );
+  };
+
   componentDidMount() {
+    this.checkCityOptions();
     this.checkOpeningHours();
     this.checkClosingHours();
   }
 
   render() {
-    console.log(this.state);
     return (
       <div>
         <div className="AdvancedSearch">
@@ -69,10 +96,11 @@ class AdvancedSearch extends Component {
                 onChange={this.handleChange}
               >
                 <option value="all">Wszystkie Miasta</option>
-                <option value="Gdańsk">Gdańsk</option>
-                <option value="Sopot">Sopot</option>
-                <option value="Gdynia">Gdynia</option>
-                <option value="Wejherowo">Wejherowo</option>
+                {this.state.cities.map(city => (
+                  <option key={city} value={city}>
+                    {city}
+                  </option>
+                ))}
               </select>
             </div>
             <div>
@@ -115,7 +143,7 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <button onClick={this.submitForm}>Submit</button>
+            <button onClick={this.fittingPubs}> Submit</button>
           </form>
         </div>
       </div>

@@ -4,6 +4,7 @@ import HomeScreen from "../HomeScreen";
 import SearchResults from "../SearchResults/SearchResults";
 import PubScreen from "../PubScreen";
 import AdvancedSearch from "../AdvancedSearch";
+import SignUp from "../SignUp/SignUp";
 
 class Root extends Component {
   render() {
@@ -15,6 +16,7 @@ class Root extends Component {
           <Route path="/advancedSearch" component={AdvancedSearch} />
           <Route exact path="/publist" component={SearchResults} />
           <Route path="/publist/:pubId" component={PubScreen} />
+          <Route path='/signup' component={SignUp} />
         </div>
       </Router>
     );

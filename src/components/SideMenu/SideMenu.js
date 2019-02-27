@@ -34,7 +34,7 @@ class SideMenu extends Component {
           <NavItem to="/publist" icon={faBeer}>Pub List</NavItem>
           <NavItem to="/advancedSearch" icon={faPassport}>Advanced Search</NavItem>
           <NavItem to="/" icon={faSignInAlt}>Log in</NavItem>
-          <NavItem to="/" icon={faSignInAlt}>Sign up</NavItem>
+          <NavItem to="/signup" icon={faSignInAlt}>Sign up</NavItem>
         </ul>
       </>
     );

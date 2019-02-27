@@ -49,6 +49,12 @@ class AdvancedSearch extends Component {
           openedTill === "all" ? pub : pub.closehour >= openedTill
         )
     );
+    this.props.advancedSearchContext.pushFilters(
+      city,
+      cout,
+      openedFrom,
+      openedTill
+    );
   };
 
   render() {

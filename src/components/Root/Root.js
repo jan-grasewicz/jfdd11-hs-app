@@ -4,17 +4,8 @@ import HomeScreen from "../HomeScreen";
 import SearchResults from "../SearchResults/SearchResults";
 import PubScreen from "../PubScreen";
 import AdvancedSearch from "../AdvancedSearch";
-import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class Root extends Component {
-  state = {
-    publist: []
-  };
-
-  componentDidMount() {
-    this.setState({ publist: this.props.advancedSearchContext.publist });
-  }
-
   render() {
     return (
       <Router>
@@ -30,4 +21,4 @@ class Root extends Component {
   }
 }
 
-export default withAdvancedSearch(Root);
+export default Root;

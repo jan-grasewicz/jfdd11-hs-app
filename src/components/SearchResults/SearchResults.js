@@ -15,7 +15,6 @@ class SearchResults extends Component {
       <div>
         <SearchBar>
           {searchPhrase => (
-
             <div className="SearchResults-list">
               <Publist
                 publistdata={this.state.publist.filter(pub =>
@@ -27,7 +26,6 @@ class SearchResults extends Component {
             </div>
           )}
         </SearchBar>
-
       </div>
     );
   }

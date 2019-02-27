@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import './firebase/firebaseSetup'
 
 import Root from "./components/Root/Root.js";
 

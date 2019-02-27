@@ -26,7 +26,7 @@ class SearchResults extends Component {
             <div className="SearchResults-list">
               <Publist
                 publistdata={(this.state.filteredpubs || publist).filter(pub =>
-                  pub.city
+                  pub.name
                     .toLocaleLowerCase()
                     .includes(searchPhrase.toLocaleLowerCase())
                 )}

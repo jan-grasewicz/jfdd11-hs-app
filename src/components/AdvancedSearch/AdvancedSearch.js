@@ -118,6 +118,9 @@ class AdvancedSearch extends Component {
               </select>
             </div>
             <button onClick={this.fittingPubs}>Submit</button>
+            <button onClick={this.props.advancedSearchContext.resetFilters}>
+              Reset Filters
+            </button>
           </form>
         </div>
       </div>

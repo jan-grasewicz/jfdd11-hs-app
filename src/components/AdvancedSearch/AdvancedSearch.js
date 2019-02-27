@@ -57,6 +57,11 @@ class AdvancedSearch extends Component {
     );
   };
 
+  handleResetFilters = event => {
+    event.preventDefault();
+    this.props.advancedSearchContext.resetFilters();
+  };
+
   render() {
     return (
       <div>
@@ -118,6 +123,7 @@ class AdvancedSearch extends Component {
               </select>
             </div>
             <button onClick={this.fittingPubs}>Submit</button>
+            <button onClick={this.handleResetFilters}>Reset Filters</button>
           </form>
         </div>
       </div>

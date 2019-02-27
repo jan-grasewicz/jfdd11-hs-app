@@ -4,6 +4,7 @@ import HomeScreen from "../HomeScreen";
 import SearchResults from "../SearchResults/SearchResults";
 import PubScreen from "../PubScreen";
 import AdvancedSearch from "../AdvancedSearch";
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class Root extends Component {
   state = {
@@ -11,12 +12,7 @@ class Root extends Component {
   };
 
   componentDidMount() {
-    fetch(process.env.PUBLIC_URL + "/data/publist.json")
-      .then(data => data.json())
-      .then(stuff =>
-        Object.entries(stuff).map(([id, value]) => ({ id, ...value }))
-      )
-      .then(publist => this.setState({ publist }));
+    this.setState({ publist: this.props.advancedSearchContext.publist });
   }
 
   render() {
@@ -25,19 +21,8 @@ class Root extends Component {
         <div>
           <Route exact path="/" component={HomeScreen} />
 
-          <Route
-            path="/advancedSearch"
-            component={props => (
-              <AdvancedSearch {...props} pubs={this.state.publist} />
-            )}
-          />
-          <Route
-            exact
-            path="/publist"
-            component={props => (
-              <SearchResults {...props} pubs={this.state.publist} />
-            )}
-          />
+          <Route path="/advancedSearch" component={AdvancedSearch} />
+          <Route exact path="/publist" component={SearchResults} />
           <Route path="/publist/:pubId" component={PubScreen} />
         </div>
       </Router>
@@ -45,4 +30,4 @@ class Root extends Component {
   }
 }
 
-export default Root;
+export default withAdvancedSearch(Root);

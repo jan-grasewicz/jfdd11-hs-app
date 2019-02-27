@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 
 import "./AdvancedSearch.css";
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class AdvancedSearch extends Component {
   state = {
-    publist: this.props.pubs,
+    publist: this.props.advancedSearchContext.publist,
     city: "all",
     cout: 5,
-    openedFrom: "",
-    openedTill: "",
-    openButtons: [],
-    closeButtons: [],
-    cities: []
+    openedFrom: "all",
+    openedTill: "all"
   };
 
   handleChange = event => {
@@ -20,68 +18,49 @@ class AdvancedSearch extends Component {
 
   submitForm = event => {
     event.preventDefault();
-    console.log("submitted " + this.state.city);
+    console.log(this.state);
   };
 
-  checkClosingHours = () => {
-    let closinghours = [];
-    Object.entries(this.state.publist)
+  prepareArr = item => {
+    let retArr = [];
+    Object.entries(this.props.advancedSearchContext.publist)
       .map(([id, value]) => ({ id, ...value }))
       .forEach(pub => {
-        if (closinghours.includes(pub.closehour)) {
+        if (retArr.includes(pub[item])) {
           return;
         } else {
-          closinghours.push(pub.closehour);
+          retArr.push(pub[item]);
         }
       });
-    this.setState({ closeButtons: closinghours.sort() });
-  };
-
-  checkOpeningHours = () => {
-    let openinghoursarr = [];
-    Object.entries(this.state.publist)
-      .map(([id, value]) => ({ id, ...value }))
-      .forEach(pub => {
-        if (openinghoursarr.includes(pub.openhour)) {
-          return;
-        } else {
-          openinghoursarr.push(pub.openhour);
-        }
-      });
-    this.setState({ openButtons: openinghoursarr.sort() });
-  };
-
-  checkCityOptions = () => {
-    let possiblecities = [];
-    Object.entries(this.state.publist)
-      .map(([id, value]) => ({ id, ...value }))
-      .forEach(pub => {
-        if (possiblecities.includes(pub.city)) {
-          return;
-        } else {
-          possiblecities.push(pub.city);
-        }
-      });
-    this.setState({ cities: possiblecities.sort() });
+    return retArr.sort();
   };
 
   fittingPubs = event => {
     event.preventDefault();
     const { city, cout, openedFrom, openedTill } = this.state;
-    console.log(
-      this.state.publist
+    this.props.advancedSearchContext.pushFilteredPubList(
+      this.props.advancedSearchContext.publist
         .filter(pub => (city === "all" ? pub : pub.city === city))
         .filter(pub => pub.space >= cout)
-        .filter(pub => pub.openhour >= openedFrom)
-        .filter(pub => pub.closehour >= openedTill)
+        .filter(pub =>
+          openedFrom === "all" ? pub : pub.openhour <= openedFrom
+        )
+        .filter(pub =>
+          openedTill === "all" ? pub : pub.closehour >= openedTill
+        )
+    );
+    this.props.advancedSearchContext.pushFilters(
+      city,
+      cout,
+      openedFrom,
+      openedTill
     );
   };
 
-  componentDidMount() {
-    this.checkCityOptions();
-    this.checkOpeningHours();
-    this.checkClosingHours();
-  }
+  handleResetFilters = event => {
+    event.preventDefault();
+    this.props.advancedSearchContext.resetFilters();
+  };
 
   render() {
     return (
@@ -92,11 +71,11 @@ class AdvancedSearch extends Component {
               <label name="city">City </label>
               <select
                 name="city"
-                defaultValue="all"
+                value={this.state.city}
                 onChange={this.handleChange}
               >
                 <option value="all">Wszystkie Miasta</option>
-                {this.state.cities.map(city => (
+                {this.prepareArr("city").map(city => (
                   <option key={city} value={city}>
                     {city}
                   </option>
@@ -116,11 +95,11 @@ class AdvancedSearch extends Component {
               <label>Opened from:</label>
               <select
                 name="openedFrom"
-                defaultValue={"all"}
+                value={this.state.openedFrom}
                 onChange={this.handleChange}
               >
                 <option value="all">All</option>
-                {this.state.openButtons.map(hour => (
+                {this.prepareArr("openhour").map(hour => (
                   <option key={hour} value={hour}>
                     {hour}
                   </option>
@@ -131,19 +110,20 @@ class AdvancedSearch extends Component {
               <label>Opened till:</label>
               <select
                 name="openedTill"
-                defaultValue={"all"}
+                value={this.state.openedTill}
                 onChange={this.handleChange}
               >
                 <option value="all">All</option>
 
-                {this.state.closeButtons.map(hour => (
+                {this.prepareArr("closehour").map(hour => (
                   <option key={hour} value={hour}>
                     {hour}
                   </option>
                 ))}
               </select>
             </div>
-            <button onClick={this.fittingPubs}> Submit</button>
+            <button onClick={this.fittingPubs}>Submit</button>
+            <button onClick={this.handleResetFilters}>Reset Filters</button>
           </form>
         </div>
       </div>
@@ -151,4 +131,4 @@ class AdvancedSearch extends Component {
   }
 }
 
-export default AdvancedSearch;
+export default withAdvancedSearch(AdvancedSearch);

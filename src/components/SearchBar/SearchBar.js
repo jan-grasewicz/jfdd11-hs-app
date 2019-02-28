@@ -89,7 +89,6 @@ class SearchBar extends Component {
             className="SearchBar"
             type="text"
             placeholder="Where do you want to drink?"
-            // onFocus={() => this.setState({ isMenuOpen: false })}
             onChange={this.handleChange}
           />
           <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />

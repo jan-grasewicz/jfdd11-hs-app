@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import "./SignUp.css";
 import SideMenu from "../SideMenu";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBackward, faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 class SignUp extends Component {
   state = {
@@ -49,80 +51,93 @@ class SignUp extends Component {
 
   signUpWithGoogle = () => {
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then(() => this.setState({
-      isGoogleSingUpInProgress: true
-    })).catch(error => console.log(error))
-  }
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(() =>
+        this.setState({
+          isGoogleSingUpInProgress: true
+        })
+      )
+      .catch(error => console.log(error));
+  };
 
   render() {
     return (
       <>
-      {/* <SideMenu /> */}
-      <div className="SignUp-base">
-        <div className="SignUp-form">
-          <div className="SignUp-form-inputs">
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="name"
-              value={this.state.name}
-              placeholder="Name"
-            />
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="surname"
-              value={this.state.surname}
-              placeholder="Surname"
-            />
-            <input
-              onChange={this.handleChange}
-              type="email"
-              name="email"
-              value={this.state.email}
-              placeholder="Email adress"
-            />
-            <input
-              onChange={this.handleChange}
-              type="password"
-              name="password"
-              value={this.state.password}
-              placeholder="Password"
-            />
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="phone"
-              value={this.state.phone}
-              placeholder="Phone number"
-            />
-            <p>I'm an owner</p>
-            <input
-              onChange={() =>
-                this.state.isOwner
-                  ? this.setState({ isOwner: false })
-                  : this.setState({ isOwner: true })
-              }
-              type="checkbox"
-              name="isOwner"
-              value={this.state.isOwner}
-            />
+
+          <FontAwesomeIcon onClick={() =>this.props.history.push('/publist')} className="SignUp-back" icon={faChevronCircleLeft}/>
+ 
+        <div className="SignUp-base">
+          <div className="SignUp-form">
+            <div className="SignUp-form-inputs">
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="name"
+                value={this.state.name}
+                placeholder="Name"
+              />
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="surname"
+                value={this.state.surname}
+                placeholder="Surname"
+              />
+              <input
+                onChange={this.handleChange}
+                type="email"
+                name="email"
+                value={this.state.email}
+                placeholder="Email adress"
+              />
+              <input
+                onChange={this.handleChange}
+                type="password"
+                name="password"
+                value={this.state.password}
+                placeholder="Password"
+              />
+              <input
+                onChange={this.handleChange}
+                type="text"
+                name="phone"
+                value={this.state.phone}
+                placeholder="Phone number"
+              />
+              <p>I'm an owner</p>
+              <input
+                onChange={() =>
+                  this.state.isOwner
+                    ? this.setState({ isOwner: false })
+                    : this.setState({ isOwner: true })
+                }
+                type="checkbox"
+                name="isOwner"
+                value={this.state.isOwner}
+              />
+            </div>
+            <p className="SignUp-form-p">OR</p>
+            <div className="SignUp-form-google">
+              <button
+                onClick={this.signUpWithGoogle}
+                disabled={this.state.isGoogleSingUpInProgress}
+              >
+                Sign in with Google
+              </button>
+            </div>
+            <div className="SignUp-form-button">
+              <input onClick={this.handleSubmit} type="submit" name="submit" />
+            </div>
+            {this.state.success && (
+              <h1>
+                Account created! <Link to="/publist">Go back</Link>
+              </h1>
+            )}
+            <h2>{this.state.error}</h2>
           </div>
-          <p className="SignUp-form-p">OR</p>
-          <div className="SignUp-form-google">
-            <button onClick={this.signUpWithGoogle} disabled={this.state.isGoogleSingUpInProgress}>Sign in with Google</button>
-          </div>
-          <div className="SignUp-form-button">
-            <input onClick={this.handleSubmit} type="submit" name="submit" />
-          </div>
-          {this.state.success && (
-            <h1>
-              Account created! <Link to="/publist">Go back</Link>
-            </h1>
-          )}
-          <h2>{this.state.error}</h2>
         </div>
-      </div>
       </>
     );
   }

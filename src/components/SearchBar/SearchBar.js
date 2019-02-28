@@ -18,33 +18,35 @@ class SearchBar extends Component {
   sideMenuToggle = () => {
     this.setState({
       animationEnabled: true,
-      isMenuOpen: true
+      isMenuOpen: true,
+      isAdvancedSearchOpen: false
     });
   };
 
   AdvanceSearchToggle = event => {
     event.stopPropagation();
     this.setState({
+      isMenuOpen: false,
       isAdvancedSearchOpen: !this.state.isAdvancedSearchOpen
     });
   };
 
   handleClickMenu = () => {
-    this.setState({ isMenuOpen: false, isAdvancedSearchOpen: false });
+    this.setState({ isMenuOpen: false});
   };
 
-  // handleClickAdvancedSearch = () => {
-  //   this.setState({ isAdvancedSearchOpen: true });
-  // };
+  handleClickAdvancedSearch = () => {
+    this.setState({ isAdvancedSearchOpen: false });
+  };
 
   componentDidMount() {
     window.addEventListener("click", this.handleClickMenu);
-    // window.addEventListener("click", this.handleClickAdvancedSearch);
+    window.addEventListener("click", this.handleClickAdvancedSearch);
   }
 
   componentWillUnmount() {
     window.removeEventListener("click", this.handleClickMenu);
-    // window.addEventListener("click", this.handleClickAdvancedSearch);
+    window.addEventListener("click", this.handleClickAdvancedSearch);
   }
 
   handleMenuToggle = event => {
@@ -52,10 +54,10 @@ class SearchBar extends Component {
     this.sideMenuToggle();
   };
 
-  // handleAdvancedSearchToggle = event => {
-  //   event.stopPropagation();
-  //   this.AdvanceSearchToggle();
-  // };
+  handleAdvancedSearchToggle = event => {
+    event.stopPropagation();
+    // this.AdvanceSearchToggle();
+  };
 
   handleChange = event => {
     const inputValue = event.target.value;
@@ -96,7 +98,7 @@ class SearchBar extends Component {
               icon={faCog}
               onClick={this.AdvanceSearchToggle}
             />
-            <div className='SearchBar-advanced-search-container' onClick={event => event.stopPropagation()} >
+            <div className='SearchBar-advanced-search-container' onClick={this.handleAdvancedSearchToggle} >
             {this.state.isAdvancedSearchOpen ? <AdvancedSearch  /> : false}
             </div>
           </div>

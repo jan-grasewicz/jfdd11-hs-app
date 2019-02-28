@@ -16,7 +16,7 @@ class Publist extends Component {
               </h2>
               <div className="Publist-imgcontainer">
                 <Link className="Publist-link" to={`/publist/${pub.id}`}>
-                  <img className="Publist-img" src={pub.img} />
+                  <img className="Publist-img" src={pub.img} alt="pub" />
                 </Link>
               </div>
               <div className="Publist-info">

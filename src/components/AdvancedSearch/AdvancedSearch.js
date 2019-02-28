@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { withRouter } from "react-router-dom";
 import "./AdvancedSearch.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
@@ -40,7 +40,7 @@ class AdvancedSearch extends Component {
     const { city, cout, openedFrom, openedTill } = this.state;
     this.props.advancedSearchContext.pushFilteredPubList(
       this.props.advancedSearchContext.publist
-        .filter(pub => (city === "all" ? pub : pub.city === city))
+        .filter(pub => (city === "all" ? true : pub.city === city))
         .filter(pub => pub.space >= cout)
         .filter(pub =>
           openedFrom === "all" ? pub : pub.openhour <= openedFrom
@@ -55,6 +55,7 @@ class AdvancedSearch extends Component {
       openedFrom,
       openedTill
     );
+    this.props.history.push("/publist");
   };
 
   handleResetFilters = event => {
@@ -66,7 +67,8 @@ class AdvancedSearch extends Component {
     return (
       <div>
         <div className="AdvancedSearch">
-          <form>
+          <h3>Advanced Search Options</h3>
+          <form className="AdvancedSearch-form">
             <div>
               <label name="city">City </label>
               <select
@@ -74,7 +76,7 @@ class AdvancedSearch extends Component {
                 value={this.state.city}
                 onChange={this.handleChange}
               >
-                <option value="all">Wszystkie Miasta</option>
+                <option value="all">Any</option>
                 {this.prepareArr("city").map(city => (
                   <option key={city} value={city}>
                     {city}
@@ -92,13 +94,13 @@ class AdvancedSearch extends Component {
               />
             </div>
             <div>
-              <label>Opened from:</label>
+              <label>Open from:</label>
               <select
                 name="openedFrom"
                 value={this.state.openedFrom}
                 onChange={this.handleChange}
               >
-                <option value="all">All</option>
+                <option value="all">--</option>
                 {this.prepareArr("openhour").map(hour => (
                   <option key={hour} value={hour}>
                     {hour}
@@ -107,13 +109,13 @@ class AdvancedSearch extends Component {
               </select>
             </div>
             <div>
-              <label>Opened till:</label>
+              <label>Open till:</label>
               <select
                 name="openedTill"
                 value={this.state.openedTill}
                 onChange={this.handleChange}
               >
-                <option value="all">All</option>
+                <option value="all">--</option>
 
                 {this.prepareArr("closehour").map(hour => (
                   <option key={hour} value={hour}>
@@ -122,8 +124,10 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <button onClick={this.fittingPubs}>Submit</button>
-            <button onClick={this.handleResetFilters}>Reset Filters</button>
+            <div className="AdvancedSearch-form-buttons-wrap">
+              <button onClick={this.fittingPubs}>Submit</button>
+              <button onClick={this.handleResetFilters}>Reset Filters</button>
+            </div>
           </form>
         </div>
       </div>
@@ -131,4 +135,4 @@ class AdvancedSearch extends Component {
   }
 }
 
-export default withAdvancedSearch(AdvancedSearch);
+export default withRouter(withAdvancedSearch(AdvancedSearch));

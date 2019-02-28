@@ -24,8 +24,8 @@
 
 .SearchBar-icon {
   position: absolute;
-  bottom: 19px;
-  right: 29px;
+  bottom: 20px;
+  right: 63px;
   font-size: 1.2rem;
 }
 
@@ -50,4 +50,17 @@
 
 .SearchBar-side-menu.show {
   transform: translate3d(0, 0, 0);
+}
+
+.SearchBar-advanced-search-icon{
+  width: 50px;
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.SearchBar-advanced-search-container{
+  position: fixed;
+    top: 69px;
+    left: 0px;
+    background-color: green;
 }

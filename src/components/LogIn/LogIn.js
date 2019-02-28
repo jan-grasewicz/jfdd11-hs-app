@@ -8,10 +8,6 @@ class LogIn extends Component {
   state = {
     email: "",
     password: "",
-    name: "",
-    surname: "",
-    phone: "",
-    isOwner: false,
     error: null,
     success: null
   };
@@ -21,22 +17,9 @@ class LogIn extends Component {
 
     firebase
       .auth()
-      .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(data => {
-        const userId = firebase.auth().currentUser.uid;
-        firebase
-          .database()
-          .ref("users")
-          .child(userId)
-          .set({
-            name: this.state.name,
-            surname: this.state.surname,
-            phone: this.state.phone,
-            isOwner: this.state.isOwner
-          });
-        this.setState({ error: null, success: true });
-      })
-      .catch(error => this.setState({ error: error.message, success: null }));
+      .signInWithEmailAndPassword(this.state.email, this.state.password)
+      .then(data => this.setState({ error: null, success: "Logged In" }))
+      .catch(error => this.setState({ error: error, success: null }));
   };
 
   handleChange = event => {
@@ -47,26 +30,11 @@ class LogIn extends Component {
 
   render() {
     return (
-      <div className="SignUp-base">
-        <div className="SignUp-form">
-          <div className="SignUp-form-inputs">
+      <div className="LogIn">
+        <div className="LogIn-wrapper">
+          <form>
             <input
               onChange={this.handleChange}
-              type="text"
-              name="name"
-              value={this.state.name}
-              placeholder="Name"
-            />
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="surname"
-              value={this.state.surname}
-              placeholder="Surname"
-            />
-            <input
-              onChange={this.handleChange}
-              type="email"
               name="email"
               value={this.state.email}
               placeholder="Email adress"
@@ -78,35 +46,21 @@ class LogIn extends Component {
               value={this.state.password}
               placeholder="Password"
             />
-            <input
-              onChange={this.handleChange}
-              type="text"
-              name="phone"
-              value={this.state.phone}
-              placeholder="Phone number"
-            />
-            <p>I'm an owner</p>
-            <input
-              onChange={() =>
-                this.state.isOwner
-                  ? this.setState({ isOwner: false })
-                  : this.setState({ isOwner: true })
-              }
-              type="checkbox"
-              name="isOwner"
-              value={this.state.isOwner}
-            />
-          </div>
-          <p className="SignUp-form-p">OR</p>
-          <div className="SignUp-form-google">
+            <div className="LogIn-button">
+              <button onClick={this.handleSubmit} type="submit" name="submit">
+                Log In
+              </button>
+            </div>
+          </form>
+          <p className="LogIn-or">OR</p>
+
+          <div className="LogIn-google">
             <button>Log in with Google</button>
           </div>
-          <div className="SignUp-form-button">
-            <input onClick={this.handleSubmit} type="submit" name="submit" />
-          </div>
+
           {this.state.success && (
             <h1>
-              Account created! <Link to="/publist">Go back</Link>
+              Loged In <Link to="/publist">Go back</Link>
             </h1>
           )}
           <h2>{this.state.error}</h2>

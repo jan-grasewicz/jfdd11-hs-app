@@ -1,13 +1,13 @@
-.SignUp-base{
- margin: 0 auto;
+.SignUp-base {
+    margin: 0 auto;
 }
 
-.SignUp-form {
+.LogIn-wrapper {
     display: flex;
     flex-direction: column;
     margin: 20px;
     padding: 30px;
-    box-shadow: 8px 9px 9px -9px rgba(0,0,0,0.75);
+    box-shadow: 8px 9px 9px -9px rgba(0, 0, 0, 0.75);
 }
 
 .SignUp-form-inputs {
@@ -16,22 +16,22 @@
     align-items: center;
 }
 
-.SignUp-form-inputs>input{
+form>input {
     border: none;
     padding: 10px;
     border-bottom: 1px solid black;
 }
 
-.SignUp-form-p {
+.LogIn-or {
     text-align: center;
     font-size: 2rem;
 }
 
-.SignUp-form-google {
+.LogIn-google {
     margin: 0 auto;
 }
 
-.SignUp-form-google>button{
+.LogIn-google>button {
     border: none;
     color: white;
     background-color: red;
@@ -40,11 +40,11 @@
     margin-bottom: 30px;
 }
 
-.SignUp-form-button {
+.LogIn-button {
     margin: 0 auto;
 }
 
-.SignUp-form-button>input{
+.LogIn-button>button {
     border-bottom: 2px solid black;
     border-top: none;
     border-left: none;
@@ -52,5 +52,4 @@
     background-color: white;
     font-size: 1rem;
     padding: 10px 20px 10px 20px;
-
 }

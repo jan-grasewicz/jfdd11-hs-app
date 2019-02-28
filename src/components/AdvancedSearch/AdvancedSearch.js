@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import "./AdvancedSearch.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
@@ -55,6 +54,7 @@ class AdvancedSearch extends Component {
       openedFrom,
       openedTill
     );
+    this.props.history.push("/publist");
   };
 
   handleResetFilters = event => {

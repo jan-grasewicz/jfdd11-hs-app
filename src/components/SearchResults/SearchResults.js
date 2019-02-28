@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import "./SearchResults.css";
 import Publist from "../Publist";
 import SearchBar from "../SearchBar/SearchBar";
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class SearchResults extends Component {
   state = {
-    publist: this.props.pubs,
+    publist: this.props.advancedSearchContext.publist,
     filteredpubs: null
   };
 
@@ -17,17 +18,15 @@ class SearchResults extends Component {
   }
 
   render() {
-    console.log(this.state.publist);
+    const publist = this.props.advancedSearchContext.publist;
     return (
       <div>
         <SearchBar>
           {searchPhrase => (
             <div className="SearchResults-list">
               <Publist
-                publistdata={(
-                  this.state.filteredpubs || this.state.publist
-                ).filter(pub =>
-                  pub.city
+                publistdata={(this.state.filteredpubs || publist).filter(pub =>
+                  pub.name
                     .toLocaleLowerCase()
                     .includes(searchPhrase.toLocaleLowerCase())
                 )}
@@ -40,4 +39,4 @@ class SearchResults extends Component {
   }
 }
 
-export default SearchResults;
+export default withAdvancedSearch(SearchResults);

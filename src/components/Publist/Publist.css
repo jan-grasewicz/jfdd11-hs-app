@@ -1,8 +1,8 @@
-* {
+.Publist * {
     margin: 0px;
 }
 
-.Publist {   
+.Publist {
     background: white;
     margin: 0 auto;
     max-width: 600px;

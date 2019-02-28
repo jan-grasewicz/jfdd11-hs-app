@@ -23,7 +23,7 @@ const NavItem = ({ to, icon, children }) => (
 class SideMenu extends Component {
   render() {
     return (
-      <>
+      <div className='SideMenu'>
         <h1 className='SideMenu-h1'>Hello!</h1>
         <NavLink to="/" className='SideMenu-profile-a'>
           <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
@@ -36,7 +36,7 @@ class SideMenu extends Component {
           <NavItem to="/" icon={faSignInAlt}>Log in</NavItem>
           <NavItem to="/signup" icon={faSignInAlt}>Sign up</NavItem>
         </ul>
-      </>
+      </div>
     );
   }
 }

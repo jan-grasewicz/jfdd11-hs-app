@@ -1,6 +1,16 @@
+/* .SideMenu {
+    position: fixed;
+    top: 0;
+    width: 60%;
+    height: 100vh;
+    background-color: #cab67a;
+  } */
+
+
  .SideMenu-menu{
      list-style: none;
      padding: 10px;
+     
  }
 
  .SideMenu-h1{

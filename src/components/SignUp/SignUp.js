@@ -3,6 +3,7 @@ import firebase from "firebase";
 import { Link } from "react-router-dom";
 
 import "./SignUp.css";
+import SideMenu from "../SideMenu";
 
 class SignUp extends Component {
   state = {
@@ -11,6 +12,7 @@ class SignUp extends Component {
     name: "",
     surname: "",
     phone: "",
+    isGoogleSingUpInProgress: false,
     isOwner: false,
     error: null,
     success: null
@@ -45,8 +47,17 @@ class SignUp extends Component {
     });
   };
 
+  signUpWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(() => this.setState({
+      isGoogleSingUpInProgress: true
+    })).catch(error => console.log(error))
+  }
+
   render() {
     return (
+      <>
+      {/* <SideMenu /> */}
       <div className="SignUp-base">
         <div className="SignUp-form">
           <div className="SignUp-form-inputs">
@@ -99,7 +110,7 @@ class SignUp extends Component {
           </div>
           <p className="SignUp-form-p">OR</p>
           <div className="SignUp-form-google">
-            <button>Log in with Google</button>
+            <button onClick={this.signUpWithGoogle} disabled={this.state.isGoogleSingUpInProgress}>Sign in with Google</button>
           </div>
           <div className="SignUp-form-button">
             <input onClick={this.handleSubmit} type="submit" name="submit" />
@@ -112,6 +123,7 @@ class SignUp extends Component {
           <h2>{this.state.error}</h2>
         </div>
       </div>
+      </>
     );
   }
 }

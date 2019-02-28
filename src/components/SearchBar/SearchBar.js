@@ -11,23 +11,26 @@ class SearchBar extends Component {
   state = {
     isMenuOpen: false,
     isAdvancedSearchOpen: false,
-    searchPhrase: ""
+    searchPhrase: "",
+    animationEnabled: false
   };
 
   sideMenuToggle = () => {
     this.setState({
+      animationEnabled: true,
       isMenuOpen: true
     });
   };
 
-  AdvanceSearchToggle = () => {
+  AdvanceSearchToggle = event => {
+    event.stopPropagation();
     this.setState({
       isAdvancedSearchOpen: !this.state.isAdvancedSearchOpen
     });
   };
 
   handleClickMenu = () => {
-    this.setState({ isMenuOpen: false });
+    this.setState({ isMenuOpen: false, isAdvancedSearchOpen: false });
   };
 
   // handleClickAdvancedSearch = () => {
@@ -36,12 +39,12 @@ class SearchBar extends Component {
 
   componentDidMount() {
     window.addEventListener("click", this.handleClickMenu);
-    window.addEventListener("click", this.handleClickAdvancedSearch);
+    // window.addEventListener("click", this.handleClickAdvancedSearch);
   }
 
   componentWillUnmount() {
     window.removeEventListener("click", this.handleClickMenu);
-    window.addEventListener("click", this.handleClickAdvancedSearch);
+    // window.addEventListener("click", this.handleClickAdvancedSearch);
   }
 
   handleMenuToggle = event => {
@@ -66,10 +69,9 @@ class SearchBar extends Component {
       <>
         <div className="SearchBar-wrapper">
           <div
-            className={
-              this.state.isMenuOpen
-                ? "SearchBar-side-menu show"
-                : "SearchBar-side-menu hide"
+            className={`SearchBar-side-menu ${this.state.animationEnabled ? 'animation-enabled' : ''} ${this.state.isMenuOpen
+              ? "show"
+              : "hide"}`
             }
           >
             {" "}
@@ -94,8 +96,8 @@ class SearchBar extends Component {
               icon={faCog}
               onClick={this.AdvanceSearchToggle}
             />
-            <div className='SearchBar-advanced-search-container'>
-            {this.state.isAdvancedSearchOpen ? <AdvancedSearch /> : false}
+            <div className='SearchBar-advanced-search-container' onClick={event => event.stopPropagation()} >
+            {this.state.isAdvancedSearchOpen ? <AdvancedSearch  /> : false}
             </div>
           </div>
         </div>

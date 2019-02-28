@@ -7,7 +7,17 @@ rgb(224, 224, 224) */
     flex-direction: column;
     align-items: center;
     height: 50vh;
+    width: 359px;
+    margin-left: 8px;
     color: rgb(224, 224, 224);
+    border: 3px solid #cdaf82;
+    border-radius: 2px;
+    /* background-color: #cdaf82; */
+    background-color: white;
+}
+
+.AdvancedSearch h3 {
+    color: #cdaf82;
 }
 
 .AdvancedSearch-form {
@@ -17,12 +27,12 @@ rgb(224, 224, 224) */
     height: 300px;
     width: 330px;
     background-color: rgba(0, 0, 0, 0.76);
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
-.AdvancedSearch-form div {
+/* .AdvancedSearch-form div {
     margin-top: 10px;
-}
+} */
 
 .AdvancedSearch-form input, select {
     float: right;
@@ -30,8 +40,8 @@ rgb(224, 224, 224) */
     width: 100px;
     text-align: center;
     font-size: 1em;
-    background-color: green;
-    border: 4px solid pink;
+    /* background-color: green; */
+    border: 2px solid #cdaf82;
 }
 
 .AdvancedSearch label {

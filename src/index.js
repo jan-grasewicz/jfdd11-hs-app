@@ -1,13 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import './firebase/firebaseSetup'
 
 import Root from "./components/Root/Root.js";
 
 import "./index.css";
 
 import * as serviceWorker from "./serviceWorker";
+import AdvancedSearchProvider from "./contexts/AdvancedSearch/AdvancedSearch.js";
 
-ReactDOM.render(<Root />, document.getElementById("root"));
+ReactDOM.render(
+  <AdvancedSearchProvider>
+    <Root />
+  </AdvancedSearchProvider>,
+  document.getElementById("root")
+);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

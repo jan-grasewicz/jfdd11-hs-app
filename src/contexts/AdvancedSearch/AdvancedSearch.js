@@ -22,7 +22,8 @@ export default class AdvancedSearchProvider extends Component {
     resetFilters: () => {
       this.setState({ ...initialFilterState });
     },
-    pushFilteredPubList: newList => this.setState({ filteredPubList: newList }),
+    pushFilteredPubList: newList =>
+      console.log(newList) || this.setState({ filteredPubList: newList }),
     pushFilters: (city, cout, openedFrom, openedTill) =>
       this.setState({ city, cout, openedFrom, openedTill })
   };

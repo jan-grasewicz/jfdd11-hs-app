@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { withRouter } from "react-router-dom";
 import "./AdvancedSearch.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
@@ -40,7 +40,7 @@ class AdvancedSearch extends Component {
     const { city, cout, openedFrom, openedTill } = this.state;
     this.props.advancedSearchContext.pushFilteredPubList(
       this.props.advancedSearchContext.publist
-        .filter(pub => (city === "all" ? pub : pub.city === city))
+        .filter(pub => (city === "all" ? true : pub.city === city))
         .filter(pub => pub.space >= cout)
         .filter(pub =>
           openedFrom === "all" ? pub : pub.openhour <= openedFrom
@@ -55,6 +55,7 @@ class AdvancedSearch extends Component {
       openedFrom,
       openedTill
     );
+    this.props.history.push("/publist");
   };
 
   handleResetFilters = event => {
@@ -134,4 +135,4 @@ class AdvancedSearch extends Component {
   }
 }
 
-export default withAdvancedSearch(AdvancedSearch);
+export default withRouter(withAdvancedSearch(AdvancedSearch));

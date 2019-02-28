@@ -29,23 +29,23 @@
      width: 330px;
  }
 
- .PubScreen-infoTitle, .PubScreen-info {
+ .PubScreen-info dt, .PubScreen-info dd {
      display: inline-block;
-     margin: 10px 5px 5px 0;
+     margin: 0 5px 5px 0;
      font-weight: bold;
  }
 
- .PubScreen-infoTitle {
+ .PubScreen-info dt {
      font-size: 0.9em;
      color: #cdaf82;
  }
 
- .PubScreen-info {
+ .PubScreen-info dd {
      font-size: 1.1em;
      color: white;
  }
 
- .PubScreen-info:last-of-type {
+ .PubScreen-info-about {
      font-size: 1em;
      color: white;
  }

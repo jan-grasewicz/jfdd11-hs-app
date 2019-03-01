@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import "./PubScreen.css";
@@ -39,7 +41,9 @@ class PubScreen extends Component {
             </dl>
           </div>
           <p className="PubScreen-find">Find us here:</p>
-
+          <div className="PubScreen-iconWrap">
+            <FontAwesomeIcon icon={faChevronCircleLeft} className="SideMenu-icon-profile" />
+          </div>
           <Map
             center={[54.759159, 18.508961]}
             zoom={13}

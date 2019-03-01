@@ -69,8 +69,8 @@ class AdvancedSearch extends Component {
         <div className="AdvancedSearch">
           <h3>Advanced Search Options</h3>
           <form className="AdvancedSearch-form">
-            <div>
-              <label name="city">City </label>
+            <div className="AdvancedSearch-option">
+              <label name="city">City:</label>
               <select
                 name="city"
                 value={this.state.city}
@@ -84,7 +84,7 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <div>
+            <div className="AdvancedSearch-option">
               <label>For how many? </label>
               <input
                 value={this.state.cout}
@@ -93,7 +93,7 @@ class AdvancedSearch extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div>
+            <div className="AdvancedSearch-option">
               <label>Open from:</label>
               <select
                 name="openedFrom"
@@ -108,7 +108,7 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <div>
+            <div className="AdvancedSearch-option">
               <label>Open till:</label>
               <select
                 name="openedTill"
@@ -125,8 +125,8 @@ class AdvancedSearch extends Component {
               </select>
             </div>
             <div className="AdvancedSearch-form-buttons-wrap">
-              <button onClick={this.fittingPubs}>Submit</button>
-              <button onClick={this.handleResetFilters}>Reset Filters</button>
+              <button onClick={this.fittingPubs}>Search</button>
+              <button onClick={this.handleResetFilters}>Reset</button>
             </div>
           </form>
         </div>

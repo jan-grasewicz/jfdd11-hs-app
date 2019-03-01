@@ -127,7 +127,7 @@ class SignUp extends Component {
               </button>
             </div>
             <div className="SignUp-form-button">
-              <input onClick={this.handleSubmit} type="submit" name="submit" value='Sign up'/>
+              <input onClick={this.handleSubmit} type="submit" name="submit" value='Sign in'/>
             </div>
             {this.state.success && (
               <h1>

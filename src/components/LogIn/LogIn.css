@@ -5,9 +5,10 @@
 }
 
 .LogIn-wrapper {
+    width: 95%;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    /* margin: 20px; */
     padding: 50px 0px;
     border: 3px solid #cdaf82;
     box-shadow: 8px 9px 9px -9px rgba(0, 0, 0, 0.75);

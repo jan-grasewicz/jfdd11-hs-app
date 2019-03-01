@@ -19,7 +19,7 @@ class LogIn extends Component {
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(data => this.setState({ error: null, success: "Logged In" }))
-      .catch(error => this.setState({ error: error, success: null }));
+      .catch(error => this.setState({ error: error.message, success: null }));
   };
 
   handleChange = event => {
@@ -65,7 +65,7 @@ class LogIn extends Component {
               Loged In <Link to="/publist">Go back</Link>
             </h1>
           )}
-          <h2>{this.state.error}</h2>
+          {this.state.error &&<h2>{this.state.error}</h2>  }
         </div>
       </div>
     );

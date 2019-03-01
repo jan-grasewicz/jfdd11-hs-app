@@ -46,7 +46,7 @@ class SearchBar extends Component {
 
   componentWillUnmount() {
     window.removeEventListener("click", this.handleClickMenu);
-    window.addEventListener("click", this.handleClickAdvancedSearch);
+    window.removeEventListener("click", this.handleClickAdvancedSearch);
   }
 
   handleMenuToggle = event => {

@@ -118,6 +118,9 @@ class SignUp extends Component {
                 value={this.state.isOwner}
               />
             </div>
+            <div className="SignUp-form-button">
+              <input onClick={this.handleSubmit} type="submit" name="submit" value='Sign in'/>
+            </div>
             <p className="SignUp-form-p">OR</p>
             <div className="SignUp-form-google">
               <button
@@ -127,9 +130,7 @@ class SignUp extends Component {
                 Sign in with Google
               </button>
             </div>
-            <div className="SignUp-form-button">
-              <input onClick={this.handleSubmit} type="submit" name="submit" value='Sign in'/>
-            </div>
+         
             {this.state.success && (
               <h1>
                 Account created! <Link to="/publist">Go back</Link>

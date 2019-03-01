@@ -25,7 +25,7 @@ class SignUp extends Component {
     firebase
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(data => {
+      .then(() => {
         const userId = firebase.auth().currentUser.uid;
         firebase
           .database()

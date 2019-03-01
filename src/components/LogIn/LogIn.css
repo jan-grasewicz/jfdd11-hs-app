@@ -1,0 +1,53 @@
+.LogIn {
+    margin: 0 auto;
+    max-width: 550px;
+}
+
+.LogIn-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 30px;
+    box-shadow: 8px 9px 9px -9px rgba(0, 0, 0, 0.75);
+}
+
+.LogIn-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LogIn-input {
+    border: none;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.LogIn-button {
+    margin: 1.5rem auto;
+}
+
+.LogIn-button>button {
+    border: 2px solid black;
+    background-color: white;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+.LogIn-or {
+    text-align: center;
+    font-size: 2rem;
+}
+
+.LogIn-google {
+    margin: 0 auto;
+}
+
+.LogIn-google>button {
+    border: none;
+    color: white;
+    background-color: red;
+    font-size: 1rem;
+    padding: 10px 20px 10px 20px;
+    margin-bottom: 30px;
+}

@@ -18,6 +18,7 @@
   left: 0px;
   align-items: center;
   position: fixed;
+  /* height: 0px; */
   width: 100%;
   background-color: white;
 }
@@ -56,15 +57,14 @@
   transform: translate3d(0, 0, 0);
 }
 
-.SearchBar-advanced-search-icon{
+.SearchBar-advanced-search-icon {
   width: 50px;
   font-size: 1.3rem;
   margin-top: 10px;
 }
 
-.SearchBar-advanced-search-container{
+.SearchBar-advanced-search-container {
   position: fixed;
-    top: 69px;
-    left: 0px;
-    background-color: green;
+  top: 70px;
+  left: 0px;
 }

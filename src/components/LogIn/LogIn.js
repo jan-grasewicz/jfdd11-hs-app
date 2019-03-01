@@ -32,14 +32,16 @@ class LogIn extends Component {
     return (
       <div className="LogIn">
         <div className="LogIn-wrapper">
-          <form>
+          <form className="LogIn-form">
             <input
+              className="LogIn-input"
               onChange={this.handleChange}
               name="email"
               value={this.state.email}
               placeholder="Email adress"
             />
             <input
+              className="LogIn-input"
               onChange={this.handleChange}
               type="password"
               name="password"

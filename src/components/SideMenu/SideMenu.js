@@ -7,7 +7,6 @@ import {
   faUser,
   faHome,
   faBeer,
-  faPassport,
   faSignInAlt
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -37,9 +36,6 @@ class SideMenu extends Component {
           </NavItem>
           <NavItem to="/publist" icon={faBeer}>
             Pub List
-          </NavItem>
-          <NavItem to="/advancedSearch" icon={faPassport}>
-            Advanced Search
           </NavItem>
           <NavItem to="/login" icon={faSignInAlt}>
             Log in

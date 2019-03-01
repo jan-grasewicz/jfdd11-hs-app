@@ -1,12 +1,11 @@
 .LogIn {
-    margin: 10px auto;
     max-width: 550px;
     box-sizing: border-box;
 }
 
 .LogIn-wrapper {
     width: 95%;
-    margin: 0 auto;
+    margin: 10px auto;
     display: flex;
     flex-direction: column;
     padding: 50px 0px;

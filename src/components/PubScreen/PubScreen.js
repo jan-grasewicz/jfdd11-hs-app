@@ -47,7 +47,7 @@ class PubScreen extends Component {
             </div>
             <p className="PubScreen-find">Find us here:</p>
             <div className="PubScreen-iconWrap">
-              <FontAwesomeIcon icon={faChevronCircleLeft} className="SideMenu-icon-profile" />
+              <FontAwesomeIcon icon={faChevronCircleLeft} onClick={() => this.props.history.push('/publist')} className="PubScreen-icon-back" />
             </div>
             <Map
               center={[pub.coordinates.latitude, pub.coordinates.longitude]}

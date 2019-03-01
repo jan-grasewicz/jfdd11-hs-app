@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
+import TextField from '@material-ui/core/TextField'
 
 import "./SignUp.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -70,40 +71,40 @@ class SignUp extends Component {
         <div className="SignUp-base">
           <div className="SignUp-form">
             <div className="SignUp-form-inputs">
-              <input
+              <TextField
                 onChange={this.handleChange}
                 type="text"
                 name="name"
                 value={this.state.name}
-                placeholder="Name"
+                label="Name"
               />
-              <input
+              <TextField
                 onChange={this.handleChange}
                 type="text"
                 name="surname"
                 value={this.state.surname}
-                placeholder="Surname"
+                label="Surname"
               />
-              <input
+              <TextField
                 onChange={this.handleChange}
                 type="email"
                 name="email"
                 value={this.state.email}
-                placeholder="Email adress"
+                label="Email adress"
               />
-              <input
+              <TextField
                 onChange={this.handleChange}
                 type="password"
                 name="password"
                 value={this.state.password}
-                placeholder="Password"
+                label="Password"
               />
-              <input
+              <TextField
                 onChange={this.handleChange}
                 type="text"
                 name="phone"
                 value={this.state.phone}
-                placeholder="Phone number"
+                label="Phone number"
               />
               <p>I'm an owner</p>
               <input

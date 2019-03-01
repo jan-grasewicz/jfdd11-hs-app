@@ -8,7 +8,8 @@
     flex-direction: column;
     margin: 20px;
     padding: 30px;
-    box-shadow: 8px 9px 9px -9px rgba(0, 0, 0, 0.75);
+    border: 3px solid #cdaf82;
+    /* box-shadow: 8px 9px 9px -9px rgba(0, 0, 0, 0.75); */
 }
 
 .LogIn-form {
@@ -28,7 +29,7 @@
 }
 
 .LogIn-button>button {
-    border: 2px solid black;
+    border: 2px solid #cdaf82;
     background-color: white;
     font-size: 1rem;
     padding: 10px 20px;

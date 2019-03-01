@@ -11,28 +11,33 @@ class SearchBar extends Component {
   state = {
     isMenuOpen: false,
     isAdvancedSearchOpen: false,
-    searchPhrase: ""
+    searchPhrase: "",
+    animationEnabled: false
   };
 
   sideMenuToggle = () => {
     this.setState({
-      isMenuOpen: true
+      animationEnabled: true,
+      isMenuOpen: true,
+      isAdvancedSearchOpen: false
     });
   };
 
-  AdvanceSearchToggle = () => {
+  AdvanceSearchToggle = event => {
+    event.stopPropagation();
     this.setState({
+      isMenuOpen: false,
       isAdvancedSearchOpen: !this.state.isAdvancedSearchOpen
     });
   };
 
   handleClickMenu = () => {
-    this.setState({ isMenuOpen: false });
+    this.setState({ isMenuOpen: false});
   };
 
-  // handleClickAdvancedSearch = () => {
-  //   this.setState({ isAdvancedSearchOpen: true });
-  // };
+  handleClickAdvancedSearch = () => {
+    this.setState({ isAdvancedSearchOpen: false });
+  };
 
   componentDidMount() {
     window.addEventListener("click", this.handleClickMenu);
@@ -49,10 +54,10 @@ class SearchBar extends Component {
     this.sideMenuToggle();
   };
 
-  // handleAdvancedSearchToggle = event => {
-  //   event.stopPropagation();
-  //   this.AdvanceSearchToggle();
-  // };
+  handleAdvancedSearchToggle = event => {
+    event.stopPropagation();
+    // this.AdvanceSearchToggle();
+  };
 
   handleChange = event => {
     const inputValue = event.target.value;
@@ -66,10 +71,9 @@ class SearchBar extends Component {
       <>
         <div className="SearchBar-wrapper">
           <div
-            className={
-              this.state.isMenuOpen
-                ? "SearchBar-side-menu show"
-                : "SearchBar-side-menu hide"
+            className={`SearchBar-side-menu ${this.state.animationEnabled ? 'animation-enabled' : ''} ${this.state.isMenuOpen
+              ? "show"
+              : "hide"}`
             }
           >
             {" "}
@@ -85,7 +89,6 @@ class SearchBar extends Component {
             className="SearchBar"
             type="text"
             placeholder="Where do you want to drink?"
-            // onFocus={() => this.setState({ isMenuOpen: false })}
             onChange={this.handleChange}
           />
           <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />
@@ -94,8 +97,8 @@ class SearchBar extends Component {
               icon={faCog}
               onClick={this.AdvanceSearchToggle}
             />
-            <div className='SearchBar-advanced-search-container'>
-            {this.state.isAdvancedSearchOpen ? <AdvancedSearch /> : false}
+            <div className='SearchBar-advanced-search-container' onClick={this.handleAdvancedSearchToggle} >
+            {this.state.isAdvancedSearchOpen ? <AdvancedSearch  /> : false}
             </div>
           </div>
         </div>

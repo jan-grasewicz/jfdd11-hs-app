@@ -19,6 +19,7 @@ class LogIn extends Component {
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
       .then(data => this.setState({ error: null, success: "Logged In" }))
+      .then(setTimeout(this.back, 1000))
       .catch(error => this.setState({ error: error.message, success: null }));
   };
 
@@ -27,7 +28,9 @@ class LogIn extends Component {
       [event.target.name]: event.target.value
     });
   };
-
+  back = () => {
+    this.props.history.push("/publist");
+  };
   render() {
     return (
       <div className="LogIn">

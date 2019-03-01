@@ -1,11 +1,3 @@
-/* .SideMenu {
-    position: fixed;
-    top: 0;
-    width: 60%;
-    height: 100vh;
-    background-color: #cab67a;
-  } */
-
 
  .SideMenu-menu{
      list-style: none;
@@ -19,6 +11,7 @@
 
  .SideMenu-icon-profile{
      font-size: 2.5rem;
+     color: black;
  }
 
  .SideMenu-profile-p{
@@ -32,6 +25,7 @@
     align-items: center;
     justify-content: space-evenly;
     text-decoration: none;
+    color: black;
  }
 
  .SideMenu-menu>li{
@@ -44,6 +38,7 @@
 
  .SideMenu-menu>li>a{
      text-decoration: none;
+     color: black;
  }
 
 .SideMenu-icon{

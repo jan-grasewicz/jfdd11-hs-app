@@ -3,9 +3,8 @@ import firebase from "firebase";
 import { Link } from "react-router-dom";
 
 import "./SignUp.css";
-import SideMenu from "../SideMenu";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBackward, faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 class SignUp extends Component {
   state = {
@@ -26,7 +25,7 @@ class SignUp extends Component {
     firebase
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then(data => {
+      .then(() => {
         const userId = firebase.auth().currentUser.uid;
         firebase
           .database()

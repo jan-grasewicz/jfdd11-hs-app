@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
+import TextField from '@material-ui/core/TextField'
 
 import "./LogIn.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 
 class LogIn extends Component {
   state = {
@@ -33,24 +36,26 @@ class LogIn extends Component {
   };
   render() {
     return (
+      <>
+      <FontAwesomeIcon onClick={() =>this.props.history.push('/publist')} className="SignUp-back" icon={faChevronCircleLeft}/>
       <div className="LogIn">
         {this.state.success !== "Logged In" && (
           <div className="LogIn-wrapper">
             <form className="LogIn-form">
-              <input
+              <TextField
                 className="LogIn-input"
                 onChange={this.handleChange}
                 name="email"
                 value={this.state.email}
-                placeholder="Email adress"
+                label="Email adress"
               />
-              <input
+              <TextField
                 className="LogIn-input"
                 onChange={this.handleChange}
                 type="password"
                 name="password"
                 value={this.state.password}
-                placeholder="Password"
+               label="Password"
               />
               <button
                 className="LogIn-button"
@@ -72,6 +77,7 @@ class LogIn extends Component {
           </h1>
         )}
       </div>
+      </>
     );
   }
 }

@@ -8,6 +8,7 @@
     margin: 20px;
     padding: 30px;
     box-shadow: 8px 9px 9px -9px rgba(0,0,0,0.75);
+    border: 3px solid #cdaf82;
 }
 
 .SignUp-form-inputs {
@@ -24,7 +25,8 @@
 
 .SignUp-form-p {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.4rem;
+    margin: 0;
 }
 
 .SignUp-form-google {
@@ -32,12 +34,12 @@
 }
 
 .SignUp-form-google>button{
+    margin: 1.8rem auto 0;
     border: none;
     color: white;
     background-color: red;
     font-size: 1rem;
-    padding: 10px 20px 10px 20px;
-    margin-bottom: 30px;
+    padding: 0.7rem 3rem;
 }
 
 .SignUp-form-button {
@@ -45,13 +47,11 @@
 }
 
 .SignUp-form-button>input{
-    border-bottom: 2px solid black;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    margin: 1.8rem;
+    border: 2px solid #cdaf82;
     background-color: white;
     font-size: 1rem;
-    padding: 10px 20px 10px 20px;
+    padding: 0.7rem 3rem;
 
 }
 

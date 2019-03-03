@@ -29,11 +29,11 @@ class HomeScreen extends Component {
             </button>
           </NavLink>
 
-          <NavLink to="/advancedSearch" className="HomeScreen-btn">
-            Zaawansowane
-          </NavLink>
+          {/* <NavLink to="/advancedSearch" className="HomeScreen-btn">
+            Advanced Search
+          </NavLink> */}
 
-          <button className="HomeScreen-btn">Lokalizacja</button>
+          {/* <button className="HomeScreen-btn">Search by Location</button> */}
         </div>
       </div>
     );

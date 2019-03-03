@@ -119,7 +119,7 @@ class SignUp extends Component {
               />
             </div>
             <div className="SignUp-form-button">
-              <input onClick={this.handleSubmit} type="submit" name="submit" value='Sign in'/>
+              <input onClick={this.handleSubmit} type="submit" name="submit" value='Sign Up'/>
             </div>
             <p className="SignUp-form-p">OR</p>
             <div className="SignUp-form-google">

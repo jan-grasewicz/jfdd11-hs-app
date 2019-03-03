@@ -67,7 +67,7 @@ class LogIn extends Component {
               </button>
             </form>
             <p className="LogIn-or">OR</p>
-            <button className="LogIn-google">Log in with Google</button>
+            <button className="LogIn-google">Sign in with Google</button>
             <h2>{this.state.error}</h2>
           </div>
         )}

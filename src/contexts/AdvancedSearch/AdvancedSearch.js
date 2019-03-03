@@ -22,8 +22,10 @@ export default class AdvancedSearchProvider extends Component {
     resetFilters: () => {
       this.setState({ ...initialFilterState });
     },
-    pushFilteredPubList: newList =>
-      console.log(newList) || this.setState({ filteredPubList: newList }),
+    handleChange: event => {
+      this.setState({ [event.target.name]: event.target.value });
+    },
+    pushFilteredPubList: newList => this.setState({ filteredPubList: newList }),
     pushFilters: (city, cout, openedFrom, openedTill) =>
       this.setState({ city, cout, openedFrom, openedTill })
   };
@@ -38,7 +40,6 @@ export default class AdvancedSearchProvider extends Component {
   }
 
   render() {
-    console.log(this.state);
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }

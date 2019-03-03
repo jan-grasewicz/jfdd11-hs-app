@@ -1,62 +1,69 @@
-.SignUp-base{
- margin: 0 auto;
+.SignUp-base {
+  margin: 0 auto;
 }
 
 .SignUp-form {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 30px;
-    box-shadow: 8px 9px 9px -9px rgba(0,0,0,0.75);
-    border: 3px solid #cdaf82;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  padding: 30px;
+  box-shadow: 8px 9px 9px -9px rgba(0, 0, 0, 0.75);
+  border: 3px solid #cdaf82;
 }
 
 .SignUp-form-inputs {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.SignUp-form-inputs>input{
-    border: none;
-    padding: 10px;
-    border-bottom: 1px solid black;
+.SignUp-form-inputs > input {
+  border: none;
+  padding: 10px;
+  border-bottom: 1px solid black;
 }
 
 .SignUp-form-p {
-    text-align: center;
-    font-size: 1.4rem;
-    margin: 0;
+  text-align: center;
+  font-size: 1.4rem;
+  margin: 0;
 }
 
 .SignUp-form-google {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
-.SignUp-form-google>button{
-    margin: 1.8rem auto 0;
-    border: none;
-    color: white;
-    background-color: red;
-    font-size: 1rem;
-    padding: 0.7rem 3rem;
+.SignUp-form-google > button {
+  margin: 1.8rem auto 0;
+  border: none;
+  color: white;
+  background-color: red;
+  font-size: 1rem;
+  padding: 0.7rem 3rem;
 }
 
 .SignUp-form-button {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
-.SignUp-form-button>input{
-    margin: 1.8rem;
-    border: 2px solid #cdaf82;
-    background-color: white;
-    font-size: 1rem;
-    padding: 0.7rem 3rem;
-
+.SignUp-form-button > input {
+  margin: 1.8rem;
+  border: 2px solid #cdaf82;
+  background-color: white;
+  font-size: 1rem;
+  padding: 0.7rem 3rem;
 }
 
-.SignUp-back{
-    font-size: 2rem;
-    margin: 20px;
-    color: #cdaf82
+.SignUp-back {
+  font-size: 2rem;
+  margin: 20px;
+  color: #cdaf82;
+}
+
+.SignUp-form-owner {
+  display: flex;
+}
+
+.SignUp-form-owner > p {
+  margin: 10px;
 }

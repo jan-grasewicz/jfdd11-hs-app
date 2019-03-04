@@ -110,7 +110,7 @@ class SignUp extends Component {
                 label="Phone number"
               />
               <div className="SignUp-form-owner">
-                <p>I'm an owner</p>
+                I'm an owner
                 <input
                   onChange={() =>
                     this.state.isOwner

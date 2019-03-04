@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import "./PubScreen.css";
@@ -10,13 +12,18 @@ class PubScreen extends Component {
     let pub = this.props.advancedSearchContext.publist.find(
       pub => pub.id === pubId
     );
-    console.log(pub);
     return (
       <div>
         {pub && (
           <div className="PubScreen-wrapper">
             <div className="PubScreen-img-wrapper">
-              <img className="PubScreen-pubImg" src={pub.img} alt={`pub`} />
+              <img
+                className="PubScreen-pubImg"
+                src={pub.img}
+                alt={`pub ${pub.name} located at ${
+                  pub.address
+                } in the city of {pub.city}`}
+              />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
             <div className="PubScreen-info-wrapper">
@@ -44,7 +51,13 @@ class PubScreen extends Component {
               </dl>
             </div>
             <p className="PubScreen-find">Find us here:</p>
-
+            <div className="PubScreen-iconWrap">
+              <FontAwesomeIcon
+                icon={faChevronCircleLeft}
+                onClick={() => this.props.history.push("/publist")}
+                className="PubScreen-icon-back"
+              />
+            </div>
             <Map
               center={[pub.coordinates.latitude, pub.coordinates.longitude]}
               zoom={13}

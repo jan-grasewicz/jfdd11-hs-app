@@ -7,48 +7,73 @@ rgb(224, 224, 224) */
     flex-direction: column;
     align-items: center;
     height: 50vh;
+    width: 359px;
+    margin-left: 8px;
     color: rgb(224, 224, 224);
+    border: 3px solid #cdaf82;
+    border-radius: 4px;
+    /* background-color: #cdaf82; */
+    margin-top: 10px;
+    background-color: white;
+}
+
+.AdvancedSearch h3 {
+    margin: .8em;
+    font-size: 1em;
+    color: #cdaf82;
 }
 
 .AdvancedSearch-form {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: space-around;
     height: 300px;
     width: 330px;
+    border-radius: 4px;
     background-color: rgba(0, 0, 0, 0.76);
-    border: 1px solid black;
+    /* border: 1px solid black; */
 }
 
-.AdvancedSearch-form div {
-    margin-top: 10px;
+.AdvancedSearch-option {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 50px;
+    /* margin-top: 10px; */
 }
 
-.AdvancedSearch-form input, select {
-    float: right;
-    margin-right: 20px;
-    width: 100px;
+/* border: 2px solid #cdaf82; */
+
+.AdvancedSearch input, select {
+    display: inline-block;
+    width: 90px;
     text-align: center;
-    font-size: 1em;
-    background-color: green;
-    border: 4px solid pink;
 }
 
 .AdvancedSearch label {
-    font-size: 1.3em;
+    font-size: 15px;
+    color: #cdaf82;
+    font-weight: bold;
 }
 
 .AdvancedSearch-form-buttons-wrap {
     display: flex;
     justify-content: space-around;
-    margin-top: 10px;
+    margin-top: 40px;
 }
 
 .AdvancedSearch-form-buttons-wrap button {
     width: 40%;
     height: 30px;
-    font-size: 1em;
-    border: 2px solid white;
+    font-size: 15px;
+    font-weight: bold;
+    border: 3px solid #cdaf82;
     border-radius: 4px;
-    color: white;
+    background-color: #fff;
+    color: #cdaf82;
+}
+
+.AdvancedSearch-form-buttons-wrap button:last-of-type {
+    color: rgba(219, 21, 21, 0.815);
+    border-color: rgba(248, 36, 36, 0.815);
 }

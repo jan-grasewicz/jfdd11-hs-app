@@ -7,14 +7,15 @@ import {
   faUser,
   faHome,
   faBeer,
-  faPassport,
   faSignInAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavItem = ({ to, icon, children }) => (
   <li>
-    <NavLink to={to} className='SideMenu-link'>
-      <div className="SideMenu-icon"><FontAwesomeIcon icon={icon}  /></div>
+    <NavLink to={to} className="SideMenu-link">
+      <div className="SideMenu-icon">
+        <FontAwesomeIcon icon={icon} />
+      </div>
       <p>{children}</p>
     </NavLink>
   </li>
@@ -27,14 +28,21 @@ class SideMenu extends Component {
         <h1 className='SideMenu-h1'>Hello!</h1>
         <NavLink to="/" className='SideMenu-profile-a'>
           <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
-          <p className='SideMenu-profile-p'>My Profile</p>
+          <p className="SideMenu-profile-p">My Profile</p>
         </NavLink>
         <ul className="SideMenu-menu">
-          <NavItem to="/" icon={faHome}>Home</NavItem>
-          <NavItem to="/publist" icon={faBeer}>Pub List</NavItem>
-          <NavItem to="/advancedSearch" icon={faPassport}>Advanced Search</NavItem>
-          <NavItem to="/" icon={faSignInAlt}>Log in</NavItem>
-          <NavItem to="/signup" icon={faSignInAlt}>Sign up</NavItem>
+          <NavItem to="/" icon={faHome}>
+            Home
+          </NavItem>
+          <NavItem to="/publist" icon={faBeer}>
+            Pub List
+          </NavItem>
+          <NavItem to="/login" icon={faSignInAlt}>
+            Log in
+          </NavItem>
+          <NavItem to="/signup" icon={faSignInAlt}>
+            Sign up
+          </NavItem>
         </ul>
       </div>
     );

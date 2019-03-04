@@ -4,21 +4,8 @@ import "./AdvancedSearch.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class AdvancedSearch extends Component {
-  state = {
-    publist: this.props.advancedSearchContext.publist,
-    city: "all",
-    cout: 5,
-    openedFrom: "all",
-    openedTill: "all"
-  };
-
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
   submitForm = event => {
     event.preventDefault();
-    console.log(this.state);
   };
 
   prepareArr = item => {
@@ -37,7 +24,12 @@ class AdvancedSearch extends Component {
 
   fittingPubs = event => {
     event.preventDefault();
-    const { city, cout, openedFrom, openedTill } = this.state;
+    const {
+      city,
+      cout,
+      openedFrom,
+      openedTill
+    } = this.props.advancedSearchContext;
     this.props.advancedSearchContext.pushFilteredPubList(
       this.props.advancedSearchContext.publist
         .filter(pub => (city === "all" ? true : pub.city === city))
@@ -64,18 +56,21 @@ class AdvancedSearch extends Component {
   };
 
   render() {
+    const { handleChange } = this.props.advancedSearchContext;
+    let {
+      city,
+      cout,
+      openedFrom,
+      openedTill
+    } = this.props.advancedSearchContext;
     return (
       <div>
         <div className="AdvancedSearch">
           <h3>Advanced Search Options</h3>
           <form className="AdvancedSearch-form">
-            <div>
-              <label name="city">City </label>
-              <select
-                name="city"
-                value={this.state.city}
-                onChange={this.handleChange}
-              >
+            <div className="AdvancedSearch-option">
+              <label name="city">City:</label>
+              <select name="city" value={city} onChange={handleChange}>
                 <option value="all">Any</option>
                 {this.prepareArr("city").map(city => (
                   <option key={city} value={city}>
@@ -84,21 +79,21 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <div>
+            <div className="AdvancedSearch-option">
               <label>For how many? </label>
               <input
-                value={this.state.cout}
+                value={cout}
                 type="number"
                 name="cout"
-                onChange={this.handleChange}
+                onChange={handleChange}
               />
             </div>
-            <div>
+            <div className="AdvancedSearch-option">
               <label>Open from:</label>
               <select
                 name="openedFrom"
-                value={this.state.openedFrom}
-                onChange={this.handleChange}
+                value={openedFrom}
+                onChange={handleChange}
               >
                 <option value="all">--</option>
                 {this.prepareArr("openhour").map(hour => (
@@ -108,12 +103,12 @@ class AdvancedSearch extends Component {
                 ))}
               </select>
             </div>
-            <div>
+            <div className="AdvancedSearch-option">
               <label>Open till:</label>
               <select
                 name="openedTill"
-                value={this.state.openedTill}
-                onChange={this.handleChange}
+                value={openedTill}
+                onChange={handleChange}
               >
                 <option value="all">--</option>
 
@@ -125,8 +120,8 @@ class AdvancedSearch extends Component {
               </select>
             </div>
             <div className="AdvancedSearch-form-buttons-wrap">
-              <button onClick={this.fittingPubs}>Submit</button>
-              <button onClick={this.handleResetFilters}>Reset Filters</button>
+              <button onClick={this.fittingPubs}>Search</button>
+              <button onClick={this.handleResetFilters}>Reset</button>
             </div>
           </form>
         </div>

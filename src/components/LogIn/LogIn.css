@@ -1,0 +1,52 @@
+.LogIn {
+    margin: 0 auto;
+    max-width: 550px;
+    box-sizing: border-box;
+}
+
+.LogIn-wrapper {
+    width: 95%;
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0px;
+    border: 3px solid #cdaf82;
+    box-shadow: 8px 9px 9px -9px rgba(0, 0, 0, 0.75);
+}
+
+.LogIn-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.LogIn-input {
+    width: 60%;
+    border: none;
+    padding: 0.7rem;
+    /* margin: 0.5rem; */
+    border-bottom: 1px solid black;
+}
+
+.LogIn-button {
+    margin: 1.8rem;
+    border: 2px solid #cdaf82;
+    background-color: white;
+    font-size: 1rem;
+    padding: 0.7rem 3rem;
+}
+
+.LogIn-or {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 0px;
+}
+
+.LogIn-google {
+    margin: 1.8rem auto 0;
+    border: none;
+    color: white;
+    background-color: red;
+    font-size: 1rem;
+    padding: 0.7rem 3rem;
+}

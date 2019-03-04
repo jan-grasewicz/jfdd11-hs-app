@@ -6,23 +6,29 @@ import SearchBar from "../SearchBar/SearchBar";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class SearchResults extends Component {
+  listSearched = (list, searchPhrase) => {
+    let newList = list.filter(
+      pub =>
+        pub.name
+          .toLocaleLowerCase()
+          .includes(searchPhrase.toLocaleLowerCase()) ||
+        pub.city.toLocaleLowerCase().includes(searchPhrase.toLocaleLowerCase())
+    );
+    return newList;
+  };
+
   render() {
     let list =
       this.props.advancedSearchContext.filteredPubList.length > 0
         ? this.props.advancedSearchContext.filteredPubList
         : this.props.advancedSearchContext.publist;
+
     return (
       <div>
         <SearchBar>
           {searchPhrase => (
             <div className="SearchResults-list">
-              <Publist
-                publistdata={list.filter(pub =>
-                  pub.name
-                    .toLocaleLowerCase()
-                    .includes(searchPhrase.toLocaleLowerCase())
-                )}
-              />
+              <Publist publistdata={this.listSearched(list, searchPhrase)} />
             </div>
           )}
         </SearchBar>

@@ -63,8 +63,5 @@
 
 .SignUp-form-owner {
   display: flex;
-}
-
-.SignUp-form-owner > p {
-  margin: 10px;
+  margin-top: 20px;
 }

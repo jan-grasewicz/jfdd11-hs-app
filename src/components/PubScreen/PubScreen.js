@@ -15,10 +15,15 @@ class PubScreen extends Component {
     return (
       <div>
         {pub && (
-
           <div className="PubScreen-wrapper">
             <div className="PubScreen-img-wrapper">
-              <img className="PubScreen-pubImg" src={pub.img} alt={`pub`} />
+              <img
+                className="PubScreen-pubImg"
+                src={pub.img}
+                alt={`pub ${pub.name} located at ${
+                  pub.address
+                } in the city of {pub.city}`}
+              />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
             <div className="PubScreen-info-wrapper">
@@ -30,7 +35,9 @@ class PubScreen extends Component {
                 <dd>{pub.address}</dd>
                 <br />
                 <dt>Operating hours:</dt>
-                <dd>{pub.openhour} - {pub.closehour}</dd>
+                <dd>
+                  {pub.openhour} - {pub.closehour}
+                </dd>
                 <br />
                 <dt>Available space:</dt>
                 <dd>{pub.space}</dd>
@@ -40,14 +47,16 @@ class PubScreen extends Component {
                 <br />
                 <dt>About us:</dt>
                 <br />
-                <dd className="PubScreen-info-about">
-                  {pub.about}
-                </dd>
+                <dd className="PubScreen-info-about">{pub.about}</dd>
               </dl>
             </div>
             <p className="PubScreen-find">Find us here:</p>
             <div className="PubScreen-iconWrap">
-              <FontAwesomeIcon icon={faChevronCircleLeft} onClick={() => this.props.history.push('/publist')} className="PubScreen-icon-back" />
+              <FontAwesomeIcon
+                icon={faChevronCircleLeft}
+                onClick={() => this.props.history.push("/publist")}
+                className="PubScreen-icon-back"
+              />
             </div>
             <Map
               center={[pub.coordinates.latitude, pub.coordinates.longitude]}

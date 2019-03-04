@@ -26,10 +26,10 @@ class SideMenu extends Component {
     return (
       <div className='SideMenu'>
         <h1 className='SideMenu-h1'>Hello!</h1>
-        <NavLink to="/" className='SideMenu-profile-a'>
+        {/* <NavLink to="/" className='SideMenu-profile-a'>
           <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
           <p className="SideMenu-profile-p">My Profile</p>
-        </NavLink>
+        </NavLink> */}
         <ul className="SideMenu-menu">
           <NavItem to="/" icon={faHome}>
             Home

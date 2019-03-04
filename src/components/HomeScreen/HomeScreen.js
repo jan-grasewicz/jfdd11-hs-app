@@ -22,9 +22,8 @@ class HomeScreen extends Component {
             <button className="HomeScreen-btn-main">
               Where do you want to drink?
               <FontAwesomeIcon
-                style={{ verticalAlign: "middle", marginLeft: "20px" }}
+                style={{ verticalAlign: "middle", marginLeft: "10px" }}
                 icon={faBeer}
-                className="SearchBar-icon"
               />
             </button>
           </NavLink>

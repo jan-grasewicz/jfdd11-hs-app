@@ -7,7 +7,7 @@ class Publist extends Component {
     return (
       <div className="Publist">
         <ul className="Publist-ul">
-          {this.props.publistdata.map(pub => (
+          {this.props.publistdata.map((pub, index) => (
             <li key={pub.id} className="Publist-li">
               <h2 className="Publist-h2">
                 <Link className="Publist-link" to={`/publist/${pub.id}`}>
@@ -16,7 +16,11 @@ class Publist extends Component {
               </h2>
               <div className="Publist-imgcontainer">
                 <Link className="Publist-link" to={`/publist/${pub.id}`}>
-                  <img className="Publist-img" src={pub.img} alt="pub" />
+                  <img
+                    className="Publist-img"
+                    src={pub.img + "?id=" + (index + 1)}
+                    alt="pub"
+                  />
                 </Link>
               </div>
               <div className="Publist-info">

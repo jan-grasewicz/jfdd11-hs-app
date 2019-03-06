@@ -43,6 +43,9 @@ class PubScreen extends Component {
                   {pub.openhour} - {pub.closehour}
                 </dd>
                 <br />
+                <dt>E-mail:</dt>
+                <dd>{pub.email}</dd>
+                <br />
                 <dt>Available space:</dt>
                 <dd>{pub.space}</dd>
                 <br />

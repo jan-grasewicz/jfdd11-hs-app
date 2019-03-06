@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import {
-  // faUser,
+  faUser,
   faHome,
   faBeer,
   faSignInAlt
@@ -28,10 +28,10 @@ class SideMenu extends Component {
     return (
       <div className="SideMenu">
         <h1 className="SideMenu-h1">Hello!</h1>
-        {/* <NavLink to="/" className='SideMenu-profile-a'>
+        <NavLink to="/profile" className="SideMenu-profile-a">
           <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
           <p className="SideMenu-profile-p">My Profile</p>
-        </NavLink> */}
+        </NavLink>
         <ul className="SideMenu-menu">
           <NavItem to="/" icon={faHome}>
             Home

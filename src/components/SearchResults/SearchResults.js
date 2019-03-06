@@ -28,6 +28,9 @@ class SearchResults extends Component {
         <SearchBar>
           {searchPhrase => (
             <div className="SearchResults-list">
+              <div className="AdvancedSearch-info">
+                <p>Advanced search filtering</p><button>Reset Results</button>
+              </div>
               <Publist publistdata={this.listSearched(list, searchPhrase)} />
             </div>
           )}

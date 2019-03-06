@@ -7,7 +7,7 @@ class Publist extends Component {
     console.log(this.props.publistdata);
     return (
       <div className="Publist">
-        {this.props.publistdata === [] ? (
+        {this.props.publistdata.length? (
           <ul className="Publist-ul">
             {this.props.publistdata.map((pub, index) => (
               <li key={pub.id} className="Publist-li">

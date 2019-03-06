@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import "./SideMenu.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
+import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import {
   // faUser,
   faHome,
@@ -23,9 +24,10 @@ const NavItem = ({ to, icon, children }) => (
 
 class SideMenu extends Component {
   render() {
+    let { user } = this.props.authContext;
     return (
-      <div className='SideMenu'>
-        <h1 className='SideMenu-h1'>Hello!</h1>
+      <div className="SideMenu">
+        <h1 className="SideMenu-h1">Hello!</h1>
         {/* <NavLink to="/" className='SideMenu-profile-a'>
           <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
           <p className="SideMenu-profile-p">My Profile</p>
@@ -37,16 +39,20 @@ class SideMenu extends Component {
           <NavItem to="/publist" icon={faBeer}>
             Pub List
           </NavItem>
-          <NavItem to="/login" icon={faSignInAlt}>
-            Log in
-          </NavItem>
-          <NavItem to="/signup" icon={faSignInAlt}>
-            Sign up
-          </NavItem>
+          {user === null && (
+            <>
+              <NavItem to="/login" icon={faSignInAlt}>
+                Log in
+              </NavItem>
+              <NavItem to="/signup" icon={faSignInAlt}>
+                Sign up
+              </NavItem>
+            </>
+          )}
         </ul>
       </div>
     );
   }
 }
 
-export default SideMenu;
+export default withAuth(SideMenu);

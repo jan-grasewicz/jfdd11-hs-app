@@ -5,6 +5,7 @@
 .Publist {
     background: rgba(0, 0, 0, 0.76);
     box-sizing: border-box;
+    min-height: calc(100vh - 77px);
 }
 
 .Publist-ul {
@@ -12,6 +13,7 @@
     max-width: 600px;
     padding: 0px;
     padding-top: 1px;
+    padding-bottom: 1px;
 }
 
 .Publist-li {
@@ -55,4 +57,10 @@
 .Publist p {
     color: rgb(224, 224, 224);
     padding: 0.3rem;
+}
+
+.Publist-noResults {
+    color: white;
+    text-align: center;
+    padding: 1rem;
 }

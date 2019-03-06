@@ -1,18 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import './firebase/firebaseSetup'
+import "./firebase/firebaseSetup";
 
 import Root from "./components/Root/Root.js";
 
 import "./index.css";
 
 import * as serviceWorker from "./serviceWorker";
-import AdvancedSearchProvider from "./contexts/AdvancedSearch/AdvancedSearch.js";
+import AdvancedSearchProvider from "./contexts/AdvancedSearch/AdvancedSearch";
+import AuthContextProvider from "./contexts/AuthContext/AuthContext";
 
 ReactDOM.render(
-  <AdvancedSearchProvider>
-    <Root />
-  </AdvancedSearchProvider>,
+  <AuthContextProvider>
+    <AdvancedSearchProvider>
+      <Root />
+    </AdvancedSearchProvider>
+  </AuthContextProvider>,
   document.getElementById("root")
 );
 

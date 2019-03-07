@@ -7,31 +7,39 @@ import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch
 
 class SearchResults extends Component {
   listSearched = (list, searchPhrase) => {
-    let newList = list.filter(
-      pub =>
-        pub.name
-          .toLocaleLowerCase()
-          .includes(searchPhrase.toLocaleLowerCase()) ||
-        pub.city.toLocaleLowerCase().includes(searchPhrase.toLocaleLowerCase())
-    );
-    return newList;
+    console.log("list", list);
+    console.log(this.props.advancedSearchContext);
+    if (searchPhrase) {
+      let newList = list.filter(
+        pub =>
+          pub.name
+            .toLocaleLowerCase()
+            .includes(searchPhrase.toLocaleLowerCase()) ||
+          pub.city
+            .toLocaleLowerCase()
+            .includes(searchPhrase.toLocaleLowerCase())
+      );
+      // console.log(newList);
+      return newList;
+    } else {
+      return list;
+    }
   };
 
   render() {
-    let list =
-      this.props.advancedSearchContext.filteredPubList.length > 0
-        ? this.props.advancedSearchContext.filteredPubList
-        : this.props.advancedSearchContext.publist;
+    let list = this.props.advancedSearchContext.publist;
 
     return (
       <div>
-        <SearchBar>
-          {searchPhrase => (
-            <div className="SearchResults-list">
-              <Publist publistdata={this.listSearched(list, searchPhrase)} />
-            </div>
-          )}
-        </SearchBar>
+        <SearchBar />
+        <div className="SearchResults-list">
+          <Publist
+            publistdata={this.listSearched(
+              list,
+              this.props.advancedSearchContext.searchPhrase
+            )}
+          />
+        </div>
       </div>
     );
   }

@@ -11,7 +11,6 @@ class SearchBar extends Component {
   state = {
     isMenuOpen: false,
     isAdvancedSearchOpen: false,
-    searchPhrase: "",
     animationEnabled: false
   };
 
@@ -60,9 +59,7 @@ class SearchBar extends Component {
   };
 
   handleChange = event => {
-    let x = event.target.value;
-    console.log(x);
-    this.props.advancedSearchContext.handleInput(x);
+    this.props.advancedSearchContext.handleInput(event.target.value);
   };
 
   render() {

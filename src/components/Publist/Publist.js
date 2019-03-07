@@ -4,7 +4,6 @@ import "./Publist.css";
 import { Link } from "react-router-dom";
 class Publist extends Component {
   render() {
-    console.log("zupa", this.props.publistdata);
     return (
       <div className="Publist">
         {this.props.publistdata.length ? (

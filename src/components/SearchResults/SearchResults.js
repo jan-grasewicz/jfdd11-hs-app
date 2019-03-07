@@ -7,8 +7,6 @@ import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch
 
 class SearchResults extends Component {
   listSearched = (list, searchPhrase) => {
-    console.log("list", list);
-    console.log(this.props.advancedSearchContext);
     if (searchPhrase) {
       let newList = list.filter(
         pub =>
@@ -19,7 +17,6 @@ class SearchResults extends Component {
             .toLocaleLowerCase()
             .includes(searchPhrase.toLocaleLowerCase())
       );
-      // console.log(newList);
       return newList;
     } else {
       return list;
@@ -27,18 +24,13 @@ class SearchResults extends Component {
   };
 
   render() {
-    let list = this.props.advancedSearchContext.publist;
+    let { publist, searchPhrase } = this.props.advancedSearchContext.publist;
 
     return (
       <div>
         <SearchBar />
         <div className="SearchResults-list">
-          <Publist
-            publistdata={this.listSearched(
-              list,
-              this.props.advancedSearchContext.searchPhrase
-            )}
-          />
+          <Publist publistdata={this.listSearched(publist, searchPhrase)} />
         </div>
       </div>
     );

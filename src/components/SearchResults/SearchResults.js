@@ -24,7 +24,11 @@ class SearchResults extends Component {
   };
 
   render() {
-    let { publist, searchPhrase } = this.props.advancedSearchContext;
+    let {
+      publist,
+      searchPhrase,
+      filteredPubList
+    } = this.props.advancedSearchContext;
 
     return (
       <div>
@@ -32,8 +36,14 @@ class SearchResults extends Component {
         <div className="SearchResults-list">
           <div className="AdvancedSearch-info">
             <p>
-              Displaying {this.listSearched(publist, searchPhrase).length} out
-              of {this.props.advancedSearchContext.publist.length} pubs
+              Displaying{" "}
+              {
+                this.listSearched(
+                  filteredPubList.length > 0 ? filteredPubList : publist,
+                  searchPhrase
+                ).length
+              }{" "}
+              out of {this.props.advancedSearchContext.publist.length} pubs
             </p>
             <button
               onClick={this.props.advancedSearchContext.resetFilters}
@@ -42,7 +52,12 @@ class SearchResults extends Component {
               Reset
             </button>
           </div>
-          <Publist publistdata={this.listSearched(publist, searchPhrase)} />
+          <Publist
+            publistdata={this.listSearched(
+              filteredPubList.length > 0 ? filteredPubList : publist,
+              searchPhrase
+            )}
+          />
         </div>
       </div>
     );

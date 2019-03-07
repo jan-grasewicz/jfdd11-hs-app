@@ -15,6 +15,7 @@ class UserProfile extends Component {
         <div className="UserProfile-data">
           <img
             className="UserProfile-img"
+            alt="Profile"
             src="http://placeimg.com/120/150/people"
           />
           <div className="UserProfile-info">

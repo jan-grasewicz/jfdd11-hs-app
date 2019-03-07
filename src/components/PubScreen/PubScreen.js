@@ -18,6 +18,9 @@ class PubScreen extends Component {
      
       <div>
          <HamburgerMenu />
+        <div className='PubScreen-menu-container'>
+       
+        </div>
         {pub && (
           <div className="PubScreen-wrapper">
             <div className="PubScreen-img-wrapper">

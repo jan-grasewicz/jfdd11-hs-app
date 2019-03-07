@@ -1,8 +1,8 @@
 .SearchBar {
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 50px;
   margin-right: 10px;
-  height: 60px;
+  height: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -25,7 +25,7 @@
 
 .SearchBar-icon {
   position: absolute;
-  bottom: 30px;
+  bottom: 21px;
   right: 63px;
   font-size: 1.2rem;
 }

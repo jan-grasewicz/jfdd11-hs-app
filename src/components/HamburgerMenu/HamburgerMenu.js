@@ -11,7 +11,6 @@ class HamburgerMenu extends Component {
     const { isMenuOpen, handleMenuToggle, animationEnabled } = this.props.hamburgerContext
     return (
       <>
-        <div className="HamburgerMenu-wrapper">
           <div
             className={`HamburgerMenu-side-menu ${animationEnabled ? 'animation-enabled' : ''} ${isMenuOpen
               ? "show"
@@ -20,13 +19,14 @@ class HamburgerMenu extends Component {
           >
             <SideMenu />
           </div>
-          </div>
+          {/* <div className='HamburgerMenu-menu-container'> */}
           <div onClick={handleMenuToggle} className="HamburgerMenu-menu">
             <FontAwesomeIcon
               icon={faBars}
               style={{ verticalAlign: "middle" }}
             />
-          </div>
+                   </div>
+          {/* </div> */}
       </>
     )
   }

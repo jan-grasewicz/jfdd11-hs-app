@@ -1,19 +1,17 @@
-.HamburgerMenu-wrapper {
-    display: flex;
-    flex-direction: row;
-    top: 0;
-    left: 0px;
-    align-items: center;
-    position: fixed;
-    padding-bottom: 10px;
-    width: 100%;
-    background-color: white;
+.HamburgerMenu-menu-container{
+
 }
+
 
 .HamburgerMenu-menu {
     font-size: 1.5rem;
-    margin-left: 15px;
-    margin-right: 10px;
+    position: fixed;
+    background-color: white;
+    padding-left: 15px;
+    padding-bottom: 18px;
+    padding-top: 24px;
+
+    z-index: 1;
 }
 
 .HamburgerMenu-side-menu {
@@ -21,7 +19,8 @@
     top: 0;
     width: 60%;
     height: 100vh;
-    background-color: #cdaf82
+    background-color: #cdaf82;
+    z-index: 2;
 }
 
 .HamburgerMenu-side-menu.animation-enabled {

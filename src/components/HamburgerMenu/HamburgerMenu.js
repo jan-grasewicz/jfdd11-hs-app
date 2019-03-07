@@ -1,48 +1,19 @@
 import React, { Component } from 'react'
-
 import './HamburgerMenu.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import SideMenu from '../SideMenu';
+import { withHamburgerMenu } from '../../contexts/HamburgerMenu/HamburgerMenuContext'
 
 class HamburgerMenu extends Component {
-state = {
-  isMenuOpen: false,
-  animationEnabled: false
-}
-
-sideMenuToggle = () => {
-  this.setState({
-    isMenuOpen: true,
-    animationEnabled: true
-  })
-}
-
-handleClickMenu = () => {
-  this.setState({
-    isMenuOpen: false
-  })
-}
-
-handleMenuToggle = event => {
- event.stopPropagation()
- this.sideMenuToggle()
-}
-
-componentDidMount(){
-  window.addEventListener('click', this.handleClickMenu)
-}
-
-componentWillUnmount(){
-  window.removeEventListener('click', this.handleClickMenu)
-}
 
   render() {
+    const { isMenuOpen, handleMenuToggle, animationEnabled } = this.props.hamburgerContext
     return (
       <>
         <div className="HamburgerMenu-wrapper">
           <div
-            className={`HamburgerMenu-side-menu ${this.state.animationEnabled ? 'animation-enabled' : ''} ${this.state.isMenuOpen
+            className={`HamburgerMenu-side-menu ${animationEnabled ? 'animation-enabled' : ''} ${isMenuOpen
               ? "show"
               : "hide"}`
             }
@@ -50,7 +21,7 @@ componentWillUnmount(){
             <SideMenu />
           </div>
           </div>
-          <div onClick={this.handleMenuToggle} className="HamburgerMenu-menu">
+          <div onClick={handleMenuToggle} className="HamburgerMenu-menu">
             <FontAwesomeIcon
               icon={faBars}
               style={{ verticalAlign: "middle" }}
@@ -61,4 +32,4 @@ componentWillUnmount(){
   }
 }
 
-export default HamburgerMenu
+export default withHamburgerMenu(HamburgerMenu)

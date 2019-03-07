@@ -5,34 +5,11 @@ import AdvancedSearch from "../AdvancedSearch";
 
 import "./SearchBar.css";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { withHamburgerMenu } from "../../contexts/HamburgerMenu/HamburgerMenuContext";
 
 class SearchBar extends Component {
   state = {
-    isAdvancedSearchOpen: false,
     searchPhrase: ""
-  };
-
-  AdvanceSearchToggle = event => {
-    event.stopPropagation();
-    this.setState({
-      isAdvancedSearchOpen: !this.state.isAdvancedSearchOpen
-    });
-  };
-
-  handleClickAdvancedSearch = event => {
-    this.setState({ isAdvancedSearchOpen: false });
-  };
-
-  componentDidMount() {
-    window.addEventListener("click", this.handleClickAdvancedSearch);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("click", this.handleClickAdvancedSearch);
-  }
-
-  handleAdvancedSearchToggle = event => {
-    event.stopPropagation();
   };
 
   handleChange = event => {
@@ -43,6 +20,7 @@ class SearchBar extends Component {
   };
 
   render() {
+    const { isAdvancedSearchOpen, advancedSearchToggle, handleAdvancedSearchToggle } = this.props.hamburgerContext
     return (
       <>
         <div className="SearchBar-wrapper">
@@ -55,12 +33,12 @@ class SearchBar extends Component {
           />
           <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />
           <div className="SearchBar-advanced-search-icon">
-            <FontAwesomeIcon icon={faCog} onClick={this.AdvanceSearchToggle} />
+            <FontAwesomeIcon icon={faCog} onClick={ advancedSearchToggle} />
             <div
               className="SearchBar-advanced-search-container"
-              onClick={this.handleAdvancedSearchToggle}
+              onClick={handleAdvancedSearchToggle}
             >
-              {this.state.isAdvancedSearchOpen ? <AdvancedSearch /> : false}
+              {isAdvancedSearchOpen ? <AdvancedSearch /> : false}
             </div>
           </div>
         </div>
@@ -71,4 +49,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default withHamburgerMenu(SearchBar);

@@ -7,16 +7,31 @@ const { Provider, Consumer } = AuthContext;
 export default class AuthContextProvider extends Component {
   state = {
     user: null,
+    userData: null,
     signIn: (email, password) =>
       firebase.auth().signInWithEmailAndPassword(email, password),
     signOut: () => firebase.auth().signOut()
   };
 
   componentDidMount() {
-    this.unsubscribe = firebase
-      .auth()
-      .onAuthStateChanged(user => this.setState({ user }));
+    this.unsubscribe = firebase.auth().onAuthStateChanged(user => {
+      this.setState({ user });
+      this.getUserData(user.uid);
+    });
   }
+
+  getUserData = uid => {
+    firebase
+      .database()
+      .ref("users")
+      .once("value")
+      .then(snapshot => snapshot.val())
+      .then(users => users[uid])
+      .then(userData => {
+        this.setState({ userData });
+        // console.log(userData);
+      });
+  };
 
   componentWillUnmount() {
     this.unsubscribe();

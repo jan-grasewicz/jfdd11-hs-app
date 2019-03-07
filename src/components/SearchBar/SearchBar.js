@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faBars, faCog } from "@fortawesome/free-solid-svg-icons";
 import AdvancedSearch from "../AdvancedSearch";
-
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 import "./SearchBar.css";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { withHamburgerMenu } from "../../contexts/HamburgerMenu/HamburgerMenuContext";
@@ -13,10 +13,7 @@ class SearchBar extends Component {
   };
 
   handleChange = event => {
-    const inputValue = event.target.value;
-    this.setState({
-      searchPhrase: inputValue
-    });
+    this.props.advancedSearchContext.handleInput(event.target.value);
   };
 
   render() {
@@ -29,6 +26,7 @@ class SearchBar extends Component {
             className="SearchBar"
             type="text"
             placeholder="Where do you want to drink?"
+            value={this.props.advancedSearchContext.searchPhrase}
             onChange={this.handleChange}
           />
           <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />
@@ -42,11 +40,9 @@ class SearchBar extends Component {
             </div>
           </div>
         </div>
-
-        {this.props.children(this.state.searchPhrase)}
       </>
     );
   }
 }
 
-export default withHamburgerMenu(SearchBar);
+export default withAdvancedSearch(withHamburgerMenu(SearchBar));

@@ -4,10 +4,9 @@ import "./Publist.css";
 import { Link } from "react-router-dom";
 class Publist extends Component {
   render() {
-    console.log(this.props.publistdata);
     return (
       <div className="Publist">
-        {this.props.publistdata.length? (
+        {this.props.publistdata.length ? (
           <ul className="Publist-ul">
             {this.props.publistdata.map((pub, index) => (
               <li key={pub.id} className="Publist-li">

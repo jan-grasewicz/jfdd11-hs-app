@@ -6,6 +6,7 @@ import PubScreen from "../PubScreen";
 import AdvancedSearch from "../AdvancedSearch";
 import SignUp from "../SignUp/SignUp";
 import LogIn from "../LogIn";
+import UserProfile from "../UserProfile";
 
 class Root extends Component {
   render() {
@@ -13,12 +14,12 @@ class Root extends Component {
       <Router>
         <div>
           <Route exact path="/" component={HomeScreen} />
-
           <Route path="/advancedSearch" component={AdvancedSearch} />
           <Route exact path="/publist" component={SearchResults} />
           <Route path="/publist/:pubId" component={PubScreen} />
           <Route path="/signup" component={SignUp} />
           <Route path="/login" component={LogIn} />
+          <Route path="/profile" component={UserProfile} />
         </div>
       </Router>
     );

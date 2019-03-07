@@ -1,0 +1,22 @@
+.UserProfile * {
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+.UserProfile {
+    padding: 8px;
+}
+
+.UserProfile-data {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* justify-content: space-evenly; */
+    border: 2px solid black;
+    padding: 8px;
+}
+
+.UserProfile-img {}
+
+.UserProfile-info {
+    padding: 8px;
+}

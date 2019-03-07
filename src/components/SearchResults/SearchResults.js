@@ -7,31 +7,61 @@ import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch
 
 class SearchResults extends Component {
   listSearched = (list, searchPhrase) => {
-    let newList = list.filter(
-      pub =>
-        pub.name
-          .toLocaleLowerCase()
-          .includes(searchPhrase.toLocaleLowerCase()) ||
-        pub.city.toLocaleLowerCase().includes(searchPhrase.toLocaleLowerCase())
-    );
-    return newList;
+    if (searchPhrase) {
+      let newList = list.filter(
+        pub =>
+          pub.name
+            .toLocaleLowerCase()
+            .includes(searchPhrase.toLocaleLowerCase()) ||
+          pub.city
+            .toLocaleLowerCase()
+            .includes(searchPhrase.toLocaleLowerCase())
+      );
+      return newList;
+    } else {
+      return list;
+    }
   };
 
   render() {
-    let list =
-      this.props.advancedSearchContext.filteredPubList.length > 0
-        ? this.props.advancedSearchContext.filteredPubList
-        : this.props.advancedSearchContext.publist;
+    let {
+      publist,
+      searchPhrase,
+      filteredPubList
+    } = this.props.advancedSearchContext;
 
     return (
       <div>
-        <SearchBar>
-          {searchPhrase => (
-            <div className="SearchResults-list">
-              <Publist publistdata={this.listSearched(list, searchPhrase)} />
-            </div>
-          )}
-        </SearchBar>
+        <SearchBar />
+        <div className="SearchResults-list">
+          <div className="AdvancedSearch-info">
+            {/* <p>
+                  Filtering by advanced search: <span>ON</span>
+                </p> */}
+            <p>
+              Displaying{" "}
+              {
+                this.listSearched(
+                  filteredPubList.length > 0 ? filteredPubList : publist,
+                  searchPhrase
+                ).length
+              }{" "}
+              out of {this.props.advancedSearchContext.publist.length} pubs
+            </p>
+            <button
+              onClick={this.props.advancedSearchContext.resetFilters}
+              className="reset-button"
+            >
+              Reset
+            </button>
+          </div>
+          <Publist
+            publistdata={this.listSearched(
+              filteredPubList.length > 0 ? filteredPubList : publist,
+              searchPhrase
+            )}
+          />
+        </div>
       </div>
     );
   }

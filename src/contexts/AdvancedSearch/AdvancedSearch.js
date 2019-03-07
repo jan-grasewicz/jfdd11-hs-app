@@ -8,7 +8,8 @@ const initialFilterState = {
   city: "all",
   cout: 5,
   openedFrom: "all",
-  openedTill: "all"
+  openedTill: "all",
+  searchPhrase: ""
 };
 
 export default class AdvancedSearchProvider extends Component {
@@ -19,6 +20,7 @@ export default class AdvancedSearchProvider extends Component {
     cout: 5,
     openedFrom: "all",
     openedTill: "all",
+    searchPhrase: "",
     resetFilters: () => {
       this.setState({ ...initialFilterState });
     },
@@ -27,7 +29,12 @@ export default class AdvancedSearchProvider extends Component {
     },
     pushFilteredPubList: newList => this.setState({ filteredPubList: newList }),
     pushFilters: (city, cout, openedFrom, openedTill) =>
-      this.setState({ city, cout, openedFrom, openedTill })
+      this.setState({ city, cout, openedFrom, openedTill }),
+    handleInput: str => {
+      this.setState({
+        searchPhrase: str
+      });
+    }
   };
 
   componentDidMount() {

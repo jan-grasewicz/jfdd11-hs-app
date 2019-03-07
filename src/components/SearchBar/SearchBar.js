@@ -5,13 +5,12 @@ import SideMenu from "../SideMenu";
 import AdvancedSearch from "../AdvancedSearch";
 
 import "./SearchBar.css";
-
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class SearchBar extends Component {
   state = {
     isMenuOpen: false,
     isAdvancedSearchOpen: false,
-    searchPhrase: "",
     animationEnabled: false
   };
 
@@ -32,7 +31,7 @@ class SearchBar extends Component {
   };
 
   handleClickMenu = () => {
-    this.setState({ isMenuOpen: false});
+    this.setState({ isMenuOpen: false });
   };
 
   handleClickAdvancedSearch = () => {
@@ -60,10 +59,7 @@ class SearchBar extends Component {
   };
 
   handleChange = event => {
-    const inputValue = event.target.value;
-    this.setState({
-      searchPhrase: inputValue
-    });
+    this.props.advancedSearchContext.handleInput(event.target.value);
   };
 
   render() {
@@ -71,10 +67,9 @@ class SearchBar extends Component {
       <>
         <div className="SearchBar-wrapper">
           <div
-            className={`SearchBar-side-menu ${this.state.animationEnabled ? 'animation-enabled' : ''} ${this.state.isMenuOpen
-              ? "show"
-              : "hide"}`
-            }
+            className={`SearchBar-side-menu ${
+              this.state.animationEnabled ? "animation-enabled" : ""
+            } ${this.state.isMenuOpen ? "show" : "hide"}`}
           >
             {" "}
             <SideMenu />
@@ -89,24 +84,23 @@ class SearchBar extends Component {
             className="SearchBar"
             type="text"
             placeholder="Where do you want to drink?"
+            value={this.props.advancedSearchContext.searchPhrase}
             onChange={this.handleChange}
           />
           <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />
           <div className="SearchBar-advanced-search-icon">
-            <FontAwesomeIcon
-              icon={faCog}
-              onClick={this.AdvanceSearchToggle}
-            />
-            <div className='SearchBar-advanced-search-container' onClick={this.handleAdvancedSearchToggle} >
-            {this.state.isAdvancedSearchOpen ? <AdvancedSearch  /> : false}
+            <FontAwesomeIcon icon={faCog} onClick={this.AdvanceSearchToggle} />
+            <div
+              className="SearchBar-advanced-search-container"
+              onClick={this.handleAdvancedSearchToggle}
+            >
+              {this.state.isAdvancedSearchOpen ? <AdvancedSearch /> : false}
             </div>
           </div>
         </div>
-
-        {this.props.children(this.state.searchPhrase)}
       </>
     );
   }
 }
 
-export default SearchBar;
+export default withAdvancedSearch(SearchBar);

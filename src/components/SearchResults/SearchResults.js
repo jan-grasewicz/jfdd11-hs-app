@@ -24,12 +24,27 @@ class SearchResults extends Component {
   };
 
   render() {
-    let { publist, searchPhrase } = this.props.advancedSearchContext.publist;
+    let { publist, searchPhrase } = this.props.advancedSearchContext;
 
     return (
       <div>
         <SearchBar />
         <div className="SearchResults-list">
+          <div className="AdvancedSearch-info">
+            {/* <p>
+                  Filtering by advanced search: <span>ON</span>
+                </p> */}
+            <p>
+              Displaying {this.listSearched(publist, searchPhrase).length} out
+              of {this.props.advancedSearchContext.publist.length} pubs
+            </p>
+            <button
+              onClick={this.props.advancedSearchContext.resetFilters}
+              className="reset-button"
+            >
+              Reset
+            </button>
+          </div>
           <Publist publistdata={this.listSearched(publist, searchPhrase)} />
         </div>
       </div>

@@ -23,9 +23,8 @@ class SearchBar extends Component {
     const { isAdvancedSearchOpen, advancedSearchToggle, handleAdvancedSearchToggle } = this.props.hamburgerContext
     return (
       <>
-
-        <div className="SearchBar-wrapper">
         <HamburgerMenu />
+        <div className="SearchBar-wrapper">
           <input
             className="SearchBar"
             type="text"

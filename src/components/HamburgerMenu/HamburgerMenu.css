@@ -8,9 +8,8 @@
     position: fixed;
     background-color: white;
     padding-left: 15px;
-    padding-bottom: 18px;
-    padding-top: 24px;
-
+    top: 0;
+    padding-top: 14px;
     z-index: 1;
 }
 

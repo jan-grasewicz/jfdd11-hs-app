@@ -8,8 +8,7 @@ import {
   faUser,
   faHome,
   faBeer,
-  faSignInAlt,
-  faSignOutAlt
+  faSignInAlt
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavItem = ({ to, icon, children }) => (

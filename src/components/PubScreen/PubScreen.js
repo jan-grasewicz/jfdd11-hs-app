@@ -15,11 +15,9 @@ class PubScreen extends Component {
       pub => pub.id === pubId
     );
     return (
-     
       <div>
-         <HamburgerMenu />
-        <div className='PubScreen-menu-container'>
-        </div>
+        <HamburgerMenu />
+        <div className="PubScreen-menu-container" />
         {pub && (
           <div className="PubScreen-wrapper">
             <div className="PubScreen-img-wrapper">
@@ -32,6 +30,9 @@ class PubScreen extends Component {
               />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
+            <button className="PubScreen-reservation-button">
+              Make Reservation
+            </button>
             <div className="PubScreen-info-wrapper">
               <dl className="PubScreen-info">
                 <dt>City:</dt>

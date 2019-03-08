@@ -12,6 +12,7 @@
     height: 50px;
     position: fixed;
     background-color: white;
+    z-index: 1000000;
 }
 
 .PubScreen-img-wrapper {

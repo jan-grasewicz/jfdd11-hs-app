@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { Link } from "react-router-dom";
+import { withRouter } from 'react-router'
 import TextField from "@material-ui/core/TextField";
 
 import "./SignUp.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 class SignUp extends Component {
   state = {
@@ -62,15 +61,17 @@ class SignUp extends Component {
       .catch(error => console.log(error));
   };
 
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged(user => user ? this.props.history.push('/publist') : false)
+  }
+
   render() {
+    const { history } = this.props
     return (
       <>
-        <FontAwesomeIcon
-          onClick={() => this.props.history.push("/publist")}
-          className="SignUp-back"
-          icon={faChevronCircleLeft}
-        />
-
+        <div className="SignUp-menu-container">
+          <HamburgerMenu />
+        </div>
         <div className="SignUp-base">
           <div className="SignUp-form">
             <div className="SignUp-form-inputs">
@@ -80,6 +81,7 @@ class SignUp extends Component {
                 name="name"
                 value={this.state.name}
                 label="Name"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}
@@ -87,6 +89,7 @@ class SignUp extends Component {
                 name="surname"
                 value={this.state.surname}
                 label="Surname"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}
@@ -94,6 +97,7 @@ class SignUp extends Component {
                 name="email"
                 value={this.state.email}
                 label="Email adress"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}
@@ -101,6 +105,7 @@ class SignUp extends Component {
                 name="password"
                 value={this.state.password}
                 label="Password"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}
@@ -141,11 +146,7 @@ class SignUp extends Component {
               </button>
             </div>
 
-            {this.state.success && (
-              <h1>
-                Account created! <Link to="/publist">Go back</Link>
-              </h1>
-            )}
+            {this.state.success && history.push("/publist")}
             <h2>{this.state.error}</h2>
           </div>
         </div>
@@ -154,4 +155,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

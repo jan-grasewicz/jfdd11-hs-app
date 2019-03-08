@@ -18,7 +18,7 @@ class Root extends Component {
           <Route path="/advancedSearch" component={AdvancedSearch} />
           <Route exact path="/publist" component={SearchResults} />
           <Route path="/publist/:pubId" component={PubScreen} />
-          {this.props.user === null ? (
+          {this.props.authContext.user === null ? (
             <>
               <Route path="/signup" component={SignUp} />
               <Route path="/login" component={LogIn} />

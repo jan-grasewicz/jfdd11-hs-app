@@ -9,13 +9,16 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import AdvancedSearchProvider from "./contexts/AdvancedSearch/AdvancedSearch";
 import AuthContextProvider from "./contexts/AuthContext/AuthContext";
+import HamburgerMenuContextProvider from "./contexts/HamburgerMenu/HamburgerMenuContext";
 
 ReactDOM.render(
+  <HamburgerMenuContextProvider>
   <AuthContextProvider>
     <AdvancedSearchProvider>
       <Root />
     </AdvancedSearchProvider>
-  </AuthContextProvider>,
+  </AuthContextProvider>
+  </HamburgerMenuContextProvider>,
   document.getElementById("root")
 );
 

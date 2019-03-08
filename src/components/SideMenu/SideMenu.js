@@ -26,9 +26,9 @@ class SideMenu extends Component {
   render() {
     let { user } = this.props.authContext;
     return (
-      <div className="SideMenu">
-        <h1 className="SideMenu-h1">Hello!</h1>
-        <NavLink to="/profile" className="SideMenu-profile-a">
+      <div className='SideMenu'>
+        <h1 className='SideMenu-h1'><img src='../brewio.svg' style={{ width: '50px', verticalAlign: 'sub' }} alt='brewio logo'/>Brewio</h1>
+        <NavLink to="/profile" className='SideMenu-profile-a'>
           <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
           <p className="SideMenu-profile-p">My Profile</p>
         </NavLink>

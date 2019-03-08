@@ -7,27 +7,37 @@
 }
 
 .AdvancedSearch-info {
+  position: fixed;
+  top: 60px;
+  left: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  height: 100px;
+  height: 40px;
   background: rgba(0, 0, 0, 0.76);
+  border-bottom: 1px solid #cdaf82
 }
 
 .AdvancedSearch-info p {
+  font-size: 13p;
+  margin: 0;
   color: #cdaf82;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .reset-button {
-  width: 100px;
+  width: 80px;
   padding: 2px;
-  height: 30px;
-  border: 2px solid rgba(248, 36, 36, 0.815);
+  height: 20px;
+  border: 1px solid white;
+  /* rgba(248, 36, 36, 0.815); */
   border-radius: 3px;
   color: rgba(219, 21, 21, 0.815);
-  font-size: 15px;
+  color: white;
+  font-size: 10px;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.76);
   font-weight: bold;
 }

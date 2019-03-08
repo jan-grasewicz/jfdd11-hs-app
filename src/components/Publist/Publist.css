@@ -6,6 +6,7 @@
     background: rgba(0, 0, 0, 0.76);
     box-sizing: border-box;
     min-height: calc(100vh - 77px);
+    padding-top: 50px;
 }
 
 .Publist-ul {

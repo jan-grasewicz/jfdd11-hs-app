@@ -35,9 +35,6 @@ class SearchResults extends Component {
         <SearchBar />
         <div className="SearchResults-list">
           <div className="AdvancedSearch-info">
-            {/* <p>
-                  Filtering by advanced search: <span>ON</span>
-                </p> */}
             <p>
               Displaying{" "}
               {

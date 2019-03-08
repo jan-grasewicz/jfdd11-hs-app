@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { Link } from "react-router-dom";
+import { withRouter } from 'react-router'
 import TextField from "@material-ui/core/TextField";
 
 import "./SignUp.css";
@@ -61,11 +61,16 @@ class SignUp extends Component {
       .catch(error => console.log(error));
   };
 
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged(user => user ? this.props.history.push('/publist') : false)
+  }
+
   render() {
+    const { history } = this.props
     return (
       <>
-        <div className='SignUp-menu-container'>
-        <HamburgerMenu />
+        <div className="SignUp-menu-container">
+          <HamburgerMenu />
         </div>
         <div className="SignUp-base">
           <div className="SignUp-form">
@@ -141,11 +146,7 @@ class SignUp extends Component {
               </button>
             </div>
 
-            {this.state.success && (
-              <h1>
-                Account created! <Link to="/publist">Go back</Link>
-              </h1>
-            )}
+            {this.state.success && history.push("/publist")}
             <h2>{this.state.error}</h2>
           </div>
         </div>
@@ -154,4 +155,4 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+export default withRouter(SignUp);

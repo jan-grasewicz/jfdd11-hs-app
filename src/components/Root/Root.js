@@ -7,6 +7,7 @@ import AdvancedSearch from "../AdvancedSearch";
 import SignUp from "../SignUp/SignUp";
 import LogIn from "../LogIn";
 import UserProfile from "../UserProfile";
+import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
 class Root extends Component {
   render() {
@@ -17,13 +18,20 @@ class Root extends Component {
           <Route path="/advancedSearch" component={AdvancedSearch} />
           <Route exact path="/publist" component={SearchResults} />
           <Route path="/publist/:pubId" component={PubScreen} />
-          <Route path="/signup" component={SignUp} />
-          <Route path="/login" component={LogIn} />
-          <Route path="/profile" component={UserProfile} />
+          {this.props.authContext.user === null ? (
+            <>
+              <Route path="/signup" component={SignUp} />
+              <Route path="/login" component={LogIn} />
+            </>
+          ) : (
+            <>
+              <Route path="/profile" component={UserProfile} />
+            </>
+          )}
         </div>
       </Router>
     );
   }
 }
 
-export default Root;
+export default withAuth(Root);

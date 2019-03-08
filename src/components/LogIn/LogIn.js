@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 import { Link } from "react-router-dom";
-import TextField from '@material-ui/core/TextField'
+import TextField from "@material-ui/core/TextField";
 
 import "./LogIn.css";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";

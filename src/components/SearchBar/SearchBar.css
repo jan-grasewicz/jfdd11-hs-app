@@ -1,8 +1,8 @@
 .SearchBar {
   margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 50px;
   margin-right: 10px;
-  height: 60px;
+  height: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
   padding-left: 10px;
@@ -25,37 +25,11 @@
 
 .SearchBar-icon {
   position: absolute;
-  bottom: 30px;
+  bottom: 21px;
   right: 63px;
   font-size: 1.2rem;
 }
 
-.SearchBar-menu {
-  font-size: 1.5rem;
-  margin-left: 15px;
-  margin-right: 10px;
-}
-
-.SearchBar-side-menu {
-  position: fixed;
-  top: 0;
-  width: 60%;
-  height: 100vh;
-  background-color: #cdaf82
-}
-
-.SearchBar-side-menu.animation-enabled {
-  transition: transform 1s cubic-bezier(0, 0.52, 0, 1);
-}
-
-.SearchBar-side-menu.hide {
-  transform: translate3d(-100%, 0, 0);
-}
-
-.SearchBar-side-menu.show {
-
-  transform: translate3d(0, 0, 0);
-}
 
 .SearchBar-advanced-search-icon {
   width: 50px;

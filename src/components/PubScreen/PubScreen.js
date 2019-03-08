@@ -6,6 +6,8 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import "./PubScreen.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+
 class PubScreen extends Component {
   render() {
     let pubId = this.props.match.params.pubId;
@@ -13,7 +15,11 @@ class PubScreen extends Component {
       pub => pub.id === pubId
     );
     return (
+     
       <div>
+         <HamburgerMenu />
+        <div className='PubScreen-menu-container'>
+        </div>
         {pub && (
           <div className="PubScreen-wrapper">
             <div className="PubScreen-img-wrapper">

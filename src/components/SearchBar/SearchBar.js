@@ -8,16 +8,15 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 import { withHamburgerMenu } from "../../contexts/HamburgerMenu/HamburgerMenuContext";
 
 class SearchBar extends Component {
-  state = {
-    searchPhrase: ""
-  };
 
   handleChange = event => {
-    this.props.advancedSearchContext.handleInput(event.target.value);
+    const { handleInput } = this.props.advancedSearchContext
+    handleInput(event.target.value);
   };
 
   render() {
     const { isAdvancedSearchOpen, advancedSearchToggle, handleAdvancedSearchToggle } = this.props.hamburgerContext
+    const { searchPhrase } = this.props.advancedSearchContext
     return (
       <>
         <HamburgerMenu />
@@ -26,7 +25,7 @@ class SearchBar extends Component {
             className="SearchBar"
             type="text"
             placeholder="Where do you want to drink?"
-            value={this.props.advancedSearchContext.searchPhrase}
+            value={searchPhrase}
             onChange={this.handleChange}
           />
           <FontAwesomeIcon icon={faSearch} className="SearchBar-icon" />

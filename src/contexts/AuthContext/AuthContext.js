@@ -16,7 +16,7 @@ export default class AuthContextProvider extends Component {
   componentDidMount() {
     this.unsubscribe = firebase.auth().onAuthStateChanged(user => {
       this.setState({ user });
-      this.getUserData(user.uid);
+      user !== null && this.getUserData(user.uid);
     });
   }
 

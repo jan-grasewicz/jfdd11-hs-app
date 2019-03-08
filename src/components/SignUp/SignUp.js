@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 
 import "./SignUp.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 class SignUp extends Component {
   state = {
@@ -65,12 +64,9 @@ class SignUp extends Component {
   render() {
     return (
       <>
-        <FontAwesomeIcon
-          onClick={() => this.props.history.push("/publist")}
-          className="SignUp-back"
-          icon={faChevronCircleLeft}
-        />
-
+        <div className='SignUp-menu-container'>
+        <HamburgerMenu />
+        </div>
         <div className="SignUp-base">
           <div className="SignUp-form">
             <div className="SignUp-form-inputs">
@@ -80,6 +76,7 @@ class SignUp extends Component {
                 name="name"
                 value={this.state.name}
                 label="Name"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}
@@ -87,6 +84,7 @@ class SignUp extends Component {
                 name="surname"
                 value={this.state.surname}
                 label="Surname"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}
@@ -94,6 +92,7 @@ class SignUp extends Component {
                 name="email"
                 value={this.state.email}
                 label="Email adress"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}
@@ -101,6 +100,7 @@ class SignUp extends Component {
                 name="password"
                 value={this.state.password}
                 label="Password"
+                required={true}
               />
               <TextField
                 onChange={this.handleChange}

@@ -4,8 +4,7 @@ import { Link } from "react-router-dom";
 import TextField from '@material-ui/core/TextField'
 
 import "./LogIn.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 class LogIn extends Component {
   state = {
@@ -37,7 +36,9 @@ class LogIn extends Component {
   render() {
     return (
       <>
-      <FontAwesomeIcon onClick={() =>this.props.history.push('/publist')} className="SignUp-back" icon={faChevronCircleLeft}/>
+        <div className='LogIn-menu-container'>
+        <HamburgerMenu />
+        </div>
       <div className="LogIn">
         {this.state.success !== "Logged In" && (
           <div className="LogIn-wrapper">

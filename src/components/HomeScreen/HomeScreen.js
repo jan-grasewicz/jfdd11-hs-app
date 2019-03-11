@@ -14,14 +14,14 @@ import "./HomeScreen.css";
 
 const LogInButton = () => {
   return (
-    <NavLink to={'/login'} ><button>Log in</button></NavLink>
+    <NavLink to={'/login'} ><button className='HomeScreen-btn'>Log in</button></NavLink>
   )
 }
 
 
 const SignUpButton = () => {
   return (
-    <NavLink to={'/signup'} ><button>Sign up</button></NavLink>
+    <NavLink to={'/signup'} ><button className='HomeScreen-btn'>Sign up</button></NavLink>
   ) 
 }
 
@@ -76,8 +76,10 @@ class HomeScreen extends Component {
             </div>
           </div>
         </div>
+        <div className='HomeScreen-buttons'>
         <SignUpButton />
         <LogInButton />
+        </div>
       </div>
     );
   }

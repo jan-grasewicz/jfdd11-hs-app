@@ -48,17 +48,24 @@
 }
 
 .HomeScreen-btn {
-  margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 15px 5px 15px;
+  width: 21vh;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  height: 50px;
   border: solid 1px white;
-
   background-color: transparent;
   color: white;
   text-align: center;
   text-decoration: none;
+}
+
+.HomeScreen-buttons{
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .HomeScreen-btn-main {

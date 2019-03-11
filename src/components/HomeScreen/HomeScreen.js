@@ -11,6 +11,21 @@ import Brewio from "./img/brewio.svg";
 
 import "./HomeScreen.css";
 
+
+const LogInButton = () => {
+  return (
+    <NavLink to={'/login'} ><button>Log in</button></NavLink>
+  )
+}
+
+
+const SignUpButton = () => {
+  return (
+    <NavLink to={'/signup'} ><button>Sign up</button></NavLink>
+  ) 
+}
+
+
 class HomeScreen extends Component {
   render() {
     return (
@@ -61,6 +76,8 @@ class HomeScreen extends Component {
             </div>
           </div>
         </div>
+        <SignUpButton />
+        <LogInButton />
       </div>
     );
   }

@@ -10,7 +10,7 @@ class UserProfile extends Component {
     let { user, userData } = this.props.authContext;
 
     // console.log("adv", this.props.advancedSearchContext);
-    console.log("auth", this.props.authContext);
+    // console.log("auth", this.props.authContext);
     return (
       <div className="UserProfile">
         <div className="UserProfile-data">

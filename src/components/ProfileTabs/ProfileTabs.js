@@ -2,22 +2,30 @@ import React, { Component } from "react";
 
 import "./ProfileTabs.css";
 import Reservations from "../Reservations";
+import MyPubs from "../MyPubs";
 
 class ProfileTabs extends Component {
   state = {
     tab: "reservations"
   };
   render() {
+    console.log(this.state.tab);
     return (
       <div className="ProfileTabs">
         <h2>ProfileTabs</h2>
-        <button onClick={() => this.setState({ tab: "reservations" })}>
+        <button
+          className="ProfileTabs-tab"
+          onClick={() => this.setState({ tab: "reservations" })}
+        >
           Reservations
         </button>
-        <button onClick={() => this.setState({ tab: " mypubs" })}>
+        <button
+          className="ProfileTabs-tab ProfileTabs-tabActive"
+          onClick={() => this.setState({ tab: "mypubs" })}
+        >
           My Pubs
         </button>
-        <Reservations />
+        {this.state.tab === "mypubs" ? <MyPubs /> : <Reservations />}
       </div>
     );
   }

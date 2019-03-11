@@ -81,7 +81,7 @@ class AdvancedSearch extends Component {
             </div>
             <div className="AdvancedSearch-option">
               <label>For how many? </label>
-              <input
+              <input className="AdvancedSearch-input"
                 value={cout}
                 type="number"
                 name="cout"

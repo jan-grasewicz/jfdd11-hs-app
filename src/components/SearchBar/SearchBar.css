@@ -39,5 +39,6 @@
 .SearchBar-advanced-search-container {
   position: fixed;
   top: 100px;
-  left: 0px;
+  left: 0;
+  width: 100%;
 }

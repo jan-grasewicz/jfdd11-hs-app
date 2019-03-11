@@ -18,7 +18,7 @@
 }
 
 .HomeScreen-wrapper {
-  height: 90vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -54,6 +54,7 @@
   padding-top: 5px;
   padding-bottom: 5px;
   border: solid 1px white;
+
   background-color: transparent;
   color: white;
   text-align: center;
@@ -65,13 +66,15 @@
   margin-left: 10px;
   margin-right: 10px;
   height: 60px;
+  border-radius: 10px;
   background-color: white;
   width: 100%;
 }
 
 .HomeScreen-about-block>p{
   color: white;
-  margin-top: 10px;
+  margin: 10px 3px 5px 3px;
+  padding-top: 5px;
   font-size: 0.9rem;
   text-align: center;
 }
@@ -80,11 +83,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 5px;
+  margin: 5px;
+  background-color: rgba(233, 233, 233, 0.192);
+  border-radius: 10px;
 }
 
 .HomeScreen-about-block-icon{
-  color: white;
-  font-size: 1.5rem;
+  color:#CAB67A;
+  font-size: 2rem;
 }
 
 .HomeScreen-about-brewio{

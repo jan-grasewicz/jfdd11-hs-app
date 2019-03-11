@@ -39,15 +39,24 @@ class HomeScreen extends Component {
           </NavLink>
           <div className="HomeScreen-about-brewio">
             <div className="HomeScreen-about-block">
-              <FontAwesomeIcon className='HomeScreen-about-block-icon'  icon={faChair} />
-              <p>Find Pubs with enough space for all your friends</p>
+              <FontAwesomeIcon
+                className="HomeScreen-about-block-icon"
+                icon={faChair}
+              />
+              <p>Find pubs with enough space for all your friends</p>
             </div>
             <div className="HomeScreen-about-block">
-              <FontAwesomeIcon className='HomeScreen-about-block-icon'  icon={faSearch} />
+              <FontAwesomeIcon
+                className="HomeScreen-about-block-icon"
+                icon={faSearch}
+              />
               <p>Search for pubs from the place of your choosing</p>
             </div>
             <div className="HomeScreen-about-block">
-              <FontAwesomeIcon className='HomeScreen-about-block-icon'  icon={faClock} />
+              <FontAwesomeIcon
+                className="HomeScreen-about-block-icon"
+                icon={faClock}
+              />
               <p>Avoid the hassle of calling places one by one</p>
             </div>
           </div>

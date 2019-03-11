@@ -1,7 +1,13 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBeer } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBeer,
+  faChair,
+  faSearch,
+  faClock
+} from "@fortawesome/free-solid-svg-icons";
+import Brewio from "./img/brewio.svg";
 
 import "./HomeScreen.css";
 
@@ -10,10 +16,14 @@ class HomeScreen extends Component {
     return (
       <div className="HomeScreen">
         <div className="HomeScreen-wrapper">
-          <h1 className="HomeScreen-h1">Brewio</h1>
+          <div className="HomeScreen-title">
+            <img src={Brewio} style={{ width: "70px" }} alt="Logo" />
+            <h1 className="HomeScreen-h1">Brewio</h1>
+          </div>
+          <p className="HomeScreen-p">Going out with friends? </p>
           <p className="HomeScreen-p">
-            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum
-            dolor sit amet Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
+            <span style={{ color: "#CAB67A", fontSize: "1.7rem" }}>Brewio</span>{" "}
+            is here to help
           </p>
           <NavLink
             style={{ display: "flex", textDecoration: "none" }}
@@ -27,12 +37,20 @@ class HomeScreen extends Component {
               />
             </button>
           </NavLink>
-
-          {/* <NavLink to="/advancedSearch" className="HomeScreen-btn">
-            Advanced Search
-          </NavLink> */}
-
-          {/* <button className="HomeScreen-btn">Search by Location</button> */}
+          <div className="HomeScreen-about-brewio">
+            <div className="HomeScreen-about-block">
+              <FontAwesomeIcon className='HomeScreen-about-block-icon'  icon={faChair} />
+              <p>Find Pubs with enough space for all your friends</p>
+            </div>
+            <div className="HomeScreen-about-block">
+              <FontAwesomeIcon className='HomeScreen-about-block-icon'  icon={faSearch} />
+              <p>Search for pubs from the place of your choosing</p>
+            </div>
+            <div className="HomeScreen-about-block">
+              <FontAwesomeIcon className='HomeScreen-about-block-icon'  icon={faClock} />
+              <p>Avoid the hassle of calling places one by one</p>
+            </div>
+          </div>
         </div>
       </div>
     );

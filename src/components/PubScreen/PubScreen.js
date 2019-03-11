@@ -7,6 +7,7 @@ import "./PubScreen.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { Link } from "react-router-dom";
 
 class PubScreen extends Component {
   render() {
@@ -14,11 +15,11 @@ class PubScreen extends Component {
     let pub = this.props.advancedSearchContext.publist.find(
       pub => pub.id === pubId
     );
+    let reservationLink = `/publist/${pubId}/booking`;
     return (
-     
       <div>
-         <HamburgerMenu />
-        <div className='PubScreen-menu-container'>
+        <div className="PubScreen-menu-container">
+          <HamburgerMenu />
         </div>
         {pub && (
           <div className="PubScreen-wrapper">
@@ -32,6 +33,9 @@ class PubScreen extends Component {
               />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
+            <button className="PubScreen-reservation-button">
+              <Link to={reservationLink}>Make Reservation</Link>
+            </button>
             <div className="PubScreen-info-wrapper">
               <dl className="PubScreen-info">
                 <dt>City:</dt>

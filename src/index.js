@@ -13,11 +13,11 @@ import HamburgerMenuContextProvider from "./contexts/HamburgerMenu/HamburgerMenu
 
 ReactDOM.render(
   <HamburgerMenuContextProvider>
-  <AuthContextProvider>
-    <AdvancedSearchProvider>
-      <Root />
-    </AdvancedSearchProvider>
-  </AuthContextProvider>
+    <AuthContextProvider>
+      <AdvancedSearchProvider>
+        <Root />
+      </AdvancedSearchProvider>
+    </AuthContextProvider>
   </HamburgerMenuContextProvider>,
   document.getElementById("root")
 );

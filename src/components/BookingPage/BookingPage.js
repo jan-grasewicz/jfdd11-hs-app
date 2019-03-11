@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 import "./BookingPage.css";
-
+//http://react-component.github.io/slider/examples/handle.html
+//powyzej paczka do dodania
 class BookingPage extends Component {
   state = {
     pub: null,

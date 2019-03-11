@@ -30,7 +30,6 @@
   font-size: 1.2rem;
 }
 
-
 .SearchBar-advanced-search-icon {
   width: 50px;
   font-size: 1.3rem;
@@ -39,6 +38,6 @@
 
 .SearchBar-advanced-search-container {
   position: fixed;
-  top: 70px;
+  top: 100px;
   left: 0px;
 }

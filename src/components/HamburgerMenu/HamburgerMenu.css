@@ -1,12 +1,8 @@
-.HamburgerMenu-menu-container{
-
-}
-
 
 .HamburgerMenu-menu {
     font-size: 1.5rem;
     position: fixed;
-    background-color: white;
+    background-color: rgb(245, 245, 245);
     padding-left: 15px;
     top: 0;
     padding-top: 14px;

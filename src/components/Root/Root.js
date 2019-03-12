@@ -8,7 +8,7 @@ import SignUp from "../SignUp/SignUp";
 import LogIn from "../LogIn";
 import UserProfile from "../UserProfile";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
-import PubRegistrationForm from "../PubRegistrationForm/PubRegistrationForm";
+import PubRegistration from "../PubRegistration/PubRegistration";
 
 class Root extends Component {
   render() {
@@ -27,7 +27,7 @@ class Root extends Component {
           ) : (
               <>
                 <Route path="/profile" component={UserProfile} />
-                <Route path="/add-pub" component={PubRegistrationForm} />
+                <Route path="/add-pub" component={PubRegistration} />
               </>
             )}
         </div>

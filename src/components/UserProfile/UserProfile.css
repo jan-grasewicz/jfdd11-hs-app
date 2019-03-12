@@ -10,7 +10,6 @@
 .UserProfile-data {
     display: grid;
     grid-template-columns: auto 1fr;
-    /* justify-content: space-evenly; */
     border: 2px solid black;
     padding: 8px;
 }

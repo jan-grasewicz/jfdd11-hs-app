@@ -3,6 +3,7 @@
 }
 
 .HomeScreen {
+
   height: 100vh;
   background-image: linear-gradient(#00000091, #00000091), url(img/nikola-jovanovic-198375-unsplash.jpg);
   background-position: center;
@@ -18,10 +19,13 @@
 }
 
 .HomeScreen-wrapper {
+  width: 100%;
+ max-width: 600px;
   height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .HomeScreen-h1 {

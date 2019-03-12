@@ -10,24 +10,28 @@ import {
 import Brewio from "./img/brewio.svg";
 
 import "./HomeScreen.css";
-
+import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
 const LogInButton = () => {
   return (
-    <NavLink to={'/login'} ><button className='HomeScreen-btn'>Log in</button></NavLink>
-  )
-}
-
+    <NavLink to={"/login"}>
+      <button className="HomeScreen-btn">Log in</button>
+    </NavLink>
+  );
+};
 
 const SignUpButton = () => {
   return (
-    <NavLink to={'/signup'} ><button className='HomeScreen-btn'>Sign up</button></NavLink>
-  ) 
-}
-
+    <NavLink to={"/signup"}>
+      <button className="HomeScreen-btn">Sign up</button>
+    </NavLink>
+  );
+};
 
 class HomeScreen extends Component {
+
   render() {
+    const { user } = this.props.authContext
     return (
       <div className="HomeScreen">
         <div className="HomeScreen-wrapper">
@@ -75,14 +79,17 @@ class HomeScreen extends Component {
               <p>Avoid the hassle of calling places one by one</p>
             </div>
           </div>
+
         </div>
-        <div className='HomeScreen-buttons'>
-        <SignUpButton />
-        <LogInButton />
-        </div>
+        { user === null && 
+          <div className="HomeScreen-buttons">
+            <SignUpButton />
+            <LogInButton />
+          </div>
+        }
       </div>
     );
   }
 }
 
-export default HomeScreen;
+export default withAuth(HomeScreen);

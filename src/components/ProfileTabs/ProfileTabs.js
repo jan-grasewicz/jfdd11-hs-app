@@ -10,7 +10,6 @@ class ProfileTabs extends Component {
     tab: "reservations"
   };
   render() {
-    console.log(this.state.tab);
     const { tab } = this.state;
     let { userData } = this.props.authContext;
     return (

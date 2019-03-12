@@ -5,17 +5,33 @@
 
 .UserProfile {
     padding: 8px;
+    background: rgba(0, 0, 0, 0.76);
+    min-height: calc(100vh - 0px);
 }
 
 .UserProfile-data {
     display: grid;
-    grid-template-columns: auto 1fr;
-    border: 2px solid black;
+    grid-template-columns: auto 1fr 10px;
+    background: rgba(0, 0, 0, 0.76);
+    border: 2px solid #cdaf82;
     padding: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
 }
 
-.UserProfile-img {}
+.UserProfile-img {
+    border: 1px solid #cdaf82;
+}
+
+.UserProfile-img>img {
+    display: block;
+}
 
 .UserProfile-info {
-    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    color: rgb(224, 224, 224);
+    padding: 10px;
 }

@@ -9,18 +9,16 @@ class UserProfile extends Component {
     return (
       <div className="UserProfile">
         <div className="UserProfile-data">
-          <img
-            className="UserProfile-img"
-            alt="Profile"
-            src="http://placeimg.com/120/150/people"
-          />
+          <div className="UserProfile-img">
+            <img alt="Profile" src="http://placeimg.com/120/160/people" />
+          </div>
           <div className="UserProfile-info">
-            <h2>{userData && userData.name}</h2>
+            <h2 >{userData && userData.name}</h2>
             <h2>{userData && userData.surname}</h2>
             <p>e-mail: {user && user.email}</p>
             <p>phone: {userData && userData.phone}</p>
-            <button>Edit profile</button>
           </div>
+          <button>edit</button>
         </div>
         <div className="UserProfile-tabs">
           <ProfileTabs />

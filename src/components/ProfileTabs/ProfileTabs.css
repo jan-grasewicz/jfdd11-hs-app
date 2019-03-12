@@ -3,17 +3,17 @@
 }
 
 .ProfileTabs-tab {
-    border: 2px solid black;
-    background: rgb(160, 160, 160);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    border: 2px solid #cdaf82;
+    background: rgba(0, 0, 0, 0.76);
+    color: rgb(224, 224, 224);
+    /* border-top-left-radius: 10px; */
+    /* border-top-right-radius: 10px; */
     width: 50%;
 }
 
 .ProfileTabs-tabActive {
     border-bottom: 0px;
     height: 24px;
-    
 }
 
 .ProfileTabs-tab:focus {

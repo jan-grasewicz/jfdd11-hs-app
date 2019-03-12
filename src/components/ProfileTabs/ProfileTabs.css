@@ -1,19 +1,20 @@
-.ProfileTabs {
-    box-sizing: border-box;
-}
+.ProfileTabs {}
 
 .ProfileTabs-tab {
     border: 2px solid #cdaf82;
-    background: rgba(0, 0, 0, 0.76);
+    background: rgba(0, 0, 0, 0.281);
     color: rgb(224, 224, 224);
-    /* border-top-left-radius: 10px; */
-    /* border-top-right-radius: 10px; */
     width: 50%;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 0.5rem;
 }
 
 .ProfileTabs-tabActive {
+    background: rgba(0, 0, 0, 0.76);
+    /* border-bottom: 2px solid rgba(0, 0, 0, 0.76); */
     border-bottom: 0px;
-    height: 24px;
+    height: 44px;
 }
 
 .ProfileTabs-tab:focus {

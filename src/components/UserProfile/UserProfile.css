@@ -3,10 +3,15 @@
     box-sizing: border-box;
 }
 
+.UserProfile-background{
+    background: rgba(0, 0, 0, 0.76);
+}
+
 .UserProfile {
     padding: 8px;
-    background: rgba(0, 0, 0, 0.76);
     min-height: calc(100vh - 0px);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .UserProfile-data {
@@ -15,8 +20,6 @@
     background: rgba(0, 0, 0, 0.76);
     border: 2px solid #cdaf82;
     padding: 8px;
-    max-width: 600px;
-    margin: 0 auto;
     margin-bottom: 1rem;
 }
 
@@ -34,4 +37,8 @@
     justify-content: space-evenly;
     color: rgb(224, 224, 224);
     padding: 10px;
+}
+
+.UserProfile-name{
+    color: #cdaf82;
 }

@@ -1,5 +1,6 @@
 .MyPubs {
-    background: rgb(160, 160, 160);
-    border: 2px solid black;
+    background: rgba(0, 0, 0, 0.76);
+    border: 2px solid #cdaf82;
     border-top: 0px;
+    color:  rgb(224, 224, 224);
 }

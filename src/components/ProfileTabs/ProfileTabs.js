@@ -10,17 +10,26 @@ class ProfileTabs extends Component {
   };
   render() {
     console.log(this.state.tab);
+    const { tab, mypubs } = this.state;
     return (
       <div className="ProfileTabs">
-        <h2>ProfileTabs</h2>
         <button
-          className="ProfileTabs-tab"
+          className={
+            tab === "reservations"
+              ? "ProfileTabs-tab ProfileTabs-tabActive"
+              : "ProfileTabs-tab "
+          }
           onClick={() => this.setState({ tab: "reservations" })}
         >
           Reservations
         </button>
         <button
-          className="ProfileTabs-tab ProfileTabs-tabActive"
+          className={
+            tab === "mypubs"
+              ? "ProfileTabs-tab ProfileTabs-tabActive"
+              : "ProfileTabs-tab "
+          }
+          // {tab==="mypubs"&& className="ProfileTabs-tabActive"}
           onClick={() => this.setState({ tab: "mypubs" })}
         >
           My Pubs

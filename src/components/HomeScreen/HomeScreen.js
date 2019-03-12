@@ -32,7 +32,6 @@ class HomeScreen extends Component {
 
   render() {
     const { user } = this.props.authContext
-    console.log(user)
     return (
       <div className="HomeScreen">
         <div className="HomeScreen-wrapper">
@@ -80,6 +79,7 @@ class HomeScreen extends Component {
               <p>Avoid the hassle of calling places one by one</p>
             </div>
           </div>
+
         </div>
         { user === null && 
           <div className="HomeScreen-buttons">

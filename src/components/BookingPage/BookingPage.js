@@ -10,6 +10,8 @@ class BookingPage extends Component {
     pubId: null,
     user: null,
     reservationHour: "22:00",
+    date: null,
+    today: new Date().toLocaleDateString(),
     countOfPeople: 5
   };
 
@@ -19,31 +21,34 @@ class BookingPage extends Component {
       pub: this.props.advancedSearchContext.publist.find(
         pub => pub.id === this.props.match.params.pubId
       ),
-      user: this.props.authContext.user
+      user: this.props.authContext.user,
+      date: new Date().toLocaleDateString()
     });
   }
 
   handlInput = event => {
     if (event.target.name === "reservationHour") {
-      if (
-        (event.target.value > this.state.pub.openhour &&
-          event.target.value <= "23:59") ||
-        event.target.value < this.state.pub.closehour
-      )
-        this.setState({
-          [event.target.name]: event.target.value
-        });
+      this.setState({
+        [event.target.name]: event.target.value
+      });
     }
     if (
       event.target.name === "countOfPeople" &&
-      event.target.value > 0 &&
+      event.target.value >= 0 &&
       event.target.value <= this.state.pub.space
     ) {
       this.setState({
         [event.target.name]: event.target.value
       });
     }
+    if (event.target.name === "date") {
+      this.setState({
+        [event.target.name]: new Date(event.target.value).toLocaleDateString()
+      });
+    }
   };
+
+  toDate = inp => console.log(inp.split(".").join("-"));
 
   submitReservation = event => {
     event.preventDefault();
@@ -55,13 +60,32 @@ class BookingPage extends Component {
       pub => pub.id === pubId
     );
     console.log(this.state);
-    let { countOfPeople, reservationHour } = this.state;
-    let { handlInput, submitReservation } = this;
+    let { countOfPeople, reservationHour, date, today } = this.state;
+    let { handlInput, submitReservation, toDate } = this;
     return (
       <div className="BookingPage">
         <h1>Reservation in {pub.name}</h1>
         <form>
           <div>
+            <div>
+              <label>On what date would You like to make a reservation? </label>
+              <div>
+                <input
+                  type="date"
+                  name="date"
+                  value={date
+                    .split(".")
+                    .reverse()
+                    .join("-")}
+                  onChange={handlInput}
+                  min={today
+                    .split(".")
+                    .reverse()
+                    .join("-")}
+                  onInput=""
+                />
+              </div>
+            </div>
             <div>
               <label>On which hour would You like to make a reservation?</label>
             </div>
@@ -73,8 +97,8 @@ class BookingPage extends Component {
                 onChange={handlInput}
               />
               <label>
-                Please keep in mind that {pub.name} is opened till{" "}
-                {pub.closehour}
+                Please keep in mind that {pub.name} is opened from{" "}
+                {pub.openhour} till {pub.closehour}
               </label>
             </div>
           </div>

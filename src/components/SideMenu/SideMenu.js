@@ -8,7 +8,8 @@ import {
   faUser,
   faHome,
   faBeer,
-  faSignInAlt
+  faSignInAlt,
+  faPlus
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavItem = ({ to, icon, children }) => (
@@ -36,12 +37,13 @@ class SideMenu extends Component {
           Brewio
         </h1>
         {user !== null && (
-          <NavLink to="/profile" className="SideMenu-profile-a">
-            <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
-            <p className="SideMenu-profile-p">My Profile</p>
-            <button onClick={signOut}>Sign Out</button>
-          </NavLink>
-        )}
+          <>
+            <NavLink to="/profile" className="SideMenu-profile-a">
+              <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
+              <p className="SideMenu-profile-p">My Profile</p>
+              <button onClick={signOut}>Sign Out</button>
+            </NavLink>
+          </>)}
         <ul className="SideMenu-menu">
           <NavItem to="/" icon={faHome}>
             Home
@@ -58,7 +60,9 @@ class SideMenu extends Component {
                 Sign up
               </NavItem>
             </>
-          )}
+          ) || <NavItem to="/add-pub" icon={faPlus} >
+              Add Your Pub
+            </NavItem>}
         </ul>
       </div>
     );

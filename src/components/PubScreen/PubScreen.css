@@ -9,9 +9,9 @@
 
 .PubScreen-menu-container {
     width: 100%;
-    height: 50px;
+    height: 60px;
     position: fixed;
-    background-color: white;
+    background-color: rgb(245, 245, 245);
     z-index: 1000000;
 }
 

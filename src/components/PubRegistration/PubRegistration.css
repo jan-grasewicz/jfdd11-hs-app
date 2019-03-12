@@ -8,8 +8,14 @@
     width: 100%;
 }
 
-.PubRegistration-container h3 {
+.PubRegistration-container h3, h4 {
     margin: 0;
     padding-top: 70px;
     text-align: center;
+    color: white;
+}
+
+.PubRegistration-form label, p {
+    color: white;
+    font-size: 20px;
 }

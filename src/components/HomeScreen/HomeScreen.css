@@ -9,8 +9,16 @@
   background-size: cover;
 }
 
+.HomeScreen-title{
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
 .HomeScreen-wrapper {
-  height: 79vh;
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,22 +28,33 @@
   margin-top: 0;
   font-size: 4.5rem;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 0;
   color: white;
 }
 
 .HomeScreen-p {
+  font-size: 1.4rem;
   color: white;
-  padding: 20px;
   text-align: center;
+  margin: 0;
+}
+
+.HomeScreen-p:first-of-type{
+  margin-top: 5vh;
+}
+
+.HomeScreen-p:last-of-type{
+  margin-bottom: 5vh;
 }
 
 .HomeScreen-btn {
-  margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding: 5px 15px 5px 15px;
+  width: 21vh;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  height: 50px;
   border: solid 1px white;
   background-color: transparent;
   color: white;
@@ -43,11 +62,50 @@
   text-decoration: none;
 }
 
+.HomeScreen-buttons{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .HomeScreen-btn-main {
   margin-top: 10px;
   margin-left: 10px;
   margin-right: 10px;
   height: 60px;
+  border-radius: 10px;
   background-color: white;
   width: 100%;
 }
+
+.HomeScreen-about-block>p{
+  color: white;
+  margin: 10px 3px 5px 3px;
+  padding-top: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.HomeScreen-about-block{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px 0 10px 0;
+  margin: 5px;
+  background-color: rgba(233, 233, 233, 0.192);
+  border-radius: 10px;
+}
+
+.HomeScreen-about-block-icon{
+  color:#CAB67A;
+  font-size: 2rem;
+}
+
+.HomeScreen-about-brewio{
+  display: flex;
+  flex-direction: row;
+  flex-basis: auto;
+  width: 100%;
+  margin-top: 5vh;
+}
+

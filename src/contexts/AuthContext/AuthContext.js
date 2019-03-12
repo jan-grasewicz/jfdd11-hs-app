@@ -29,7 +29,6 @@ export default class AuthContextProvider extends Component {
       .then(users => users[uid])
       .then(userData => {
         this.setState({ userData });
-        // console.log(userData);
       });
   };
 

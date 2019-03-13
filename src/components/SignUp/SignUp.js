@@ -147,8 +147,13 @@ class SignUp extends Component {
             </div>
 
             {this.state.success && history.push("/publist")}
-            <h2>{this.state.error}</h2>
+            <h2 className="SignUp-error">{this.state.error}</h2>
           </div>
+          <footer className="SignUp-footer">
+            <p>
+            Brewio will handle your data with caution and care. You don't have to worry about anything. Contact us anytime at brewio@brewioapp.com
+            </p>
+          </footer>
         </div>
       </>
     );

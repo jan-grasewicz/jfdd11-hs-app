@@ -187,10 +187,13 @@ class PubRegistration extends Component {
           />
           <input type="submit" value="Submit Form" />
         </form>
-        <div>
-          <span>Latitude: 33.33</span>
-          <span>Longitude: 23.22</span>
-        </div>
+        {/* {coordinates && (
+          <div>
+            <span>Latitude: {coordinates.latitude.toFixed(2)}</span>
+            <span>Longitude: {coordinates.longitude.toFixed(2)}</span>
+          </div>
+        )} */}
+
         <Map
           center={
             coordinates

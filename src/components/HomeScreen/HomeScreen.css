@@ -3,14 +3,13 @@
 }
 
 .HomeScreen {
-
   height: 100vh;
   background-image: linear-gradient(#00000091, #00000091), url(img/nikola-jovanovic-198375-unsplash.jpg);
   background-position: center;
   background-size: cover;
 }
 
-.HomeScreen-title{
+.HomeScreen-title {
   display: flex;
   flex-wrap: nowrap;
   width: 100%;
@@ -20,7 +19,7 @@
 
 .HomeScreen-wrapper {
   width: 100%;
- max-width: 600px;
+  max-width: 600px;
   height: 80vh;
   display: flex;
   flex-direction: column;
@@ -43,11 +42,11 @@
   margin: 0;
 }
 
-.HomeScreen-p:first-of-type{
+.HomeScreen-p:first-of-type {
   margin-top: 5vh;
 }
 
-.HomeScreen-p:last-of-type{
+.HomeScreen-p:last-of-type {
   margin-bottom: 5vh;
 }
 
@@ -61,12 +60,13 @@
   height: 50px;
   border: solid 1px white;
   background-color: transparent;
-  color: white;
   text-align: center;
   text-decoration: none;
+  color: #CAB67A;
+  border-radius: 10px;
 }
 
-.HomeScreen-buttons{
+.HomeScreen-buttons {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -77,12 +77,13 @@
   margin-left: 10px;
   margin-right: 10px;
   height: 60px;
+  border: none;
   border-radius: 10px;
   background-color: white;
   width: 100%;
 }
 
-.HomeScreen-about-block>p{
+.HomeScreen-about-block>p {
   color: white;
   margin: 10px 3px 5px 3px;
   padding-top: 5px;
@@ -90,7 +91,7 @@
   text-align: center;
 }
 
-.HomeScreen-about-block{
+.HomeScreen-about-block {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,16 +101,15 @@
   border-radius: 10px;
 }
 
-.HomeScreen-about-block-icon{
-  color:#CAB67A;
+.HomeScreen-about-block-icon {
+  color: #CAB67A;
   font-size: 2rem;
 }
 
-.HomeScreen-about-brewio{
+.HomeScreen-about-brewio {
   display: flex;
   flex-direction: row;
   flex-basis: auto;
   width: 100%;
   margin-top: 5vh;
 }
-

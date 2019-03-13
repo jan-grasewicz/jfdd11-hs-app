@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { withRouter } from 'react-router'
+import { withRouter, Redirect } from 'react-router'
 import TextField from "@material-ui/core/TextField";
 
 import "./SignUp.css";
@@ -145,8 +145,7 @@ class SignUp extends Component {
                 Sign in with Google
               </button>
             </div>
-
-            {this.state.success && history.push("/publist")}
+            {this.state.success && <Redirect to="/publist" />}
             <h2 className="SignUp-error">{this.state.error}</h2>
           </div>
           <footer className="SignUp-footer">

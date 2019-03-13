@@ -17,12 +17,13 @@ class MyPubs extends Component {
               
               <ul>
                 {/* map filter reservations for one pub */}
+                <li key="reserv-key">
+                  <div className="MyPubs-reservation">
+                  user name date switch state
+                  </div>
+                </li>
 
-                
               </ul>
-              <p className="MyPubs-date">
-                reservation from: (hour) (date)
-              </p>
             </div>
           </li>
         </ul>

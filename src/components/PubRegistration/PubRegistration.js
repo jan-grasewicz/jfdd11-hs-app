@@ -16,7 +16,8 @@ const initialState = {
   space: 0,
   phone: "",
   img: "chooy wie",
-  about: ""
+  about: "",
+  coordinates: null
 };
 
 class PubRegistration extends Component {
@@ -58,7 +59,8 @@ class PubRegistration extends Component {
       email,
       space,
       phone,
-      about
+      about,
+      coordinates
     } = this.state;
 
     return (
@@ -190,17 +192,33 @@ class PubRegistration extends Component {
           <span>Longitude: 23.22</span>
         </div>
         <Map
-          center={{ lat: 54.372158, lng: 18.638306 }}
+          center={
+            coordinates
+              ? { lat: coordinates.latitude, lng: coordinates.longitude }
+              : { lat: 54.372158, lng: 18.638306 }
+          }
           zoom={13}
           style={{ height: 300, width: 375 }}
+          onClick={({ latlng: { lat, lng } }) => {
+            this.setState({
+              coordinates: { latitude: lat, longitude: lng }
+            });
+          }}
         >
           <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={{ lat: 54.372158, lng: 18.638306 }}>
-            <Popup>{"555 - 555 - 555"}</Popup>
-          </Marker>
+          {coordinates && (
+            <Marker
+              position={{
+                lat: coordinates.latitude,
+                lng: coordinates.longitude
+              }}
+            >
+              <Popup>{"555 - 555 - 555"}</Popup>
+            </Marker>
+          )}
         </Map>
       </div>
     );

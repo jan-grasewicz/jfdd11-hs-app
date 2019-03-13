@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
+import DatePicker from "react-datepicker";
 import "./BookingPage.css";
-//http://react-component.github.io/slider/examples/handle.html
-//powyzej paczka do dodania
+import "react-datepicker/dist/react-datepicker.css";
+
+//https://github.com/Hacker0x01/react-datepicker <-- DatePicker Docs
+
 class BookingPage extends Component {
   state = {
     pub: null,
@@ -11,7 +14,7 @@ class BookingPage extends Component {
     user: null,
     reservationHour: "22:00",
     date: null,
-    today: new Date().toLocaleDateString(),
+    reservationDate: new Date(),
     countOfPeople: 5
   };
 
@@ -48,7 +51,10 @@ class BookingPage extends Component {
     }
   };
 
-  toDate = inp => console.log(inp.split(".").join("-"));
+  handleDate = reservationDate => {
+    if (Date.from(reservationDate) >= Date.now())
+      this.setState({ reservationDate });
+  };
 
   submitReservation = event => {
     event.preventDefault();
@@ -60,32 +66,14 @@ class BookingPage extends Component {
       pub => pub.id === pubId
     );
     console.log(this.state);
-    let { countOfPeople, reservationHour, date, today } = this.state;
-    let { handlInput, submitReservation, toDate } = this;
+    let { countOfPeople, reservationHour, reservationDate } = this.state;
+    let { handlInput, submitReservation, handleDate } = this;
     return (
       <div className="BookingPage">
         <h1>Reservation in {pub.name}</h1>
         <form>
           <div>
-            <div>
-              <label>On what date would You like to make a reservation? </label>
-              <div>
-                <input
-                  type="date"
-                  name="date"
-                  value={date
-                    .split(".")
-                    .reverse()
-                    .join("-")}
-                  onChange={handlInput}
-                  min={today
-                    .split(".")
-                    .reverse()
-                    .join("-")}
-                  onInput=""
-                />
-              </div>
-            </div>
+            <DatePicker selected={reservationDate} onChange={handleDate} />
             <div>
               <label>On which hour would You like to make a reservation?</label>
             </div>

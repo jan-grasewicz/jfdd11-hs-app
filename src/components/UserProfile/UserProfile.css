@@ -3,7 +3,7 @@
     box-sizing: border-box;
 }
 
-.UserProfile-background{
+.UserProfile-background {
     background: rgba(0, 0, 0, 0.76);
 }
 
@@ -16,11 +16,11 @@
 
 .UserProfile-data {
     display: grid;
-    grid-template-columns: auto 1fr 10px;
+    grid-template-columns: auto 1fr auto;
     background: rgba(0, 0, 0, 0.76);
     border: 2px solid #cdaf82;
     padding: 8px;
-    margin-bottom: 1rem;
+    margin-bottom: 8px;
 }
 
 .UserProfile-img {
@@ -39,6 +39,13 @@
     padding: 10px;
 }
 
-.UserProfile-name{
+.UserProfile-name {
     color: #cdaf82;
+}
+
+.UserProfile-edit {
+    color: white;
+    position: relative;
+    right: 20px;
+    top: 20px;
 }

@@ -6,6 +6,7 @@ import "./BookingPage.css";
 import "react-datepicker/dist/react-datepicker.css";
 
 //https://github.com/Hacker0x01/react-datepicker <-- DatePicker Docs
+//https://reactdatepicker.com/ <--datepicker docs complete
 
 class BookingPage extends Component {
   state = {
@@ -30,30 +31,17 @@ class BookingPage extends Component {
   }
 
   handlInput = event => {
-    if (event.target.name === "reservationHour") {
+    if (event.target.value >= 0 && event.target.value <= this.state.pub.space) {
       this.setState({
-        [event.target.name]: event.target.value
-      });
-    }
-    if (
-      event.target.name === "countOfPeople" &&
-      event.target.value >= 0 &&
-      event.target.value <= this.state.pub.space
-    ) {
-      this.setState({
-        [event.target.name]: event.target.value
-      });
-    }
-    if (event.target.name === "date") {
-      this.setState({
-        [event.target.name]: new Date(event.target.value).toLocaleDateString()
+        countOfPeople: event.target.value
       });
     }
   };
 
   handleDate = reservationDate => {
-    if (Date.from(reservationDate) >= Date.now())
+    if (reservationDate.getTime() >= Date.now()) {
       this.setState({ reservationDate });
+    }
   };
 
   submitReservation = event => {
@@ -66,23 +54,20 @@ class BookingPage extends Component {
       pub => pub.id === pubId
     );
     console.log(this.state);
-    let { countOfPeople, reservationHour, reservationDate } = this.state;
+    let { countOfPeople, reservationDate } = this.state;
     let { handlInput, submitReservation, handleDate } = this;
     return (
       <div className="BookingPage">
         <h1>Reservation in {pub.name}</h1>
         <form>
           <div>
-            <DatePicker selected={reservationDate} onChange={handleDate} />
+            <div>Pick date adn time of your reservation</div>
             <div>
-              <label>On which hour would You like to make a reservation?</label>
-            </div>
-            <div>
-              <input
-                type="time"
-                name="reservationHour"
-                value={reservationHour}
-                onChange={handlInput}
+              <DatePicker
+                selected={reservationDate}
+                onChange={handleDate}
+                showTimeSelect
+                dateFormat="Pp"
               />
               <label>
                 Please keep in mind that {pub.name} is opened from{" "}
@@ -102,7 +87,8 @@ class BookingPage extends Component {
                 name="countOfPeople"
                 value={countOfPeople}
                 onChange={handlInput}
-              />
+              />{" "}
+              Keep in mind that {pub.name} pub offers {pub.space} places
             </div>
           </div>
           <div>

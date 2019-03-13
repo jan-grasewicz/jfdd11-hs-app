@@ -15,7 +15,7 @@ class BookingPage extends Component {
     user: null,
     reservationHour: "22:00",
     date: null,
-    reservationDate: new Date(),
+    reservationDate: null,
     countOfPeople: 5
   };
 
@@ -64,6 +64,7 @@ class BookingPage extends Component {
             <div>Pick date adn time of your reservation</div>
             <div>
               <DatePicker
+                placeholderText="Click to select a date"
                 selected={reservationDate}
                 onChange={handleDate}
                 showTimeSelect

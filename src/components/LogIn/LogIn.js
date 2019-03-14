@@ -36,7 +36,7 @@ class LogIn extends Component {
   render() {
     return (
       <>
-        <div className='LogIn-menu-container'>
+        <div className='menu-container'>
         <HamburgerMenu />
         </div>
       <div className="LogIn">

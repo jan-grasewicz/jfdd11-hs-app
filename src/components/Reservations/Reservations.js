@@ -7,14 +7,49 @@ class Reservations extends Component {
     return (
       <div className="Reservations">
         <ul>
-          <li>There should be a list of all reservations</li>
-          <li>
-            sorted the way we have "pending" on top. Then "accepted". Then
-            "past".
+          <li key="firebaseId1">
+            <div className="Reservations-reservation">
+              <h2 className="Reservations-pubname">Pub Name</h2>
+              <div className="Reservations-state Reservations-pending">
+                pending
+              </div>
+              <p className="Reservations-date">
+                reservation from: (hour) (date)
+              </p>
+            </div>
           </li>
-          <li>
-            If the User is also a pub owner then display second tab named: "My
-            pubs".
+
+          <li key="firebaseId2">
+            <div className="Reservations-reservation">
+              <h2 className="Reservations-pubname">Pub Name</h2>
+              <div className="Reservations-state Reservations-accepted">
+                accepted
+              </div>
+              <p className="Reservations-date">
+                reservation from: (hour) (date)
+              </p>
+            </div>
+          </li>
+
+          <li key="firebaseId3">
+            <div className="Reservations-reservation">
+              <h2 className="Reservations-pubname">Pub Name</h2>
+              <div className="Reservations-state Reservations-rejected">
+                rejected
+              </div>
+              <p className="Reservations-date">
+                reservation from: (hour) (date)
+              </p>
+            </div>
+          </li>
+          <li key="firebaseId4">
+            <div className="Reservations-reservation">
+              <h2 className="Reservations-pubname">Pub Name</h2>
+              <div className="Reservations-state">past</div>
+              <p className="Reservations-date">
+                reservation from: (hour) (date)
+              </p>
+            </div>
           </li>
         </ul>
       </div>

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
+import { NavLink } from 'react-router-dom'
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
@@ -19,8 +20,8 @@ class SearchByLocalization extends Component {
           <HamburgerMenu />
         </div>
         <Map
-          center={[54.3598871, 18.6678828]}
-          zoom={13}
+          center={[54.49556752187409, 18.539428710937504]}
+          zoom={10}
           style={{ height: "100vh" }}
           onClick={({ latlng: { lat, lng } }) => {
             this.setState({
@@ -39,7 +40,7 @@ class SearchByLocalization extends Component {
           {pubCoordinates.map(pub => {
             return (
               <Marker key={pub.id} position={[pub.coordinates.latitude, pub.coordinates.longitude]}>
-              <Popup>Here is {pub.name}. Call us: {pub.phone}, or reach us {pub.address}</Popup>
+              <Popup><NavLink className='SearchByLocalization-link' to={`/publist/${pub.id}`}>Welcome to {pub.name}. Call us: {pub.phone} or reach us at {pub.address}</NavLink> </Popup>
             </Marker>
             )
           })}
@@ -51,7 +52,3 @@ class SearchByLocalization extends Component {
 
 export default withAdvancedSearch(SearchByLocalization);
 
-// console.log(
-//   this.props.advancedSearchContext.publist.map(
-//     pub => pub.coordinates.latitude
-//   )

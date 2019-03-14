@@ -4,12 +4,16 @@ import "./UserProfile.css";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 class UserProfile extends Component {
   render() {
     let { user, userData } = this.props.authContext;
-    return (
+    return (<><div className="menu-container">
+          <HamburgerMenu />
+        </div>
       <div className="UserProfile-background">
+      
         <div className="UserProfile">
           <div className="UserProfile-data">
             <div className="UserProfile-img">
@@ -26,7 +30,7 @@ class UserProfile extends Component {
 
           <ProfileTabs />
         </div>
-      </div>
+      </div></>
     );
   }
 }

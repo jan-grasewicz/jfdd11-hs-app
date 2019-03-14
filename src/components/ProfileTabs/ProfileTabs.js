@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import Reservations from "../Reservations";
 import MyPubs from "../MyPubs";
+
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
 import "./ProfileTabs.css";
@@ -14,8 +15,7 @@ class ProfileTabs extends Component {
     const { tab } = this.state;
     let { userData } = this.props.authContext;
     return (
-      <>
-        <div className="menu-container" />
+      
         <div className="ProfileTabs">
           {userData && userData.isOwner ? (
             <>
@@ -57,7 +57,7 @@ class ProfileTabs extends Component {
 
           {this.state.tab === "mypubs" ? <MyPubs /> : <Reservations />}
         </div>
-      </>
+      
     );
   }
 }

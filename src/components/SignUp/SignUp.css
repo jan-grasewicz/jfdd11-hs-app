@@ -4,13 +4,7 @@
   padding-top: 50px;
 }
 
-.SignUp-menu-container{
-  width: 100%;
-  height: 60px;
-  position: fixed;
-  background-color: rgb(245, 245, 245);
-  z-index: 1000000;
-}
+
 
 .SignUp-form {
   display: flex;
@@ -73,4 +67,30 @@
 .SignUp-form-owner {
   display: flex;
   margin-top: 20px;
+}
+
+.SignUp-error{
+  text-align: center;
+  font-size: 1rem;
+  color: red;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.SignUp-footer{
+  position: fixed;
+  max-width: 550px;
+  width: 100%;
+  bottom: 0;
+  background-color: #cdaf82;
+}
+
+.SignUp-footer>p{
+  color: rgb(82, 82, 82);
+  font-size: 0.7rem;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  box-shadow: -1px -2px 10px -2px rgba(0,0,0,0.75);
 }

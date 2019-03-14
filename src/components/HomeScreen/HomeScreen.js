@@ -79,7 +79,6 @@ class HomeScreen extends Component {
               <p>Avoid the hassle of calling places one by one</p>
             </div>
           </div>
-
         </div>
         { user === null && 
           <div className="HomeScreen-buttons">

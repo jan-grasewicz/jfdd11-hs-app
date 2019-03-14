@@ -1,0 +1,10 @@
+.SearchByLocalization-link{
+    text-decoration: none;
+    color: black;
+    font-size: 1rem;
+}
+
+
+.leaflet-top .leaflet-control{
+    margin-top: 70px;
+}

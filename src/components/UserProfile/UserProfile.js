@@ -1,47 +1,38 @@
 import React, { Component } from "react";
-
+import ProfileTabs from "../ProfileTabs";
 import "./UserProfile.css";
-import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 class UserProfile extends Component {
   render() {
     let { user, userData } = this.props.authContext;
-
-    // console.log("adv", this.props.advancedSearchContext);
-    console.log("auth", this.props.authContext);
-    return (
-      <div className="UserProfile">
-        <div className="UserProfile-data">
-          <img
-            className="UserProfile-img"
-            src="http://placeimg.com/120/150/people"
-            alt="profile_pic"
-          />
-          <div className="UserProfile-info">
-            <h2>{userData && userData.name}</h2>
-            <h2>{userData && userData.surname}</h2>
-            <p>e-mail: {user && user.email}</p>
-            <p>phone: {userData && userData.phone}</p>
-            <button>Edit profile</button>
+    return (<><div className="menu-container">
+          <HamburgerMenu />
+        </div>
+      <div className="UserProfile-background">
+      
+        <div className="UserProfile">
+          <div className="UserProfile-data">
+            <div className="UserProfile-img">
+              <img alt="Profile" src="http://placeimg.com/120/160/people/5" />
+            </div>
+            <div className="UserProfile-info">
+              <h2 className="UserProfile-name">{userData && userData.name}</h2>
+              <h2>{userData && userData.surname}</h2>
+              <p>e-mail: {user && user.email}</p>
+              <p>phone: {userData && userData.phone}</p>
+            </div>
+            <FontAwesomeIcon icon={faPencilAlt} className="UserProfile-edit" />
           </div>
+
+          <ProfileTabs />
         </div>
-        <div className="UserProfile-reservations">
-          <ul>
-            <li>There should be a list of all reservations</li>
-            <li>
-              sorted the way we have "pending" on top. Then "accepted". Then
-              "past".
-            </li>
-            <li>
-              If the User is also a pub owner then display second tab named: "My
-              pubs".
-            </li>
-          </ul>
-        </div>
-      </div>
+      </div></>
     );
   }
 }
 
-export default withAuth(withAdvancedSearch(UserProfile));
+export default withAuth(UserProfile);

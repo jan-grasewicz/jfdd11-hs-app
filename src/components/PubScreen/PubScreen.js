@@ -18,7 +18,7 @@ class PubScreen extends Component {
     let reservationLink = `/publist/${pubId}/booking`;
     return (
       <div>
-        <div className="PubScreen-menu-container">
+        <div className="menu-container">
           <HamburgerMenu />
         </div>
         {pub && (

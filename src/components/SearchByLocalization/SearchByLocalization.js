@@ -15,7 +15,7 @@ class SearchByLocalization extends Component {
 
     return (
       <>
-        <div className="SearchByLocalization-menu-container">
+        <div className="menu-container">
           <HamburgerMenu />
         </div>
         <Map

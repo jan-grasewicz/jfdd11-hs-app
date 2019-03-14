@@ -68,7 +68,7 @@ class SignUp extends Component {
   render() {
     return (
       <>
-        <div className="SignUp-menu-container">
+        <div className="menu-container">
           <HamburgerMenu />
         </div>
         <div className="SignUp-base">

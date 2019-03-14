@@ -5,13 +5,7 @@
     padding-top: 50px;
 }
 
-.LogIn-menu-container{
-    width: 100%;
-    height: 60px;
-    position: fixed;
-    background-color: rgb(245, 245, 245);
-    z-index: 1000000;
-}
+
 
 .LogIn-wrapper {
     width: 95%;

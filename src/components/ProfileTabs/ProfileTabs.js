@@ -7,7 +7,8 @@ import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import "./ProfileTabs.css";
 class ProfileTabs extends Component {
   state = {
-    tab: "reservations"
+    // tab: "reservations"
+    tab: "mypubs"
   };
   render() {
     const { tab } = this.state;

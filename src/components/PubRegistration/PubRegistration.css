@@ -15,7 +15,7 @@
     color: white;
 }
 
-.PubRegistration-form label, p {
+.PubRegistration-form p, .PubRegistration-form label {
     color: white;
     font-size: 20px;
 }

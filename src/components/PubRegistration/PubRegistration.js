@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import firebase from "firebase";
+
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
+import firebase from "firebase";
+
 import "./PubRegistration.css";
-import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
 const initialState = {
   error: null,
@@ -17,13 +19,13 @@ const initialState = {
   email: "",
   space: 0,
   phone: "",
-  img: "chooy wie",
+  img: "",
   about: "",
   coordinates: null
 };
 
 class PubRegistration extends Component {
-  state = { ...initialState, owner: this.props.authContext.user.uid };
+  state = { ...initialState };
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -32,7 +34,7 @@ class PubRegistration extends Component {
   handleSubmit = event => {
     const { error, success, ...data } = this.state;
     event.preventDefault();
-
+    data.owner = this.props.authContext.user.uid;
     firebase
       .database()
       .ref("pubs")
@@ -51,6 +53,13 @@ class PubRegistration extends Component {
       );
   };
 
+  addImage = (event, pubId) => {
+    const storageRef = firebase.storage().ref();
+    const ref = storageRef.child(`${pubId}.jpg`);
+    const file = event.target.files[0];
+    ref.put(file);
+  };
+
   render() {
     const {
       name,
@@ -64,6 +73,17 @@ class PubRegistration extends Component {
       about,
       coordinates
     } = this.state;
+
+    // .then(data =>
+    //   data.ref.getDownloadURL().then(url =>
+    //     firebase
+    //       .database()
+    //       .ref("pubs")
+    //       // .child(pubId)
+    //       // .child("img")
+    //       // .set(url)
+    //   )
+    // );
 
     return (
       <>
@@ -177,7 +197,7 @@ class PubRegistration extends Component {
               id="pub-img"
               name="img"
               accept="image/png, image/jpeg"
-              onChange={this.handleChange}
+              onChange={this.addImage}
             />
             <br />
             <label htmlFor="pub-about">About:</label>
@@ -195,13 +215,6 @@ class PubRegistration extends Component {
             />
             <input type="submit" value="Submit Form" />
           </form>
-          {/* {coordinates && (
-          <div>
-            <span>Latitude: {coordinates.latitude.toFixed(2)}</span>
-            <span>Longitude: {coordinates.longitude.toFixed(2)}</span>
-          </div>
-        )} */}
-
           <Map
             center={
               coordinates

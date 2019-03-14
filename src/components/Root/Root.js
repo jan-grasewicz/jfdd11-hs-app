@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { AnimatedRoute } from "react-router-transition";
 import HomeScreen from "../HomeScreen";
 import SearchResults from "../SearchResults/SearchResults";
 import PubScreen from "../PubScreen";
@@ -18,20 +19,40 @@ class Root extends Component {
         <div>
           <Route exact path="/" component={HomeScreen} />
           <Route path="/advancedSearch" component={AdvancedSearch} />
-          <Route exact path="/publist" component={SearchResults} />
           <Route path="/publist/:pubId" component={PubScreen} />
-          <Route path="/signup" component={SignUp} />
+          <AnimatedRoute
+            path="/signup"
+            component={SignUp}
+            atEnter={{ offset: -100 }}
+            atLeave={{ offset: -100 }}
+            atActive={{ offset: 0 }}
+            mapStyles={styles => ({
+              transform: `translateX(${styles.offset}%)`
+            })}
+            className="route-wrapper"
+          />
+          <Route exact path="/publist" component={SearchResults} />
           <Route path="/searchbylocal" component={SearchByLocalization} />
           {this.props.authContext.user === null ? (
             <>
-              <Route path="/login" component={LogIn} />
+              <AnimatedRoute
+                path="/login"
+                component={LogIn}
+                atEnter={{ offset: -100 }}
+                atLeave={{ offset: -100 }}
+                atActive={{ offset: 0 }}
+                mapStyles={styles => ({
+                  transform: `translateX(${styles.offset}%)`
+                })}
+                className="route-wrapper"
+              />
             </>
           ) : (
-              <>
-                <Route path="/profile" component={UserProfile} />
-                <Route path="/add-pub" component={PubRegistration} />
-              </>
-            )}
+            <>
+              <Route path="/profile" component={UserProfile} />
+              <Route path="/add-pub" component={PubRegistration} />
+            </>
+          )}
         </div>
       </Router>
     );

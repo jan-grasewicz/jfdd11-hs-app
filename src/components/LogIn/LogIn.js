@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 
 import "./LogIn.css";
@@ -11,7 +11,8 @@ class LogIn extends Component {
     email: "",
     password: "",
     error: null,
-    success: null
+    success: null,
+    isGoogleSingUpInProgress: false
   };
 
   handleSubmit = event => {
@@ -20,7 +21,7 @@ class LogIn extends Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(this.state.email, this.state.password)
-      .then(data => this.setState({ error: null, success: "Logged In" }))
+      .then(() => this.setState({ error: null, success: "Logged In" }))
       .then(setTimeout(this.back, 1000))
       .catch(error => this.setState({ error: error.message, success: null }));
   };
@@ -30,54 +31,72 @@ class LogIn extends Component {
       [event.target.name]: event.target.value
     });
   };
-  back = () => {
-    this.props.history.push("/publist");
+
+  signUpWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(() =>
+        this.setState({
+          isGoogleSingUpInProgress: true
+        })
+      )
+      .catch(error => console.log(error));
   };
+
+  componentDidMount(){
+    firebase.auth().onAuthStateChanged(user => user ? this.props.history.push('/publist') : false)
+  }
+
+  
   render() {
     return (
       <>
-        <div className='menu-container'>
-        <HamburgerMenu />
+        <div className="menu-container">
+          <HamburgerMenu />
         </div>
-      <div className="LogIn">
-        {this.state.success !== "Logged In" && (
-          <div className="LogIn-wrapper">
-            <form className="LogIn-form">
-              <TextField
-                className="LogIn-input"
-                onChange={this.handleChange}
-                name="email"
-                value={this.state.email}
-                label="Email adress"
-              />
-              <TextField
-                className="LogIn-input"
-                onChange={this.handleChange}
-                type="password"
-                name="password"
-                value={this.state.password}
-               label="Password"
-              />
+        <div className="LogIn">
+          {this.state.success !== "Logged In" && (
+            <div className="LogIn-wrapper">
+              <form className="LogIn-form">
+                <TextField
+                  className="LogIn-input"
+                  onChange={this.handleChange}
+                  name="email"
+                  value={this.state.email}
+                  label="Email adress"
+                />
+                <TextField
+                  className="LogIn-input"
+                  onChange={this.handleChange}
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  label="Password"
+                />
+                <button
+                  className="LogIn-button"
+                  onClick={this.handleSubmit}
+                  type="submit"
+                  name="submit"
+                >
+                  Log In
+                </button>
+              </form>
+              <p className="LogIn-or">OR</p>
               <button
-                className="LogIn-button"
-                onClick={this.handleSubmit}
-                type="submit"
-                name="submit"
+                className="LogIn-google"
+                onClick={this.signUpWithGoogle}
+                disabled={this.state.isGoogleSingUpInProgress}
               >
-                Log In
+                Log in with Google
               </button>
-            </form>
-            <p className="LogIn-or">OR</p>
-            <button className="LogIn-google">Sign in with Google</button>
-            <h2 >{this.state.error}</h2>
-          </div>
-        )}
-        {this.state.success === "Logged In" && (
-          <h1>
-            Logged In <Link to="/publist">Go back</Link>
-          </h1>
-        )}
-      </div>
+              <h2>{this.state.error}</h2>
+            </div>
+          )}
+          {this.state.success && <Redirect to="/publist" />}
+        </div>
       </>
     );
   }

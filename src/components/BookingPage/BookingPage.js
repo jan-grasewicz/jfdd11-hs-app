@@ -87,6 +87,7 @@ class BookingPage extends Component {
                 showTimeSelect={!!this.state.reservationDate}
                 minTime={open}
                 maxTime={close}
+                timeFormat="HH:mm"
                 dateFormat="yyyy/MM/dd HH:mm"
               />
               <label>

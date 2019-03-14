@@ -7,8 +7,6 @@ import "./PubScreen.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import { Link } from "react-router-dom";
-
 class PubScreen extends Component {
   render() {
     let pubId = this.props.match.params.pubId;
@@ -18,7 +16,7 @@ class PubScreen extends Component {
     let reservationLink = `/publist/${pubId}/booking`;
     return (
       <div>
-        <div className="PubScreen-menu-container">
+        <div className="menu-container">
           <HamburgerMenu />
         </div>
         {pub && (

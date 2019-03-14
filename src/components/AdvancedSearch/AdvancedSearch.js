@@ -81,7 +81,7 @@ class AdvancedSearch extends Component {
             </div>
             <div className="AdvancedSearch-option">
               <label>For how many? </label>
-              <input
+              <input className="AdvancedSearch-input"
                 value={cout}
                 type="number"
                 name="cout"
@@ -121,7 +121,6 @@ class AdvancedSearch extends Component {
             </div>
             <div className="AdvancedSearch-form-buttons-wrap">
               <button onClick={this.fittingPubs}>Search</button>
-              <button onClick={this.handleResetFilters}>Reset</button>
             </div>
           </form>
         </div>

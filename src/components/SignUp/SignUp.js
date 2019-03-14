@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { withRouter } from 'react-router'
+import { withRouter, Redirect } from 'react-router'
 import TextField from "@material-ui/core/TextField";
 
 import "./SignUp.css";
@@ -66,10 +66,9 @@ class SignUp extends Component {
   }
 
   render() {
-    const { history } = this.props
     return (
       <>
-        <div className="SignUp-menu-container">
+        <div className="menu-container">
           <HamburgerMenu />
         </div>
         <div className="SignUp-base">
@@ -145,10 +144,14 @@ class SignUp extends Component {
                 Sign in with Google
               </button>
             </div>
-
-            {this.state.success && history.push("/publist")}
-            <h2>{this.state.error}</h2>
+            {this.state.success && <Redirect to="/publist" />}
+            <h2 className="SignUp-error">{this.state.error}</h2>
           </div>
+          <footer className="SignUp-footer">
+            <p>
+            Brewio will handle your data with caution and care. You don't have to worry about anything. Contact us anytime at brewio@brewioapp.com
+            </p>
+          </footer>
         </div>
       </>
     );

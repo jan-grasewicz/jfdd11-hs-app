@@ -29,9 +29,8 @@ const SignUpButton = () => {
 };
 
 class HomeScreen extends Component {
-
   render() {
-    const { user } = this.props.authContext
+    const { user } = this.props.authContext;
     return (
       <div className="HomeScreen">
         <div className="HomeScreen-wrapper">
@@ -41,7 +40,7 @@ class HomeScreen extends Component {
           </div>
           <p className="HomeScreen-p">Going out with friends? </p>
           <p className="HomeScreen-p">
-            <span style={{ color: "#CAB67A", fontSize: "1.7rem" }}>Brewio</span>{" "}
+            <span style={{ color: "#cdaf82", fontSize: "1.7rem" }}>Brewio</span>{" "}
             is here to help
           </p>
           <NavLink
@@ -80,12 +79,12 @@ class HomeScreen extends Component {
             </div>
           </div>
         </div>
-        { user === null && 
+        {user === null && (
           <div className="HomeScreen-buttons">
             <SignUpButton />
             <LogInButton />
           </div>
-        }
+        )}
       </div>
     );
   }

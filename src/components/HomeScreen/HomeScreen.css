@@ -4,7 +4,8 @@
 
 .HomeScreen {
   height: 100vh;
-  background-image: linear-gradient(#00000091, #00000091), url(img/nikola-jovanovic-198375-unsplash.jpg);
+  background-image: linear-gradient(#00000091, #00000091),
+    url(img/nikola-jovanovic-198375-unsplash.jpg);
   background-position: center;
   background-size: cover;
 }
@@ -62,7 +63,7 @@
   background-color: transparent;
   text-align: center;
   text-decoration: none;
-  color: #CAB67A;
+  color: #cdaf82;
   border-radius: 10px;
 }
 
@@ -83,7 +84,7 @@
   width: 100%;
 }
 
-.HomeScreen-about-block>p {
+.HomeScreen-about-block > p {
   color: white;
   margin: 10px 3px 5px 3px;
   padding-top: 5px;
@@ -102,7 +103,7 @@
 }
 
 .HomeScreen-about-block-icon {
-  color: #CAB67A;
+  color: #cdaf82;
   font-size: 2rem;
 }
 

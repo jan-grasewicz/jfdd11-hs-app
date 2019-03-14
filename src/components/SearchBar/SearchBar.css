@@ -36,6 +36,10 @@
   margin-top: 10px;
 }
 
+.SearchBar-advanced-search-icon:active {
+  color: rgb(100, 100, 100);
+}
+
 .SearchBar-advanced-search-container {
   position: fixed;
   top: 100px;

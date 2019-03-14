@@ -66,7 +66,6 @@ class SignUp extends Component {
   }
 
   render() {
-    const { history } = this.props
     return (
       <>
         <div className="SignUp-menu-container">

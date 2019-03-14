@@ -91,14 +91,15 @@ class PubRegistration extends Component {
           <HamburgerMenu />
         </div>
         <div className="PubRegistration-container">
-          <h3>Register Your Pub</h3>
+          <h3>Register Your Awesome Pub</h3>
           <form
             className="PubRegistration-form"
             id="pub-register"
             onSubmit={this.handleSubmit}
           >
-            <h4>*Fill the fields below</h4>
-            <p>* all fields are required</p>
+            <p>
+              <span>NOTE:</span>all fields are required*
+            </p>
             <label htmlFor="pubname">Pub Name:</label>
             <input
               type="text"

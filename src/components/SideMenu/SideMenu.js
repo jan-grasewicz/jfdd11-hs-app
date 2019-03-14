@@ -9,7 +9,8 @@ import {
   faHome,
   faBeer,
   faSignInAlt,
-  faPlus
+  faPlus,
+  faMap
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavItem = ({ to, icon, children }) => (
@@ -49,7 +50,10 @@ class SideMenu extends Component {
             Home
           </NavItem>
           <NavItem to="/publist" icon={faBeer}>
-            Pub List
+            Pub list
+          </NavItem>
+          <NavItem to="/searchbylocal" icon={faMap}>
+            Show map
           </NavItem>
           {user === null && (
             <>

@@ -6,8 +6,10 @@
     background-color: rgba(0, 0, 0, 0.76);
     min-height: 100vh;
     width: 100%;
+    /* margin-top: 70px; */
 }
 
+/* 
 .PubRegistration-container h3, h4 {
     margin: 0;
     padding-top: 70px;
@@ -18,4 +20,4 @@
 .PubRegistration-form p, .PubRegistration-form label {
     color: white;
     font-size: 20px;
-}
+} */

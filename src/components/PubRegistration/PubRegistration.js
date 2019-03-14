@@ -116,6 +116,7 @@ class PubRegistration extends Component {
               name="openhour"
               min="00:00"
               max="23:00"
+              step="3600"
               required
               value={openhour}
               onChange={this.handleChange}
@@ -126,7 +127,8 @@ class PubRegistration extends Component {
               id="pub-cHours"
               name="closehour"
               min="00:00"
-              max="23:00"
+              max="23:30"
+              step="3600"
               required
               value={closehour}
               onChange={this.handleChange}

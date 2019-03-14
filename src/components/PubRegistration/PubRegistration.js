@@ -4,6 +4,7 @@ import firebase from "firebase";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import "./PubRegistration.css";
+import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
 const initialState = {
   error: null,
@@ -22,7 +23,7 @@ const initialState = {
 };
 
 class PubRegistration extends Component {
-  state = initialState;
+  state = { ...initialState, owner: this.props.authContext.user.uid };
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -236,4 +237,4 @@ class PubRegistration extends Component {
   }
 }
 
-export default PubRegistration;
+export default withAuth(PubRegistration);

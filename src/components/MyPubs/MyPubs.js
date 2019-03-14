@@ -15,7 +15,7 @@ class MyPubs extends Component {
               </h2>
               <ul>
                 {/* map filter reservations for one pub */}
-                <li key="reserv-key" className="MyPubs-reservation-li">
+                <li key="reserv-key1" className="MyPubs-reservation-li">
                   <div className="MyPubs-reservation">
                     <h3 className="MyPubs-userName">user name</h3>
                     <button className="MyPubs-switch MyPubs-switch-accepted">
@@ -24,7 +24,7 @@ class MyPubs extends Component {
                     <p className="MyPubs-date">date and hour</p>
                   </div>
                 </li>
-                <li key="reserv-key" className="MyPubs-reservation-li">
+                <li key="reserv-key2" className="MyPubs-reservation-li">
                   <div className="MyPubs-reservation">
                     <h3 className="MyPubs-userName">user name</h3>
                     <button className="MyPubs-switch MyPubs-switch-rejected">

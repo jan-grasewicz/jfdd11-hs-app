@@ -13,20 +13,17 @@ class BookingPage extends Component {
     pub: null,
     pubId: null,
     user: null,
-    reservationHour: "22:00",
-    date: null,
-    reservationDate: null,
+    reservationDate: new Date(),
     countOfPeople: 5
   };
 
-  componentWillMount() {
+  componentDidMount() {
     this.setState({
       pubId: this.props.match.params.pubId,
       pub: this.props.advancedSearchContext.publist.find(
         pub => pub.id === this.props.match.params.pubId
       ),
-      user: this.props.authContext.user,
-      date: new Date().toLocaleDateString()
+      user: this.props.authContext.user
     });
   }
 
@@ -39,7 +36,7 @@ class BookingPage extends Component {
   };
 
   handleDate = reservationDate => {
-    if (reservationDate.getTime() >= Date.now()) {
+    if (new Date() < reservationDate) {
       this.setState({ reservationDate });
     }
   };
@@ -56,6 +53,26 @@ class BookingPage extends Component {
     console.log(this.state);
     let { countOfPeople, reservationDate } = this.state;
     let { handlInput, submitReservation, handleDate } = this;
+
+    const excludeTimes = [];
+
+    if (reservationDate) {
+      {
+        const date = new Date(reservationDate);
+        date.setHours(23);
+        date.setMinutes(59);
+        excludeTimes.push(date);
+      }
+      {
+        const date = new Date(reservationDate);
+        const [hour] = pub.openhour.split(":");
+        date.setHours(+hour);
+        date.setMinutes(0);
+        excludeTimes.push(date);
+      }
+    }
+
+    const [close, open] = excludeTimes;
     return (
       <div className="BookingPage">
         <h1>Reservation in {pub.name}</h1>
@@ -65,14 +82,16 @@ class BookingPage extends Component {
             <div>
               <DatePicker
                 placeholderText="Click to select a date"
-                selected={reservationDate}
+                selected={new Date(reservationDate)}
                 onChange={handleDate}
-                showTimeSelect
-                dateFormat="Pp"
+                showTimeSelect={!!this.state.reservationDate}
+                minTime={open}
+                maxTime={close}
+                dateFormat="yyyy/MM/dd HH:mm"
               />
               <label>
                 Please keep in mind that {pub.name} is opened from{" "}
-                {pub.openhour} till {pub.closehour}
+                {pub.openhour} and You can't make a reservation after midnight
               </label>
             </div>
           </div>

@@ -21,7 +21,6 @@ const initialState = {
   email: "",
   space: 0,
   phone: "",
-  img: "",
   about: "",
   coordinates: {
     latitude: 53.82028,

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { withRouter, Redirect } from 'react-router'
+import { withRouter, Redirect } from "react-router";
 import TextField from "@material-ui/core/TextField";
 
 import "./SignUp.css";
@@ -61,8 +61,12 @@ class SignUp extends Component {
       .catch(error => console.log(error));
   };
 
-  componentDidMount(){
-    firebase.auth().onAuthStateChanged(user => user ? this.props.history.push('/publist') : false)
+  componentDidMount() {
+    firebase
+      .auth()
+      .onAuthStateChanged(user =>
+        user ? this.props.history.push("/publist") : false
+      );
   }
 
   render() {
@@ -73,83 +77,88 @@ class SignUp extends Component {
         </div>
         <div className="SignUp-base">
           <div className="SignUp-form">
-            <div className="SignUp-form-inputs">
-              <TextField
-                onChange={this.handleChange}
-                type="text"
-                name="name"
-                value={this.state.name}
-                label="Name"
-                required={true}
-              />
-              <TextField
-                onChange={this.handleChange}
-                type="text"
-                name="surname"
-                value={this.state.surname}
-                label="Surname"
-                required={true}
-              />
-              <TextField
-                onChange={this.handleChange}
-                type="email"
-                name="email"
-                value={this.state.email}
-                label="Email adress"
-                required={true}
-              />
-              <TextField
-                onChange={this.handleChange}
-                type="password"
-                name="password"
-                value={this.state.password}
-                label="Password"
-                required={true}
-              />
-              <TextField
-                onChange={this.handleChange}
-                type="text"
-                name="phone"
-                value={this.state.phone}
-                label="Phone number"
-              />
-              <div className="SignUp-form-owner">
-                I'm an owner
+            <form onSubmit={this.handleSubmit}>
+              <div className="SignUp-form-inputs">
+                <TextField
+                  onChange={this.handleChange}
+                  type="text"
+                  name="name"
+                  value={this.state.name}
+                  label="Name"
+                  required={true}
+                />
+                <TextField
+                  onChange={this.handleChange}
+                  type="text"
+                  name="surname"
+                  value={this.state.surname}
+                  label="Surname"
+                  required={true}
+                />
+                <TextField
+                  onChange={this.handleChange}
+                  type="email"
+                  name="email"
+                  value={this.state.email}
+                  label="Email adress"
+                  required={true}
+                />
+                <TextField
+                  onChange={this.handleChange}
+                  type="password"
+                  name="password"
+                  value={this.state.password}
+                  label="Password"
+                  required={true}
+                />
+                <TextField
+                  onChange={this.handleChange}
+                  type="tel"
+                  name="phone"
+                  value={this.state.phone}
+                  label="Phone number"
+                />
+                <div className="SignUp-form-owner">
+                  I'm an owner
+                  <input
+                    onChange={() =>
+                      this.state.isOwner
+                        ? this.setState({ isOwner: false })
+                        : this.setState({ isOwner: true })
+                    }
+                    type="checkbox"
+                    name="isOwner"
+                    value={this.state.isOwner}
+                  />
+                </div>
+              </div>
+              <div className="SignUp-form-button">
                 <input
-                  onChange={() =>
-                    this.state.isOwner
-                      ? this.setState({ isOwner: false })
-                      : this.setState({ isOwner: true })
-                  }
-                  type="checkbox"
-                  name="isOwner"
-                  value={this.state.isOwner}
+                  
+                  type="submit"
+                  name="submit"
+                  value="Sign in"
                 />
               </div>
-            </div>
-            <div className="SignUp-form-button">
-              <input
-                onClick={this.handleSubmit}
-                type="submit"
-                name="submit"
-                value="Sign in"
-              />
-            </div>
-            <p className="SignUp-form-p">OR</p>
-            <div className="SignUp-form-google">
-              <button
-                onClick={this.signUpWithGoogle}
-                disabled={this.state.isGoogleSingUpInProgress}
-              >
-                Sign in with Google
-              </button>
-            </div>
+              <p className="SignUp-form-p">OR</p>
+              <div className="SignUp-form-google">
+                <button
+                  onClick={this.signUpWithGoogle}
+                  disabled={this.state.isGoogleSingUpInProgress}
+                >
+                  Sign in with Google
+                </button>
+              </div>
+            </form>
+
             {this.state.success && <Redirect to="/publist" />}
             <h2 className="SignUp-error">{this.state.error}</h2>
           </div>
           <footer className="SignUp-footer">
             <p>
-            Brewio will handle your data with caution and care. You don't have to worry about anything. Contact us anytime at brewio@brewioapp.com
+              Brewio will handle your data with caution and care. You don't have
+              to worry about anything. Contact us anytime at
+              brewio@brewioapp.com
             </p>
           </footer>
         </div>

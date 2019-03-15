@@ -10,7 +10,7 @@ export default class AuthContextProvider extends Component {
     userData: null,
     signIn: (email, password) =>
       firebase.auth().signInWithEmailAndPassword(email, password),
-    signOut: () => firebase.auth().signOut()
+    signOut: (event) => {event.preventDefault(); firebase.auth().signOut()}
   };
 
   componentDidMount() {

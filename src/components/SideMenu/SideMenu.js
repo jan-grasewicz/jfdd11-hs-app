@@ -42,8 +42,9 @@ class SideMenu extends Component {
             <NavLink to="/profile" className="SideMenu-profile-a">
               <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
               <p className="SideMenu-profile-p">My Profile</p>
+          
               <button className='SideMenu-profile-button' onClick={signOut}>Sign Out</button>
-            </NavLink>
+              </NavLink>
           </>)}
         <ul className="SideMenu-menu">
           <NavItem to="/" icon={faHome}>

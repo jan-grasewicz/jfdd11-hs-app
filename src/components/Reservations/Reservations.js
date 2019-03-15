@@ -4,44 +4,38 @@ import "./Reservations.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class Reservations extends Component {
+  getPub = ajdi =>
+    this.props.advancedSearchContext.publist.find(pub => pub.id === ajdi);
+
   render() {
     const { reservations, users, publist } = this.props.advancedSearchContext;
+    const { getPub } = this;
     console.log("adv context", this.props.advancedSearchContext);
-    console.log();
-    let pub;
+    let reservationsArr = reservations.filter(
+      res => res.userUid === this.props.user.uid
+    );
+
+    console.log(reservationsArr);
     return (
       <div className="Reservations">
         <ul>
-          {reservations &&
-            publist &&
-            users &&
-            reservations
-              .filter(res => res.userUid === this.props.user)
-              .map(reservation => {
-                pub = publist.find(pub => pub.id === reservation.placeId);
-                return (
-                  <li key={reservation.id}>
-                    <div className="Reservations-reservation">
-                      <h2 className="Reservations-pubname">{pub.name}</h2>
-                      <div
-                        className={
-                          "Reservations-state " +
-                          "Reservations-" +
-                          reservation.status
-                        }
-                      >
-                        {reservation.status}
-                      </div>
-                      <p className="Reservations-date">
-                        reservation from:{" "}
-                        {new Date(reservation.date).toLocaleTimeString() +
-                          " " +
-                          new Date(reservation.date).toLocaleDateString()}
-                      </p>
-                    </div>
-                  </li>
-                );
-              })}
+          {reservationsArr.map(res => (
+            <li key={res.id}>
+              <div className="Reservations-reservation">
+                <h2 className="Reservations-pubname">
+                  {getPub(res.placeId).name}
+                </h2>
+                <div
+                  className={`Reservations-state Reservations-${res.status}`}
+                >
+                  {res.status}
+                </div>
+                <p className="Reservations-date">
+                  reservation from: (hour) (date)
+                </p>
+              </div>
+            </li>
+          ))}
 
           <li key="firebaseId2">
             <div className="Reservations-reservation">

@@ -22,6 +22,7 @@ export default class AdvancedSearchProvider extends Component {
     openedFrom: "all",
     openedTill: "all",
     searchPhrase: "",
+    reservations: [],
     resetFilters: () => {
       this.setState({ ...initialFilterState });
     },
@@ -67,6 +68,7 @@ export default class AdvancedSearchProvider extends Component {
   componentDidMount() {
     this.fetchStuff("publist");
     this.fetchStuff("users");
+    this.fetchStuff("reservations");
   }
 
   render() {

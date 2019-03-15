@@ -18,11 +18,11 @@ class MyPubs extends Component {
                 <li key="reserv-key1" className="MyPubs-reservation-li">
                   <div className="MyPubs-reservation">
                     <h3 className="MyPubs-userName">user name</h3>
-                    <button className="MyPubs-btn MyPubs-btn-accepted">
-                      btn
+                    <button className="MyPubs-btn MyPubs-btn-reject MyPubs-btn-inactive">
+                      Reject
                     </button>
-                    <button className="MyPubs-btn MyPubs-btn-rejected">
-                      btn
+                    <button className="MyPubs-btn MyPubs-btn-accept MyPubs-btn-inactive">
+                      Accept
                     </button>
                     <p className="MyPubs-date">date and hour</p>
                   </div>
@@ -30,11 +30,11 @@ class MyPubs extends Component {
                 <li key="reserv-key2" className="MyPubs-reservation-li">
                   <div className="MyPubs-reservation">
                     <h3 className="MyPubs-userName">user name</h3>
-                    <button className="MyPubs-btn MyPubs-btn-accepted">
-                      btn
+                    <button className="MyPubs-btn MyPubs-btn-reject">
+                      Reject
                     </button>
-                    <button className="MyPubs-btn MyPubs-btn-rejected">
-                      btn
+                    <button className="MyPubs-btn MyPubs-btn-accept">
+                      Accept
                     </button>
 
                     <p className="MyPubs-date">date and hour</p>

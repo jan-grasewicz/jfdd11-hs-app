@@ -52,3 +52,7 @@
     right: 15px;
     top: 15px;
 }
+
+.UserProfile-fullname h2 {
+    display: inline;
+}

@@ -54,7 +54,11 @@ class ProfileTabs extends Component {
           </button>
         )}
 
-        {this.state.tab === "mypubs" ? <MyPubs /> : <Reservations />}
+        {this.state.tab === "mypubs" ? (
+          <MyPubs user={this.props.user} />
+        ) : (
+          <Reservations />
+        )}
       </div>
     );
   }

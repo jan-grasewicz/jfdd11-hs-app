@@ -34,7 +34,7 @@ class PubRegistration extends Component {
 
     firebase
       .database()
-      .ref("pubs")
+      .ref("publist")
       .push(data)
       .then(() => {
         this.setState({

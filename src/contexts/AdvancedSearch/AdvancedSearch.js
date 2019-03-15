@@ -54,8 +54,17 @@ export default class AdvancedSearchProvider extends Component {
   };
 
   componentDidMount() {
-    fetch(process.env.PUBLIC_URL + "/data/publist.json")
-      .then(data => data.json())
+    // fetch(process.env.PUBLIC_URL + "/data/publist.json")
+    //   .then(data => data.json())
+    //   .then(publist =>
+    //     Object.entries(publist).map(([id, val]) => ({ id, ...val }))
+    //   )
+    //   .then(publist => this.setState({ publist }));
+    firebase
+      .database()
+      .ref("pubs")
+      .once("value")
+      .then(snap => snap.val())
       .then(publist =>
         Object.entries(publist).map(([id, val]) => ({ id, ...val }))
       )

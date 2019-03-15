@@ -38,6 +38,7 @@ export default class AdvancedSearchProvider extends Component {
   };
 
   componentDidMount() {
+
     fetch(process.env.PUBLIC_URL + "/data/publist.json")
       .then(data => data.json())
       .then(publist =>

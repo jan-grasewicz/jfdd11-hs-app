@@ -75,45 +75,41 @@ class BookingPage extends Component {
     const [close, open] = excludeTimes;
     return (
       <div className="BookingPage">
-        <h1>Reservation in {pub.name}</h1>
-        <form>
+        <form className="BookingPage-form">
+          <h2 className="BookingPage-title">
+            Reservation in <span>{pub.name}</span>
+          </h2>
           <div>
-            <div>Pick date adn time of your reservation</div>
-            <div>
-              <DatePicker
-                placeholderText="Click to select a date"
-                selected={new Date(reservationDate)}
-                onChange={handleDate}
-                showTimeSelect={!!this.state.reservationDate}
-                minTime={open}
-                maxTime={close}
-                timeFormat="HH:mm"
-                dateFormat="yyyy/MM/dd HH:mm"
-              />
-              <label>
-                Please keep in mind that {pub.name} is opened from{" "}
-                {pub.openhour} and You can't make a reservation after midnight
-              </label>
-            </div>
-          </div>
-          <div>
-            <div>
-              <label>
-                For how many people would You like to make a reservation?
-              </label>
-            </div>
-            <div>
-              <input
-                type="number"
-                name="countOfPeople"
-                value={countOfPeople}
-                onChange={handlInput}
-              />{" "}
-              Keep in mind that {pub.name} pub offers {pub.space} places
-            </div>
-          </div>
-          <div>
-            <button onClick={submitReservation}>Submit</button>
+            <p>Please specify the date, time and size of your reservation.</p>
+
+            <DatePicker
+              className="BookingPage-datepicker"
+              placeholderText="Click to select a date"
+              selected={new Date(reservationDate)}
+              onChange={handleDate}
+              showTimeSelect={!!this.state.reservationDate}
+              minTime={open}
+              maxTime={close}
+              dateFormat="yyyy/MM/dd HH:mm"
+            />
+            <p className="BookingPage-note">
+              Keep in mind that {pub.name} is opened from {pub.openhour} <br />
+              and only accepts reservations before midnight.
+            </p>
+            <input
+              className="BookingPage-count"
+              type="number"
+              name="countOfPeople"
+              value={countOfPeople}
+              onChange={handlInput}
+            />
+            <p className="BookingPage-note">
+              Keep in mind that pub {pub.name} offers {pub.space} seats for
+              reservation on chosen date.
+            </p>
+            <button className="BookingPage-submit" onClick={submitReservation}>
+              Submit
+            </button>
           </div>
         </form>
       </div>

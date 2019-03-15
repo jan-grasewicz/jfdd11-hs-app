@@ -31,12 +31,9 @@ class Root extends Component {
             <>
               <Route path="/publist/:pubId/booking" component={BookingPage} />
               <Route path="/profile" component={UserProfile} />
+              <Route path="/add-pub" component={PubRegistration} />
             </>
           )}
-          <>
-            <Route path="/profile" component={UserProfile} />
-            <Route path="/add-pub" component={PubRegistration} />
-          </>
         </div>
       </Router>
     );

@@ -7,6 +7,7 @@ import "./PubScreen.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+
 class PubScreen extends Component {
   render() {
     let pubId = this.props.match.params.pubId;

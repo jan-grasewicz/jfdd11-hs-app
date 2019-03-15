@@ -31,7 +31,10 @@ class Reservations extends Component {
                   {res.status}
                 </div>
                 <p className="Reservations-date">
-                  reservation from: (hour) (date)
+                  reservation on:{" "}
+                  {new Date(res.date).toDateString() +
+                    "  from " +
+                    new Date(res.date).toLocaleTimeString()}
                 </p>
               </div>
             </li>

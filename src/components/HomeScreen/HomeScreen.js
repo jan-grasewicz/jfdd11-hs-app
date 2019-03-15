@@ -12,7 +12,7 @@ import Brewio from "./img/brewio.svg";
 import "./HomeScreen.css";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
-const LogInButton = () => {
+export const LogInButton = () => {
   return (
     <NavLink to={"/login"}>
       <button className="HomeScreen-btn">Log in</button>
@@ -20,7 +20,7 @@ const LogInButton = () => {
   );
 };
 
-const SignUpButton = () => {
+export const SignUpButton = () => {
   return (
     <NavLink to={"/signup"}>
       <button className="HomeScreen-btn">Sign up</button>

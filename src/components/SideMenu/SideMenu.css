@@ -60,3 +60,13 @@
   flex-direction: row;
   width: 100%;
 }
+
+
+.SideMenu-profile-button{
+  width: 80px;
+  height: 30px;
+  border: 2px solid #cdaf82;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.76);
+  border-radius: 3px;
+}

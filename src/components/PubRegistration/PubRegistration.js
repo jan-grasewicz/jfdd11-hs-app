@@ -24,8 +24,8 @@ const initialState = {
   img: "",
   about: "",
   coordinates: {
-    lat: 53.82028,
-    lng: 17.66861
+    latitude: 53.82028,
+    longitude: 17.66861
   },
   file: null
 };

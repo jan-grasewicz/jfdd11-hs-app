@@ -23,7 +23,10 @@ const initialState = {
   phone: "",
   img: "",
   about: "",
-  coordinates: null,
+  coordinates: {
+    lat: 53.82028,
+    lng: 17.66861
+  },
   file: null
 };
 

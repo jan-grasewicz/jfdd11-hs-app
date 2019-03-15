@@ -2,17 +2,19 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-
+import { Link } from "react-router-dom";
 import "./PubScreen.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+
 class PubScreen extends Component {
   render() {
     let pubId = this.props.match.params.pubId;
     let pub = this.props.advancedSearchContext.publist.find(
       pub => pub.id === pubId
     );
+    let reservationLink = `/publist/${pubId}/booking`;
     return (
       <div>
         <div className="menu-container">
@@ -30,9 +32,9 @@ class PubScreen extends Component {
               />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
-            <button className="PubScreen-reservation-button">
+            <Link to={reservationLink} className="PubScreen-reservation-button">
               Make Reservation
-            </button>
+            </Link>
             <div className="PubScreen-info-wrapper">
               <dl className="PubScreen-info">
                 <dt>City:</dt>

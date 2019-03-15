@@ -1,23 +1,47 @@
 import React, { Component } from "react";
 
 import "./Reservations.css";
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class Reservations extends Component {
   render() {
+    const { reservations, users, publist } = this.props.advancedSearchContext;
+    console.log("adv context", this.props.advancedSearchContext);
+    console.log();
+    let pub;
     return (
       <div className="Reservations">
         <ul>
-          <li key="firebaseId1">
-            <div className="Reservations-reservation">
-              <h2 className="Reservations-pubname">Pub Name</h2>
-              <div className="Reservations-state Reservations-pending">
-                pending
-              </div>
-              <p className="Reservations-date">
-                reservation from: (hour) (date)
-              </p>
-            </div>
-          </li>
+          {reservations &&
+            publist &&
+            users &&
+            reservations
+              .filter(res => res.userUid === this.props.user)
+              .map(reservation => {
+                pub = publist.find(pub => pub.id === reservation.placeId);
+                return (
+                  <li key={reservation.id}>
+                    <div className="Reservations-reservation">
+                      <h2 className="Reservations-pubname">{pub.name}</h2>
+                      <div
+                        className={
+                          "Reservations-state " +
+                          "Reservations-" +
+                          reservation.status
+                        }
+                      >
+                        {reservation.status}
+                      </div>
+                      <p className="Reservations-date">
+                        reservation from:{" "}
+                        {new Date(reservation.date).toLocaleTimeString() +
+                          " " +
+                          new Date(reservation.date).toLocaleDateString()}
+                      </p>
+                    </div>
+                  </li>
+                );
+              })}
 
           <li key="firebaseId2">
             <div className="Reservations-reservation">
@@ -57,4 +81,4 @@ class Reservations extends Component {
   }
 }
 
-export default Reservations;
+export default withAdvancedSearch(Reservations);

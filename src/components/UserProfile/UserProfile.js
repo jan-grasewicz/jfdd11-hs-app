@@ -36,7 +36,7 @@ class UserProfile extends Component {
               />
             </div>
 
-            <ProfileTabs />
+            <ProfileTabs user={user} />
           </div>
         </div>
       </>

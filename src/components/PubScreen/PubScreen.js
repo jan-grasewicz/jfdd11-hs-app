@@ -32,9 +32,9 @@ class PubScreen extends Component {
               />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
-            <button className="PubScreen-reservation-button">
-              <Link to={reservationLink}>Make Reservation</Link>
-            </button>
+            <Link to={reservationLink} className="PubScreen-reservation-button">
+              Make Reservation
+            </Link>
             <div className="PubScreen-info-wrapper">
               <dl className="PubScreen-info">
                 <dt>City:</dt>

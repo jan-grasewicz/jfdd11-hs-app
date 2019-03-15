@@ -43,6 +43,14 @@ class BookingPage extends Component {
 
   submitReservation = event => {
     event.preventDefault();
+    setTimeout(this.props.history.push(`/publist`), 2000);
+    const { user, pubId, reservationDate, countOfPeople } = this.state;
+    this.props.advancedSearchContext.pushReservation(
+      user.uid,
+      pubId,
+      reservationDate.getTime(),
+      countOfPeople
+    );
   };
 
   render() {

@@ -41,24 +41,22 @@ class MyPubs extends Component {
                           {this.getUser(reservation)}
                         </h3>
                         <button
-                          className="MyPubs-btn MyPubs-btn-reject"
+                          className={`MyPubs-btn MyPubs-btn-reject ${reservation.status !==
+                            "pending" && "MyPubs-btn-inactive"}`}
                           onClick={() =>
                             updateState(reservation.id, "rejected")
                           }
+                          // disabled={`${reservation.status !== "pending"}`}
                         >
                           Reject
                         </button>
                         <button
-                          className={
-                            `MyPubs-btn MyPubs-btn-accept ` +
-                              reservation.status !==
-                            "pending"
-                              ? "MyPubs-btn-inactive"
-                              : ""
-                          }
+                          className={`MyPubs-btn MyPubs-btn-accept ${reservation.status !==
+                            "pending" && "MyPubs-btn-inactive"}`}
                           onClick={() =>
                             updateState(reservation.id, "accepted")
                           }
+                          // disabled={`${reservation.status !== "pending"}`}
                         >
                           Accept
                         </button>

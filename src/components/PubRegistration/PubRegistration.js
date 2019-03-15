@@ -8,6 +8,8 @@ import firebase from "firebase";
 
 import "./PubRegistration.css";
 
+const publistRefName = "publist";
+
 const initialState = {
   error: null,
   success: null,
@@ -21,7 +23,8 @@ const initialState = {
   phone: "",
   img: "",
   about: "",
-  coordinates: null
+  coordinates: null,
+  file: null
 };
 
 class PubRegistration extends Component {
@@ -32,13 +35,20 @@ class PubRegistration extends Component {
     });
   };
   handleSubmit = event => {
-    const { error, success, ...data } = this.state;
+    const { error, success, file, ...data } = this.state;
     event.preventDefault();
     data.owner = this.props.authContext.user.uid;
+
+    const pubId = firebase
+      .database()
+      .ref(publistRefName)
+      .push().key;
+
     firebase
       .database()
-      .ref("pubs")
-      .push(data)
+      .ref(publistRefName)
+      .child(pubId)
+      .update(data)
       .then(() => {
         this.setState({
           error: null,
@@ -51,13 +61,31 @@ class PubRegistration extends Component {
           console.log(this.state.error)
         )
       );
-  };
 
-  addImage = (event, pubId) => {
+    if (file === null) {
+      return;
+    }
     const storageRef = firebase.storage().ref();
     const ref = storageRef.child(`${pubId}.jpg`);
+    ref
+      .put(file)
+      .then(data => data.ref.getDownloadURL())
+      .then(url => {
+        firebase
+          .database()
+          .ref(publistRefName)
+          .child(pubId)
+          .child("photoUrl")
+          .set(url);
+      });
+  };
+
+  handleFile = event => {
     const file = event.target.files[0];
-    ref.put(file);
+    this.setState({
+      file: file,
+      tmpFile: URL.createObjectURL(file)
+    });
   };
 
   render() {
@@ -73,17 +101,6 @@ class PubRegistration extends Component {
       about,
       coordinates
     } = this.state;
-
-    // .then(data =>
-    //   data.ref.getDownloadURL().then(url =>
-    //     firebase
-    //       .database()
-    //       .ref("pubs")
-    //       // .child(pubId)
-    //       // .child("img")
-    //       // .set(url)
-    //   )
-    // );
 
     return (
       <>
@@ -198,8 +215,16 @@ class PubRegistration extends Component {
               id="pub-img"
               name="img"
               accept="image/png, image/jpeg"
-              onChange={this.addImage}
+              onChange={this.handleFile}
             />
+            <div className="img_wrapper">
+              <img
+                className="pub_img"
+                src={this.state.tmpFile}
+                alt="preview of your uploaded pub view "
+              />
+            </div>
+
             <br />
             <label htmlFor="pub-about">About:</label>
             <br />
@@ -207,9 +232,9 @@ class PubRegistration extends Component {
               id="pub-about"
               name="about"
               maxLength="250"
-              rows="10"
+              rows="8"
               cols="40"
-              placeholder="write few words about your pub"
+              placeholder="write few words about your pub (maximum 250 characters)"
               required
               value={about}
               onChange={this.handleChange}

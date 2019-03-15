@@ -34,7 +34,7 @@
 }
 
 .SignUp-form-google {
-  margin: 0 auto;
+  text-align: center;
 }
 
 .SignUp-form-google > button {
@@ -44,10 +44,11 @@
   background-color: red;
   font-size: 1rem;
   padding: 0.7rem 3rem;
+  text-align: center;
 }
 
 .SignUp-form-button {
-  margin: 0 auto;
+  text-align: center;
 }
 
 .SignUp-form-button > input {

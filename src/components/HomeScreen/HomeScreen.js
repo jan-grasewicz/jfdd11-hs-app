@@ -12,7 +12,7 @@ import Brewio from "./img/brewio.svg";
 import "./HomeScreen.css";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
-const LogInButton = () => {
+export const LogInButton = () => {
   return (
     <NavLink to={"/login"}>
       <button className="HomeScreen-btn">Log in</button>
@@ -20,7 +20,7 @@ const LogInButton = () => {
   );
 };
 
-const SignUpButton = () => {
+export const SignUpButton = () => {
   return (
     <NavLink to={"/signup"}>
       <button className="HomeScreen-btn">Sign up</button>
@@ -29,9 +29,8 @@ const SignUpButton = () => {
 };
 
 class HomeScreen extends Component {
-
   render() {
-    const { user } = this.props.authContext
+    const { user } = this.props.authContext;
     return (
       <div className="HomeScreen">
         <div className="HomeScreen-wrapper">
@@ -41,7 +40,7 @@ class HomeScreen extends Component {
           </div>
           <p className="HomeScreen-p">Going out with friends? </p>
           <p className="HomeScreen-p">
-            <span style={{ color: "#CAB67A", fontSize: "1.7rem" }}>Brewio</span>{" "}
+            <span style={{ color: "#cdaf82", fontSize: "1.7rem" }}>Brewio</span>{" "}
             is here to help
           </p>
           <NavLink
@@ -80,12 +79,12 @@ class HomeScreen extends Component {
             </div>
           </div>
         </div>
-        { user === null && 
+        {user === null && (
           <div className="HomeScreen-buttons">
             <SignUpButton />
             <LogInButton />
           </div>
-        }
+        )}
       </div>
     );
   }

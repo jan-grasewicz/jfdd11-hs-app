@@ -7,6 +7,7 @@ import AdvancedSearch from "../AdvancedSearch";
 import SignUp from "../SignUp/SignUp";
 import LogIn from "../LogIn";
 import UserProfile from "../UserProfile";
+import BookingPage from "../BookingPage";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import PubRegistration from "../PubRegistration/PubRegistration";
 import SearchByLocalization from "../SearchByLocalization/SearchByLocalization";
@@ -19,7 +20,7 @@ class Root extends Component {
           <Route exact path="/" component={HomeScreen} />
           <Route path="/advancedSearch" component={AdvancedSearch} />
           <Route exact path="/publist" component={SearchResults} />
-          <Route path="/publist/:pubId" component={PubScreen} />
+          <Route exact path="/publist/:pubId" component={PubScreen} />
           <Route path="/signup" component={SignUp} />
           <Route path="/searchbylocal" component={SearchByLocalization} />
           {this.props.authContext.user === null ? (
@@ -27,11 +28,12 @@ class Root extends Component {
               <Route path="/login" component={LogIn} />
             </>
           ) : (
-              <>
-                <Route path="/profile" component={UserProfile} />
-                <Route path="/add-pub" component={PubRegistration} />
-              </>
-            )}
+            <>
+              <Route path="/publist/:pubId/booking" component={BookingPage} />
+              <Route path="/profile" component={UserProfile} />
+              <Route path="/add-pub" component={PubRegistration} />
+            </>
+          )}
         </div>
       </Router>
     );

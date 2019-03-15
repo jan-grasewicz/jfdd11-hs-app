@@ -33,14 +33,14 @@ class Reservations extends Component {
                 <p className="Reservations-date">
                   reservation on:{" "}
                   {new Date(res.date).toDateString() +
-                    "  from " +
+                    " from " +
                     new Date(res.date).toLocaleTimeString()}
                 </p>
               </div>
             </li>
           ))}
 
-          <li key="firebaseId2">
+          {/* <li key="firebaseId2">
             <div className="Reservations-reservation">
               <h2 className="Reservations-pubname">Pub Name</h2>
               <div className="Reservations-state Reservations-accepted">
@@ -62,7 +62,7 @@ class Reservations extends Component {
                 reservation from: (hour) (date)
               </p>
             </div>
-          </li>
+          </li> */}
           <li key="firebaseId4">
             <div className="Reservations-reservation">
               <h2 className="Reservations-pubname">Pub Name</h2>

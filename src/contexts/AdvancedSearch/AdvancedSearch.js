@@ -26,6 +26,8 @@ export default class AdvancedSearchProvider extends Component {
     resetFilters: () => {
       this.setState({ ...initialFilterState });
     },
+    updateState: (ajdi, newState) =>
+      this.changeReservationState(ajdi, newState),
     pushReservation: (uid, placeId, resTime, places) => {
       this.placeReser(uid, placeId, resTime, places);
     },
@@ -63,6 +65,14 @@ export default class AdvancedSearchProvider extends Component {
       .then(snap => snap.val())
       .then(stuff => Object.entries(stuff).map(([id, val]) => ({ id, ...val })))
       .then(stuff => this.setState({ [thing]: stuff }));
+  };
+
+  changeReservationState = (ajdi, newState) => {
+    firebase
+      .database()
+      .ref("reservations")
+      .child(`${ajdi}`)
+      .update({ status: newState });
   };
 
   componentDidMount() {

@@ -1,17 +1,29 @@
 import React, { Component } from "react";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
+import firebase from "firebase";
 import "./MyPubs.css";
 class MyPubs extends Component {
   getUser = res =>
     this.props.advancedSearchContext.users.find(user => user.id === res.userUid)
       .name;
 
+  changeReservationState = ajdi => {
+    console.log(
+      firebase
+        .database()
+        .ref("reservations")
+        .child(`${ajdi}`)
+    );
+  };
+
   render() {
-    const { publist, reservations } = this.props.advancedSearchContext;
+    const {
+      publist,
+      reservations,
+      updateState
+    } = this.props.advancedSearchContext;
     const { user } = this.props;
     let myPubList = publist.filter(pub => pub.owner === user.id);
-    console.log(user.uid);
-    console.log(myPubList);
     return (
       <div className="MyPubs">
         <ul>
@@ -28,10 +40,26 @@ class MyPubs extends Component {
                         <h3 className="MyPubs-userName">
                           {this.getUser(reservation)}
                         </h3>
-                        <button className="MyPubs-btn MyPubs-btn-reject">
+                        <button
+                          className="MyPubs-btn MyPubs-btn-reject"
+                          onClick={() =>
+                            updateState(reservation.id, "rejected")
+                          }
+                        >
                           Reject
                         </button>
-                        <button className="MyPubs-btn MyPubs-btn-accept">
+                        <button
+                          className={
+                            `MyPubs-btn MyPubs-btn-accept ` +
+                              reservation.status !==
+                            "pending"
+                              ? "MyPubs-btn-inactive"
+                              : ""
+                          }
+                          onClick={() =>
+                            updateState(reservation.id, "accepted")
+                          }
+                        >
                           Accept
                         </button>
                         <p className="MyPubs-date">

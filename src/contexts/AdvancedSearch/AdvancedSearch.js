@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import firebase from "firebase";
 export const AdvancedSearchContext = React.createContext({ publist: [] });
 const { Provider, Consumer } = AdvancedSearchContext;
 
@@ -24,6 +24,9 @@ export default class AdvancedSearchProvider extends Component {
     resetFilters: () => {
       this.setState({ ...initialFilterState });
     },
+    pushReservation: (uid, placeId, resTime, places) => {
+      this.placeReser(uid, placeId, resTime, places);
+    },
     handleChange: event => {
       this.setState({ [event.target.name]: event.target.value });
     },
@@ -35,6 +38,19 @@ export default class AdvancedSearchProvider extends Component {
         searchPhrase: str
       });
     }
+  };
+
+  placeReser = (uid, placeId, resTime, places) => {
+    firebase
+      .database()
+      .ref("reservations")
+      .push({
+        placeId,
+        userUid: uid,
+        date: resTime,
+        status: "pending",
+        places
+      });
   };
 
   componentDidMount() {

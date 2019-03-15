@@ -1,0 +1,49 @@
+.BookingPage {
+    background: rgba(0, 0, 0, 0.76);
+    height: 100vh;
+    color: rgb(224, 224, 224);
+    padding: 15px;
+}
+
+.BookingPage-form {
+    background: rgba(0, 0, 0, 0.76);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px solid #cdaf82;
+    padding: 10px;
+    text-align: center;
+}
+
+.BookingPage-title span{
+    color: #cdaf82;
+}
+
+.BookingPage-note{
+    font-size: 0.8rem;
+}
+
+.BookingPage-datepicker{
+    background: rgb(224, 224, 224);
+    text-align: center;
+}
+
+.BookingPage-count{
+    background: rgb(224, 224, 224);
+    text-align: center;
+}
+
+.BookingPage-submit{
+    background: rgba(0, 0, 0, 0.76);
+    color: #cdaf82;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 1px solid rgb(224, 224, 224);
+    padding: 0.3rem;
+    width: 33%;
+    margin: 0.9rem;
+}
+
+.BookingPage-submit:hover{
+    background: #cdaf82;
+    color: rgba(0, 0, 0, 0.76);
+}

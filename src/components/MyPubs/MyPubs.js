@@ -23,12 +23,17 @@ class MyPubs extends Component {
       updateState
     } = this.props.advancedSearchContext;
     const { user } = this.props;
-    let myPubList = publist.filter(pub => pub.owner === user.id);
+    let myPubList = publist.filter(pub => pub.owner === user.uid);
     return (
       <div className="MyPubs">
         <ul>
+          {console.log(myPubList)}
+          {myPubList.length === 0 && (
+            <p>No pubs to display. To add your pub go to: Menu > Add Your Pub.</p>
+          )}
+
           {myPubList.map(pub => (
-            <li key="firebaseId1">
+            <li key={pub.id}>
               <div className="MyPubs-pub">
                 <h2 className="MyPubs-pubname">
                   {pub.name} <span>reservations:</span>
@@ -66,20 +71,6 @@ class MyPubs extends Component {
                       </div>
                     </li>
                   ))}
-
-                  <li key="reserv-key2" className="MyPubs-reservation-li">
-                    <div className="MyPubs-reservation">
-                      <h3 className="MyPubs-userName">user name</h3>
-                      <button className="MyPubs-btn MyPubs-btn-reject">
-                        Reject
-                      </button>
-                      <button className="MyPubs-btn MyPubs-btn-accept">
-                        Accept
-                      </button>
-
-                      <p className="MyPubs-date">date and hour</p>
-                    </div>
-                  </li>
                 </ul>
               </div>
             </li>

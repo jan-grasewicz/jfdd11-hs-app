@@ -3,9 +3,13 @@ import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch
 import firebase from "firebase";
 import "./MyPubs.css";
 class MyPubs extends Component {
-  getUser = res =>
-    this.props.advancedSearchContext.users.find(user => user.id === res.userUid)
-      .name;
+  getUser = res => {
+    let user = this.props.advancedSearchContext.users.find(
+      user => user.id === res.userUid
+    );
+
+    return user.name + " " + user.surname;
+  };
 
   changeReservationState = ajdi => {
     console.log(
@@ -29,7 +33,9 @@ class MyPubs extends Component {
         <ul>
           {console.log(myPubList)}
           {myPubList.length === 0 && (
-            <p>No pubs to display. To add your pub go to: Menu > Add Your Pub.</p>
+            <p>
+              No pubs to display. To add your pub go to: Menu > Add Your Pub.
+            </p>
           )}
 
           {myPubList.map(pub => (

@@ -7,6 +7,17 @@ import "./PubScreen.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import { withAuth } from "../../contexts/AuthContext/AuthContext";
+
+const SignUpOrLogIn = () => {
+  return (
+    <div className='PubScreen-login-signup-container'>
+      <p>To make a reservation, log in or sign up first</p>
+      <Link className='PubScreen-login-signup-btns' to={'/login'}>Log In</Link>
+      <Link className='PubScreen-login-signup-btns' to={'/signup'}>Sign Up</Link>
+    </div>
+  );
+};
 
 class PubScreen extends Component {
   render() {
@@ -15,6 +26,7 @@ class PubScreen extends Component {
       pub => pub.id === pubId
     );
     let reservationLink = `/publist/${pubId}/booking`;
+    const { user } = this.props.authContext;
     return (
       <div>
         <div className="menu-container">
@@ -25,16 +37,27 @@ class PubScreen extends Component {
             <div className="PubScreen-img-wrapper">
               <img
                 className="PubScreen-pubImg"
-                src={pub.img}
+                src={pub.photoUrl}
                 alt={`pub ${pub.name} located at ${
                   pub.address
                 } in the city of {pub.city}`}
               />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
-            <Link to={reservationLink} className="PubScreen-reservation-button">
-              Make Reservation
-            </Link>
+
+            {user !== null ? (
+              <Link
+                to={reservationLink}
+                className="PubScreen-reservation-button"
+              >
+                Make Reservation
+              </Link>
+            ) : (
+              <>
+                <SignUpOrLogIn />
+              </>
+            )}
+
             <div className="PubScreen-info-wrapper">
               <dl className="PubScreen-info">
                 <dt>City:</dt>
@@ -92,4 +115,4 @@ class PubScreen extends Component {
   }
 }
 
-export default withAdvancedSearch(PubScreen);
+export default withAuth(withAdvancedSearch(PubScreen));

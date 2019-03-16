@@ -1,9 +1,14 @@
 import React, { Component } from "react";
+import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-import firebase from "firebase";
+
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
+import firebase from "firebase";
+
 import "./PubRegistration.css";
+
+const publistRefName = "publist";
 
 const initialState = {
   error: null,
@@ -16,26 +21,36 @@ const initialState = {
   email: "",
   space: 0,
   phone: "",
-  img: "chooy wie",
   about: "",
-  coordinates: null
+  coordinates: {
+    latitude: 53.82028,
+    longitude: 17.66861
+  },
+  file: null
 };
 
 class PubRegistration extends Component {
-  state = initialState;
+  state = { ...initialState };
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
   handleSubmit = event => {
-    const { error, success, ...data } = this.state;
+    const { error, success, file, ...data } = this.state;
     event.preventDefault();
+    data.owner = this.props.authContext.user.uid;
+
+    const pubId = firebase
+      .database()
+      .ref(publistRefName)
+      .push().key;
 
     firebase
       .database()
-      .ref("publist")
-      .push(data)
+      .ref(publistRefName)
+      .child(pubId)
+      .update(data)
       .then(() => {
         this.setState({
           error: null,
@@ -48,6 +63,31 @@ class PubRegistration extends Component {
           console.log(this.state.error)
         )
       );
+
+    if (file === null) {
+      return;
+    }
+    const storageRef = firebase.storage().ref();
+    const ref = storageRef.child(`${pubId}.jpg`);
+    ref
+      .put(file)
+      .then(data => data.ref.getDownloadURL())
+      .then(url => {
+        firebase
+          .database()
+          .ref(publistRefName)
+          .child(pubId)
+          .child("photoUrl")
+          .set(url);
+      });
+  };
+
+  handleFile = event => {
+    const file = event.target.files[0];
+    this.setState({
+      file: file,
+      tmpFile: URL.createObjectURL(file)
+    });
   };
 
   render() {
@@ -70,14 +110,15 @@ class PubRegistration extends Component {
           <HamburgerMenu />
         </div>
         <div className="PubRegistration-container">
-          <h3>Register Your Pub</h3>
+          <h3>Register Your Awesome Pub</h3>
           <form
             className="PubRegistration-form"
             id="pub-register"
             onSubmit={this.handleSubmit}
           >
-            <h4>*Fill the fields below</h4>
-            <p>* all fields are required</p>
+            <p>
+              <span>NOTE:</span>all fields are required*
+            </p>
             <label htmlFor="pubname">Pub Name:</label>
             <input
               type="text"
@@ -116,6 +157,7 @@ class PubRegistration extends Component {
               name="openhour"
               min="00:00"
               max="23:00"
+              step="3600"
               required
               value={openhour}
               onChange={this.handleChange}
@@ -126,7 +168,8 @@ class PubRegistration extends Component {
               id="pub-cHours"
               name="closehour"
               min="00:00"
-              max="23:00"
+              max="23:30"
+              step="3600"
               required
               value={closehour}
               onChange={this.handleChange}
@@ -174,8 +217,16 @@ class PubRegistration extends Component {
               id="pub-img"
               name="img"
               accept="image/png, image/jpeg"
-              onChange={this.handleChange}
+              onChange={this.handleFile}
             />
+            <div className="img_wrapper">
+              <img
+                className="pub_img"
+                src={this.state.tmpFile}
+                alt="preview of your uploaded pub view "
+              />
+            </div>
+
             <br />
             <label htmlFor="pub-about">About:</label>
             <br />
@@ -183,22 +234,15 @@ class PubRegistration extends Component {
               id="pub-about"
               name="about"
               maxLength="250"
-              rows="10"
+              rows="8"
               cols="40"
-              placeholder="write few words about your pub"
+              placeholder="write few words about your pub (maximum 250 characters)"
               required
               value={about}
               onChange={this.handleChange}
             />
             <input type="submit" value="Submit Form" />
           </form>
-          {/* {coordinates && (
-          <div>
-            <span>Latitude: {coordinates.latitude.toFixed(2)}</span>
-            <span>Longitude: {coordinates.longitude.toFixed(2)}</span>
-          </div>
-        )} */}
-
           <Map
             center={
               coordinates
@@ -234,4 +278,4 @@ class PubRegistration extends Component {
   }
 }
 
-export default PubRegistration;
+export default withAuth(PubRegistration);

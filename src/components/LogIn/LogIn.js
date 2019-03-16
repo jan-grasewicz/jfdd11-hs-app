@@ -45,11 +45,14 @@ class LogIn extends Component {
       .catch(error => console.log(error));
   };
 
-  componentDidMount(){
-    firebase.auth().onAuthStateChanged(user => user ? this.props.history.push('/publist') : false)
+  componentDidMount() {
+    firebase
+      .auth()
+      .onAuthStateChanged(user =>
+        user ? this.props.history.push("/publist") : false
+      );
   }
 
-  
   render() {
     return (
       <>
@@ -92,7 +95,7 @@ class LogIn extends Component {
               >
                 Log in with Google
               </button>
-              <h2>{this.state.error}</h2>
+              <h2 className="LogIn-error">{this.state.error}</h2>
             </div>
           )}
           {this.state.success && <Redirect to="/publist" />}

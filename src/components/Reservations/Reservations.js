@@ -8,7 +8,7 @@ class Reservations extends Component {
     this.props.advancedSearchContext.publist.find(pub => pub.id === ajdi);
 
   render() {
-    const { reservations, users, publist } = this.props.advancedSearchContext;
+    const { reservations } = this.props.advancedSearchContext;
     const { getPub } = this;
     // console.log("adv context", this.props.advancedSearchContext);
     let reservationsArr = reservations.filter(

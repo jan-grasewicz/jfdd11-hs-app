@@ -31,7 +31,7 @@ class MyPubs extends Component {
     return (
       <div className="MyPubs">
         <ul>
-          {console.log(myPubList)}
+          {/* {console.log(myPubList)} */}
           {myPubList.length === 0 && (
             <p>
               No pubs to display. To add your pub go to: Menu > Add Your Pub.

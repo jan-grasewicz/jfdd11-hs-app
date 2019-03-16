@@ -10,12 +10,12 @@ class Reservations extends Component {
   render() {
     const { reservations, users, publist } = this.props.advancedSearchContext;
     const { getPub } = this;
-    console.log("adv context", this.props.advancedSearchContext);
+    // console.log("adv context", this.props.advancedSearchContext);
     let reservationsArr = reservations.filter(
       res => res.userUid === this.props.user.uid
     );
 
-    console.log(reservationsArr);
+    // console.log(reservationsArr);
     return (
       <div className="Reservations">
         <ul>
@@ -62,7 +62,7 @@ class Reservations extends Component {
                 reservation from: (hour) (date)
               </p>
             </div>
-          </li> */}
+          </li>
           <li key="firebaseId4">
             <div className="Reservations-reservation">
               <h2 className="Reservations-pubname">Pub Name</h2>
@@ -71,7 +71,7 @@ class Reservations extends Component {
                 reservation from: (hour) (date)
               </p>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
     );

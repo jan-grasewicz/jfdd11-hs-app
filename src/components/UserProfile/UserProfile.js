@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import ProfileTabs from "../ProfileTabs";
 import "./UserProfile.css";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 class UserProfile extends Component {
@@ -30,10 +30,10 @@ class UserProfile extends Component {
                 <p>e-mail: {user && user.email}</p>
                 <p>phone: {userData && userData.phone}</p>
               </div>
-              <FontAwesomeIcon
+              {/* <FontAwesomeIcon
                 icon={faPencilAlt}
                 className="UserProfile-edit"
-              />
+              /> */}
             </div>
 
             <ProfileTabs user={user} />

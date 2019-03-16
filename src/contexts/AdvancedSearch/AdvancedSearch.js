@@ -82,7 +82,7 @@ export default class AdvancedSearchProvider extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }

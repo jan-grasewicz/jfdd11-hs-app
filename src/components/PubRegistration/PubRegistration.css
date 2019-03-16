@@ -4,18 +4,40 @@
 
 .PubRegistration-container {
     background-color: rgba(0, 0, 0, 0.76);
-    min-height: 100vh;
-    width: 100%;
+    box-sizing: border-box;
+    padding-top: 60px;
 }
 
-.PubRegistration-container h3, h4 {
-    margin: 0;
-    padding-top: 70px;
+.PubRegistration-container h3 {
+    margin: 25px 0;
+    font-size: 24px;
     text-align: center;
-    color: white;
+    color: #cdaf82;
 }
 
-.PubRegistration-form p, .PubRegistration-form label {
+.PubRegistration-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5%;
+    background-color: rgba(0, 0, 0, 0.76);
     color: white;
-    font-size: 20px;
+    border: 3px solid #cdaf82;
+    border-radius: 4px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.PubRegistration-form .img_wrapper {
+    width: 292px;
+    height: 200px;
+    margin-top: 22px;
+    border: 2px solid #cdaf82;
+}
+
+.pub_img {
+    width: 100%;
+    height: 100%;
 }

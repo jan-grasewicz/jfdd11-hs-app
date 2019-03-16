@@ -57,7 +57,7 @@ class MyPubs extends Component {
                           onClick={() =>
                             updateState(reservation.id, "rejected")
                           }
-                          // disabled={`${reservation.status !== "pending"}`}
+                          disabled={reservation.status !== "pending"}
                         >
                           Reject
                         </button>
@@ -67,7 +67,7 @@ class MyPubs extends Component {
                           onClick={() =>
                             updateState(reservation.id, "accepted")
                           }
-                          // disabled={`${reservation.status !== "pending"}`}
+                          disabled={reservation.status !== "pending"}
                         >
                           Accept
                         </button>

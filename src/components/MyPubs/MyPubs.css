@@ -80,3 +80,11 @@
     background: gray;
     color: rgb(187, 187, 187);
 }
+
+.MyPubs-btn-chosen-red{
+    color:rgb(150, 0, 0)
+}
+
+.MyPubs-btn-chosen-green{
+    color:rgb(0, 100, 0)
+}

@@ -26,41 +26,57 @@
 }
 
 .MyPubs-reservation {
+    background: rgb(29, 29, 29);
     border: 1px solid #cdaf82;
-    padding: 10px;
+    padding: 10px 0px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 20px 1fr 1fr;
+    /* grid-column-gap: 20px; */
     /* justify-content: space-evenly; */
 }
 
 .MyPubs-userName {
     grid-column: span 2;
     grid-row: 1;
+    justify-self: center;
 }
 
 .MyPubs-date {
-    grid-column: span 3;
+    grid-column: span 2;
     grid-row: 2;
     justify-self: center;
 }
 
-.MyPubs-switch {
+.MyPubs-btn {
     justify-self: center;
     align-self: center;
-    width: 100px;
-    padding: 2px;
+    width: 80%;
+    min-width: 55px;
+    height: 70%;
     text-align: center;
-    border: 1px solid gray;
-    background: lightgray;
-    color: gray;
-    grid-column: 3;
-    grid-row: 1;
+    font-weight: bold;
+    border: 1px solid black;
+    color: rgb(224, 224, 224);
+    border-radius: 200px;
 }
 
-.MyPubs-switch-accepted {
-    background: green;
+.MyPubs-btn-accept {
+    background: rgb(0, 100, 0);
+    grid-column: 5;
+    grid-row: span 2;
 }
 
-.MyPubs-switch-rejected {
-    background: red;
+.MyPubs-btn-reject {
+    background: rgb(150, 0, 0);
+    grid-column: 4;
+    grid-row: span 2;
+}
+
+.MyPubs-btn:focus {
+    outline: 0px;
+}
+
+.MyPubs-btn-inactive {
+    background: gray;
+    color: rgb(187, 187, 187);
 }

@@ -1,25 +1,45 @@
 import React, { Component } from "react";
 
 import "./Reservations.css";
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 
 class Reservations extends Component {
+  getPub = ajdi =>
+    this.props.advancedSearchContext.publist.find(pub => pub.id === ajdi);
+
   render() {
+    const { reservations } = this.props.advancedSearchContext;
+    const { getPub } = this;
+    // console.log("adv context", this.props.advancedSearchContext);
+    let reservationsArr = reservations.filter(
+      res => res.userUid === this.props.user.uid
+    );
+
     return (
       <div className="Reservations">
         <ul>
-          <li key="firebaseId1">
-            <div className="Reservations-reservation">
-              <h2 className="Reservations-pubname">Pub Name</h2>
-              <div className="Reservations-state Reservations-pending">
-                pending
+          {reservationsArr.map(res => (
+            <li key={res.id}>
+              <div className="Reservations-reservation">
+                <h2 className="Reservations-pubname">
+                  {getPub(res.placeId).name}
+                </h2>
+                <div
+                  className={`Reservations-state Reservations-${res.status}`}
+                >
+                  {res.status}
+                </div>
+                <p className="Reservations-date">
+                  reservation on:{" "}
+                  {new Date(res.date).toDateString() +
+                    " from " +
+                    new Date(res.date).toLocaleTimeString()}
+                </p>
               </div>
-              <p className="Reservations-date">
-                reservation from: (hour) (date)
-              </p>
-            </div>
-          </li>
+            </li>
+          ))}
 
-          <li key="firebaseId2">
+          {/* <li key="firebaseId2">
             <div className="Reservations-reservation">
               <h2 className="Reservations-pubname">Pub Name</h2>
               <div className="Reservations-state Reservations-accepted">
@@ -50,11 +70,11 @@ class Reservations extends Component {
                 reservation from: (hour) (date)
               </p>
             </div>
-          </li>
+          </li> */}
         </ul>
       </div>
     );
   }
 }
 
-export default Reservations;
+export default withAdvancedSearch(Reservations);

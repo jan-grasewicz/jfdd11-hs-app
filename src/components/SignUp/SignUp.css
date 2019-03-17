@@ -4,8 +4,6 @@
   padding-top: 50px;
 }
 
-
-
 .SignUp-form {
   display: flex;
   flex-direction: column;
@@ -41,7 +39,7 @@
   margin: 1.8rem auto 0;
   border: none;
   color: white;
-  background-color: red;
+  background-color: #cf4332;
   font-size: 1rem;
   padding: 0.7rem 3rem;
   text-align: center;
@@ -70,7 +68,7 @@
   margin-top: 20px;
 }
 
-.SignUp-error{
+.SignUp-error {
   text-align: center;
   font-size: 1rem;
   color: red;
@@ -79,7 +77,7 @@
   margin-bottom: 0px;
 }
 
-.SignUp-footer{
+.SignUp-footer {
   position: fixed;
   max-width: 550px;
   width: 100%;
@@ -87,11 +85,11 @@
   background-color: #cdaf82;
 }
 
-.SignUp-footer>p{
+.SignUp-footer > p {
   color: rgb(82, 82, 82);
   font-size: 0.7rem;
   margin: 0;
   padding: 10px;
   text-align: center;
-  box-shadow: -1px -2px 10px -2px rgba(0,0,0,0.75);
+  box-shadow: -1px -2px 10px -2px rgba(0, 0, 0, 0.75);
 }

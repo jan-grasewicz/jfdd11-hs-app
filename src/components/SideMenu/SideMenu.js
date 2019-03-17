@@ -39,13 +39,20 @@ class SideMenu extends Component {
         </h1>
         {user !== null && (
           <>
-            <NavLink to="/profile" className="SideMenu-profile-a">
-              <FontAwesomeIcon icon={faUser} className="SideMenu-icon-profile" />
-              <p className="SideMenu-profile-p">My Profile</p>
-          
-              <button className='SideMenu-profile-button' onClick={signOut}>Sign Out</button>
+            <div className="SideMenu-profile-a">
+              <NavLink to="/profile">
+                <FontAwesomeIcon
+                  icon={faUser}
+                  className="SideMenu-icon-profile"
+                />
+                <p className="SideMenu-profile-p">My Profile</p>
               </NavLink>
-          </>)}
+              <button className="SideMenu-profile-button" onClick={signOut}>
+                Sign Out
+              </button>
+            </div>
+          </>
+        )}
         <ul className="SideMenu-menu">
           <NavItem to="/" icon={faHome}>
             Home
@@ -56,7 +63,8 @@ class SideMenu extends Component {
           <NavItem to="/searchbylocal" icon={faMap}>
             Show map
           </NavItem>
-          {user === null && (
+
+          {(user === null && (
             <>
               <NavItem to="/login" icon={faSignInAlt}>
                 Log in
@@ -65,9 +73,11 @@ class SideMenu extends Component {
                 Sign up
               </NavItem>
             </>
-          ) || <NavItem to="/add-pub" icon={faPlus} >
+          )) || (
+            <NavItem to="/add-pub" icon={faPlus}>
               Add Your Pub
-            </NavItem>}
+            </NavItem>
+          )}
         </ul>
       </div>
     );

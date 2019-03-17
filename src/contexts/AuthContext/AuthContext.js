@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-
 const AuthContext = React.createContext({ user: null });
 const { Provider, Consumer } = AuthContext;
 
@@ -10,7 +9,9 @@ export default class AuthContextProvider extends Component {
     userData: null,
     signIn: (email, password) =>
       firebase.auth().signInWithEmailAndPassword(email, password),
-    signOut: (event) => {event.preventDefault(); firebase.auth().signOut()}
+    signOut: () => {
+      firebase.auth().signOut();
+    }
   };
 
   componentDidMount() {

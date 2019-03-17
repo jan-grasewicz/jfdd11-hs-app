@@ -154,7 +154,7 @@ class PubRegistration extends Component {
               <input
                 type="text"
                 id="pub-address"
-                name="address"
+                name="adress"
                 required
                 value={adress}
                 onChange={this.handleChange}

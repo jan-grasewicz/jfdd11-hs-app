@@ -28,7 +28,7 @@
     margin: 0 5% 5%;
     padding-bottom: 20px;
     background-color: rgba(0, 0, 0, 0.76);
-    color: white;
+    color: gray;
     border: 3px solid #cdaf82;
     border-radius: 4px;
 }
@@ -43,6 +43,8 @@
 
 .PubRegistration-form label {
     width: 30%;
+    color: #f5f2ee;
+    font-size: 14px;
 }
 
 .PubRegistration-form input {
@@ -50,7 +52,8 @@
     background-color: transparent;
     outline: 0;
     border-bottom: 1px solid #cdaf82;
-    color: gray;
+    color: #cdaf82;
+    font-weight: bold;
     text-align: center;
 }
 
@@ -61,10 +64,12 @@
 
 .PubRegistration-form .hours p {
     margin: 5px;
+    color: #cdaf82;
 }
 
 .PubRegistration-form .hours input {
     margin: 10px;
+    font-size: 17px;
 }
 
 .PubRegistration-form .space {
@@ -78,6 +83,7 @@
 .PubRegistration-form .space input {
     text-align: center;
     margin-left: 15px;
+    font-size: 16px;
 }
 
 .PubRegistration-form .phone {
@@ -91,6 +97,8 @@
 
 .PubRegistration-form .phone input {
     width: 53%;
+    font-size: 17px;
+    color: #cdaf82
 }
 
 .PubRegistration-form .phone span {
@@ -106,6 +114,7 @@
     margin-top: 20px;
     border-radius: 20px;
     border: 2px solid #cdaf82;
+    font-weight: normal;
 }
 
 .PubRegistration-form .about {
@@ -116,6 +125,11 @@
 .PubRegistration-form .about p {
     font-size: .9rem;
     margin-top: 5px;
+    color: #f5f2ee;
+}
+
+.PubRegistration-form .about label {
+    font-size: 1rem;
 }
 
 .PubRegistration-form .about textarea {
@@ -144,7 +158,7 @@
 
 .loc-info {
     text-align: center;
-    color: white;
+    color: #f5f2ee;
     margin: 10px 50px;
 }
 
@@ -157,4 +171,15 @@
     border: 2px solid #cdaf82;
     border-radius: 4px;
     padding: 10px 20px;
+}
+
+.required-info {
+    font-weight: bold;
+    color: #cdaf82;
+}
+
+.required-info span {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.76);
 }

@@ -15,12 +15,12 @@ class ProfileTabs extends Component {
   render() {
     const { tab } = this.state;
     // let { userData } = this.props.authContext;
-    let {publist}=this.props.advancedSearchContext
+    let { publist } = this.props.advancedSearchContext;
     let myPubList = publist.filter(pub => pub.owner === this.props.user.uid);
-    console.log(myPubList.length)
+
     return (
       <div className="ProfileTabs">
-        {publist && myPubList.length>0 ? (
+        {publist && myPubList.length > 0 ? (
           <>
             <button
               className={

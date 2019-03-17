@@ -31,7 +31,7 @@ class MyPubs extends Component {
     return (
       <div className="MyPubs">
         <ul>
-          {/* {console.log(myPubList)} */}
+          {/* {console.log(reservations)} */}
           {myPubList.length === 0 && (
             <p>
               No pubs to display. To add your pub go to: Menu > Add Your Pub.
@@ -45,38 +45,43 @@ class MyPubs extends Component {
                   {pub.name} <span>reservations:</span>
                 </h2>
                 <ul>
-                  {reservations.map(reservation => (
-                    <li key={reservation.id} className="MyPubs-reservation-li">
-                      <div className="MyPubs-reservation">
-                        <h3 className="MyPubs-userName">
-                          {this.getUser(reservation)}
-                        </h3>
-                        <button
-                          className={`MyPubs-btn MyPubs-btn-reject ${reservation.status !==
-                            "pending" && "MyPubs-btn-inactive"}`}
-                          onClick={() =>
-                            updateState(reservation.id, "rejected")
-                          }
-                          disabled={reservation.status !== "pending"}
-                        >
-                          Reject
-                        </button>
-                        <button
-                          className={`MyPubs-btn MyPubs-btn-accept ${reservation.status !==
-                            "pending" && "MyPubs-btn-inactive"}`}
-                          onClick={() =>
-                            updateState(reservation.id, "accepted")
-                          }
-                          disabled={reservation.status !== "pending"}
-                        >
-                          Accept
-                        </button>
-                        <p className="MyPubs-date">
-                          {new Date(reservation.date).toDateString()}
-                        </p>
-                      </div>
-                    </li>
-                  ))}
+                  {reservations
+                    .filter(reservation => reservation.placeId === pub.id)
+                    .map(reservation => (
+                      <li
+                        key={reservation.id}
+                        className="MyPubs-reservation-li"
+                      >
+                        <div className="MyPubs-reservation">
+                          <h3 className="MyPubs-userName">
+                            {this.getUser(reservation)}
+                          </h3>
+                          <button
+                            className={`MyPubs-btn MyPubs-btn-reject ${reservation.status !==
+                              "pending" && "MyPubs-btn-inactive"}`}
+                            onClick={() =>
+                              updateState(reservation.id, "rejected")
+                            }
+                            disabled={reservation.status !== "pending"}
+                          >
+                            Reject
+                          </button>
+                          <button
+                            className={`MyPubs-btn MyPubs-btn-accept ${reservation.status !==
+                              "pending" && "MyPubs-btn-inactive"}`}
+                            onClick={() =>
+                              updateState(reservation.id, "accepted")
+                            }
+                            disabled={reservation.status !== "pending"}
+                          >
+                            Accept
+                          </button>
+                          <p className="MyPubs-date">
+                            {new Date(reservation.date).toDateString()}
+                          </p>
+                        </div>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </li>

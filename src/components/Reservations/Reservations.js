@@ -15,7 +15,6 @@ class Reservations extends Component {
       res => res.userUid === this.props.user.uid
     );
 
-    // console.log(reservationsArr);
     return (
       <div className="Reservations">
         <ul>

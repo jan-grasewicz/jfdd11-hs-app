@@ -34,7 +34,8 @@ class Reservations extends Component {
                 <h2 className="Reservations-pubname">
                   {getPub(res.placeId)
                     ? getPub(res.placeId).name
-                    : "American Dream"}
+                    : "American Dream"}{" "}
+                  ({res.places} places)
                 </h2>
                 <div
                   className={`Reservations-state Reservations-${res.status}`}

@@ -67,8 +67,8 @@ class PubScreen extends Component {
                 <dt>City:</dt>
                 <dd>{pub.city}</dd>
                 <br />
-                <dt>Adress:</dt>
-                <dd>{pub.address}</dd>
+                <dt>Address:</dt>
+                <dd>{pub.adress}</dd>
                 <br />
                 <dt>Operating hours:</dt>
                 <dd>

@@ -31,7 +31,6 @@ class PubScreen extends Component {
     );
     let reservationLink = `/publist/${pubId}/booking`;
     const { user } = this.props.authContext;
-    const owner = this.props.authContext.user.uid;
     return (
       <div>
         <div className="menu-container">
@@ -49,9 +48,8 @@ class PubScreen extends Component {
               />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
-            {owner === user ? (
-              <div />
-            ) : user !== null ? (
+
+            {user !== null ? (
               <Link
                 to={reservationLink}
                 className="PubScreen-reservation-button"

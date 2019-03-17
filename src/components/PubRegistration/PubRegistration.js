@@ -42,7 +42,6 @@ class PubRegistration extends Component {
     const { error, success, file, newPubId, ...data } = this.state;
     event.preventDefault();
     data.owner = this.props.authContext.user.uid;
-
     const pubId = firebase
       .database()
       .ref(publistRefName)

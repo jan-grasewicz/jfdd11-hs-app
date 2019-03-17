@@ -24,7 +24,8 @@
     list-style: none;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    grid-template-rows: 2.5rem;
+    grid-template-rows: auto 1fr;
+    padding: 1px;
 }
 
 .Publist-h2 {
@@ -38,17 +39,19 @@
 }
 
 .Publist-img {
-    border: 2px solid #cdaf82;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    overflow: hidden;
+    
 }
 
 .Publist-imgcontainer {
+    border: 1px solid #cdaf82;
     grid-row: 1/3;
     grid-column: 1;
-    padding: 5px;
+    margin: 5px;
+    height: 150px;
+    overflow: hidden;
 }
 
 .Publist-info {

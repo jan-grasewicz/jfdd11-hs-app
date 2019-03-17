@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
-import firebase from "firebase";
 import "./MyPubs.css";
 class MyPubs extends Component {
   getUser = res => {

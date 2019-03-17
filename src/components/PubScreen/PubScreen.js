@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronCircleLeft } from "@fortawesome/free-solid-svg-icons";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import { Link } from "react-router-dom";
 import "./PubScreen.css";

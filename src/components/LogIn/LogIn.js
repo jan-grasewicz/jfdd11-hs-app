@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import firebase from "firebase";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 
 import "./LogIn.css";

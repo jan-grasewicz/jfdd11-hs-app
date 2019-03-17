@@ -41,7 +41,7 @@ class PubScreen extends Component {
             <div className="PubScreen-img-wrapper">
               <img
                 className="PubScreen-pubImg"
-                src={pub.photoUrl}
+                src={pub.photoUrl||'http://placeimg.com/1000/640/arch'}
                 alt={`pub ${pub.name} located at ${
                   pub.address
                 } in the city of {pub.city}`}

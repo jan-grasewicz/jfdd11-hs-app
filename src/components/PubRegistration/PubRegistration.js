@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
-
+import { Redirect } from "react-router-dom";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 import firebase from "firebase";
@@ -26,7 +26,8 @@ const initialState = {
     latitude: 53.82028,
     longitude: 17.66861
   },
-  file: null
+  file: null,
+  newPubId: null
 };
 
 class PubRegistration extends Component {
@@ -36,8 +37,9 @@ class PubRegistration extends Component {
       [event.target.name]: event.target.value
     });
   };
+
   handleSubmit = event => {
-    const { error, success, file, ...data } = this.state;
+    const { error, success, file, newPubId, ...data } = this.state;
     event.preventDefault();
     data.owner = this.props.authContext.user.uid;
 
@@ -50,12 +52,12 @@ class PubRegistration extends Component {
       .database()
       .ref(publistRefName)
       .child(pubId)
-      .update(data)
-      .then(() => {
+      .update(data, () => {
         this.setState({
           error: null,
-          success: "Your pub has been added",
-          ...initialState
+          success: true,
+          newPubId: pubId
+          // ...initialState
         });
       })
       .catch(error =>
@@ -243,6 +245,9 @@ class PubRegistration extends Component {
             />
             <input type="submit" value="Submit Form" />
           </form>
+          {this.state.success && (
+            <Redirect to={`/publist/${this.state.newPubId}`} />
+          )}
           <Map
             center={
               coordinates

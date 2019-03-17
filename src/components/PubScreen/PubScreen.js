@@ -11,10 +11,14 @@ import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
 const SignUpOrLogIn = () => {
   return (
-    <div className='PubScreen-login-signup-container'>
+    <div className="PubScreen-login-signup-container">
       <p>To make a reservation, log in or sign up first</p>
-      <Link className='PubScreen-login-signup-btns' to={'/login'}>Log In</Link>
-      <Link className='PubScreen-login-signup-btns' to={'/signup'}>Sign Up</Link>
+      <Link className="PubScreen-login-signup-btns" to={"/login"}>
+        Log In
+      </Link>
+      <Link className="PubScreen-login-signup-btns" to={"/signup"}>
+        Sign Up
+      </Link>
     </div>
   );
 };
@@ -27,6 +31,7 @@ class PubScreen extends Component {
     );
     let reservationLink = `/publist/${pubId}/booking`;
     const { user } = this.props.authContext;
+    const owner = this.props.authContext.user.uid;
     return (
       <div>
         <div className="menu-container">
@@ -44,8 +49,9 @@ class PubScreen extends Component {
               />
             </div>
             <h1 className="PubScreen-pubName">{pub.name}</h1>
-
-            {user !== null ? (
+            {owner === user ? (
+              <div />
+            ) : user !== null ? (
               <Link
                 to={reservationLink}
                 className="PubScreen-reservation-button"

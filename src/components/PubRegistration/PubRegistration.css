@@ -3,10 +3,13 @@
 /* rgba(0, 0, 0, 0.76); */
 
 .PubRegistration-container {
+    display: flex;
+    flex-direction: column;
     background-color: rgba(0, 0, 0, 0.76);
     box-sizing: border-box;
     padding-top: 60px;
     padding-bottom: 10px;
+    max-width: 600px;
 }
 
 .PubRegistration-container h3 {
@@ -142,7 +145,7 @@
 .loc-info {
     text-align: center;
     color: white;
-    margin-top: 10px;
+    margin: 10px 50px;
 }
 
 .PubRegistration-form .submit {

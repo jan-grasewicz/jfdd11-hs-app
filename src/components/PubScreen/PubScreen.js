@@ -41,7 +41,7 @@ class PubScreen extends Component {
             <div className="PubScreen-img-wrapper">
               <img
                 className="PubScreen-pubImg"
-                src={pub.photoUrl||'http://placeimg.com/1000/640/arch'}
+                src={pub.photoUrl || "http://placeimg.com/1000/640/arch"}
                 alt={`pub ${pub.name} located at ${
                   pub.address
                 } in the city of {pub.city}`}
@@ -90,13 +90,7 @@ class PubScreen extends Component {
               </dl>
             </div>
             <p className="PubScreen-find">Find us here:</p>
-            <div className="PubScreen-iconWrap">
-              <FontAwesomeIcon
-                icon={faChevronCircleLeft}
-                onClick={() => this.props.history.push("/publist")}
-                className="PubScreen-icon-back"
-              />
-            </div>
+
             <Map
               center={[pub.coordinates.latitude, pub.coordinates.longitude]}
               zoom={13}

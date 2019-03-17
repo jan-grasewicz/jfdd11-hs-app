@@ -6,6 +6,7 @@
     background-color: rgba(0, 0, 0, 0.76);
     box-sizing: border-box;
     padding-top: 60px;
+    padding-bottom: 10px;
 }
 
 .PubRegistration-container h3 {
@@ -17,17 +18,110 @@
 
 .PubRegistration-form {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     width: 90%;
-    margin-left: 5%;
-    margin-bottom: 5%;
+    margin: 0 5% 5%;
+    padding-bottom: 20px;
     background-color: rgba(0, 0, 0, 0.76);
     color: white;
     border: 3px solid #cdaf82;
     border-radius: 4px;
+}
+
+.PubRegistration-form .name, .city, .address, .email, .space, .phone {
+    display: flex;
     justify-content: space-around;
-    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin-bottom: 1rem;
+}
+
+.PubRegistration-form label {
+    width: 30%;
+}
+
+.PubRegistration-form input {
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    border-bottom: 1px solid #cdaf82;
+    color: gray;
+    text-align: center;
+}
+
+.PubRegistration-form .hours {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.PubRegistration-form .hours p {
+    margin: 5px;
+}
+
+.PubRegistration-form .hours input {
+    margin: 10px;
+}
+
+.PubRegistration-form .space {
+    display: block;
+}
+
+.PubRegistration-form .space label {
+    width: 50%;
+}
+
+.PubRegistration-form .space input {
+    text-align: center;
+    margin-left: 15px;
+}
+
+.PubRegistration-form .phone {
+    display: flex;
+    justify-content: flex-start
+}
+
+.PubRegistration-form .phone label {
+    width: 47%;
+}
+
+.PubRegistration-form .phone input {
+    width: 53%;
+}
+
+.PubRegistration-form .phone span {
+    font-size: 13px;
+    margin-left: 135px;
+}
+
+.PubRegistration-form .img {
+    text-align: center;
+}
+
+.PubRegistration-form .img input {
+    margin-top: 20px;
+    border-radius: 20px;
+    border: 2px solid #cdaf82;
+}
+
+.PubRegistration-form .about {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.PubRegistration-form .about p {
+    font-size: .9rem;
+    margin-top: 5px;
+}
+
+.PubRegistration-form .about textarea {
+    border: 3px solid #cdaf82;
+}
+
+.PubRegistration-form .about textarea::placeholder {
+    text-align: center;
+    font-size: .8rem;
 }
 
 .PubRegistration-form .img_wrapper {
@@ -35,9 +129,29 @@
     height: 200px;
     margin-top: 22px;
     border: 2px solid #cdaf82;
+    font-size: 13px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.76)
 }
 
-.pub_img {
+.PubRegistration-form .pub_img {
     width: 100%;
     height: 100%;
+}
+
+.loc-info {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+}
+
+.PubRegistration-form .submit {
+    margin-top: 20px;
+    width: 60%;
+    font-weight: bold;
+    color: #cdaf82;
+    /* color: white; */
+    border: 2px solid #cdaf82;
+    border-radius: 4px;
+    padding: 10px 20px;
 }

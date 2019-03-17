@@ -10,6 +10,7 @@ import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 class UserProfile extends Component {
   render() {
     let { user, userData } = this.props.authContext;
+
     return (
       <>
         {user === null && <Redirect to="/publist" />}

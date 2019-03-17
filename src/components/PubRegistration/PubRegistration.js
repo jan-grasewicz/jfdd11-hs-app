@@ -23,8 +23,8 @@ const initialState = {
   phone: "",
   about: "",
   coordinates: {
-    latitude: 53.82028,
-    longitude: 17.66861
+    latitude: 54.35603,
+    longitude: 18.64612
   },
   file: null,
   newPubId: null
@@ -266,40 +266,41 @@ class PubRegistration extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <input type="submit" value="Submit Form" className="submit" />
+            <p className="loc-info">Pin Your Location:</p>
+            <Map
+              center={
+                coordinates
+                  ? { lat: coordinates.latitude, lng: coordinates.longitude }
+                  : { lat: 54.372158, lng: 18.638306 }
+              }
+              zoom={13}
+              style={{ height: 300, width: 375 }}
+              onClick={({ latlng: { lat, lng } }) => {
+                this.setState({
+                  coordinates: { latitude: lat, longitude: lng }
+                });
+              }}
+            >
+              <TileLayer
+                attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              />
+              {coordinates && (
+                <Marker
+                  position={{
+                    lat: coordinates.latitude,
+                    lng: coordinates.longitude
+                  }}
+                >
+                  <Popup>{"555 - 555 - 555"}</Popup>
+                </Marker>
+              )}
+            </Map>
+            <input type="submit" value="Register Pub!" className="submit" />
           </form>
           {this.state.success && (
             <Redirect to={`/publist/${this.state.newPubId}`} />
           )}
-          <Map
-            center={
-              coordinates
-                ? { lat: coordinates.latitude, lng: coordinates.longitude }
-                : { lat: 54.372158, lng: 18.638306 }
-            }
-            zoom={13}
-            style={{ height: 300, width: 375 }}
-            onClick={({ latlng: { lat, lng } }) => {
-              this.setState({
-                coordinates: { latitude: lat, longitude: lng }
-              });
-            }}
-          >
-            <TileLayer
-              attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            {coordinates && (
-              <Marker
-                position={{
-                  lat: coordinates.latitude,
-                  lng: coordinates.longitude
-                }}
-              >
-                <Popup>{"555 - 555 - 555"}</Popup>
-              </Marker>
-            )}
-          </Map>
         </div>
       </>
     );

@@ -99,6 +99,15 @@ class BookingPage extends Component {
               minTime={open}
               maxTime={close}
               dateFormat="yyyy/MM/dd HH:mm"
+              popperClassName="datePicker-popper"
+              popperPlacement="top"
+              popperModifiers={{
+                preventOverflow: {
+                  enabled: true,
+                  escapeWithReference: true, // force popper to stay in viewport (even when input is scrolled out of view)
+                  boundariesElement: "viewport"
+                }
+              }}
             />
             <p className="BookingPage-note">
               Keep in mind that {pub.name} is opened from {pub.openhour} <br />
@@ -113,7 +122,7 @@ class BookingPage extends Component {
             />
             <p className="BookingPage-note">
               Keep in mind that pub {pub.name} offers {pub.space} seats for
-              reservation on chosen date.
+              reservation.
             </p>
             <button className="BookingPage-submit" onClick={submitReservation}>
               Submit

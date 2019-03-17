@@ -47,3 +47,7 @@
     background: #cdaf82;
     color: rgba(0, 0, 0, 0.76);
 }
+
+.react-datepicker-popper .react-datepicker .react-datepicker__triangle{
+    left: 156px;
+}

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import "./SideMenu.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";

@@ -90,13 +90,7 @@ class PubScreen extends Component {
               </dl>
             </div>
             <p className="PubScreen-find">Find us here:</p>
-            <div className="PubScreen-iconWrap">
-              <FontAwesomeIcon
-                icon={faChevronCircleLeft}
-                onClick={() => this.props.history.push("/publist")}
-                className="PubScreen-icon-back"
-              />
-            </div>
+
             <Map
               center={[pub.coordinates.latitude, pub.coordinates.longitude]}
               zoom={13}

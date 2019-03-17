@@ -95,9 +95,7 @@ class PubRegistration extends Component {
   componentDidMount() {
     firebase
       .auth()
-      .onAuthStateChanged(user =>
-        user ? false : this.props.history.push("/publist")
-      );
+      .onAuthStateChanged(user => user || this.props.history.push("/publist"));
   }
 
   render() {
@@ -113,11 +111,9 @@ class PubRegistration extends Component {
       about,
       coordinates
     } = this.state;
-    const { user } = this.props.authContext;
 
     return (
       <>
-        {user === null && <Redirect to="/publist" />}
         <div className="menu-container">
           <HamburgerMenu />
         </div>

@@ -32,7 +32,9 @@ class Reservations extends Component {
             <li key={res.id}>
               <div className="Reservations-reservation">
                 <h2 className="Reservations-pubname">
-                  {getPub(res.placeId).name}
+                  {getPub(res.placeId)
+                    ? getPub(res.placeId).name
+                    : "American Dream"}
                 </h2>
                 <div
                   className={`Reservations-state Reservations-${res.status}`}

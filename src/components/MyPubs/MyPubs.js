@@ -57,7 +57,9 @@ class MyPubs extends Component {
                         </h3>
                         <button
                           className={`MyPubs-btn MyPubs-btn-reject ${reservation.status !==
-                            "pending" && "MyPubs-btn-inactive"}`}
+                            "rejected" &&
+                            reservation.status !== "pending" &&
+                            "MyPubs-btn-inactive"}`}
                           onClick={() =>
                             updateState(reservation.id, "rejected")
                           }
@@ -67,7 +69,9 @@ class MyPubs extends Component {
                         </button>
                         <button
                           className={`MyPubs-btn MyPubs-btn-accept ${reservation.status !==
-                            "pending" && "MyPubs-btn-inactive"}`}
+                            "accepted" &&
+                            reservation.status !== "pending" &&
+                            "MyPubs-btn-inactive"}`}
                           onClick={() =>
                             updateState(reservation.id, "accepted")
                           }
@@ -76,7 +80,8 @@ class MyPubs extends Component {
                           Accept
                         </button>
                         <p className="MyPubs-date">
-                          {new Date(reservation.date).toDateString()}
+                          {new Date(reservation.date).toDateString()} for{" "}
+                          {reservation.places} people
                         </p>
                       </div>
                     </li>

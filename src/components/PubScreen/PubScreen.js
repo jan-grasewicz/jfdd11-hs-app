@@ -41,7 +41,7 @@ class PubScreen extends Component {
                 className="PubScreen-pubImg"
                 src={pub.photoUrl || "http://placeimg.com/1000/640/arch"}
                 alt={`pub ${pub.name} located at ${
-                  pub.address
+                  pub.adress
                 } in the city of {pub.city}`}
               />
             </div>
@@ -65,8 +65,8 @@ class PubScreen extends Component {
                 <dt>City:</dt>
                 <dd>{pub.city}</dd>
                 <br />
-                <dt>Adress:</dt>
-                <dd>{pub.address}</dd>
+                <dt>Address:</dt>
+                <dd>{pub.adress}</dd>
                 <br />
                 <dt>Operating hours:</dt>
                 <dd>

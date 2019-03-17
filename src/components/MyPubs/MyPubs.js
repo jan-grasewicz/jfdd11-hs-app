@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
-import firebase from "firebase";
 import "./MyPubs.css";
 class MyPubs extends Component {
   getUser = res => {
@@ -9,15 +8,6 @@ class MyPubs extends Component {
     );
 
     return user.name + " " + user.surname;
-  };
-
-  changeReservationState = ajdi => {
-    console.log(
-      firebase
-        .database()
-        .ref("reservations")
-        .child(`${ajdi}`)
-    );
   };
 
   sortByStatus = reservationsArr => {

@@ -76,39 +76,42 @@ export default class AdvancedSearchProvider extends Component {
   };
 
   componentDidMount() {
-    this.fetchStuff("publist");
-    this.fetchStuff("users");
+    // this.fetchStuff("publist");
+    // this.fetchStuff("users");
+    this.unsubscribe_publist = firebase
+      .database()
+      .ref("/publist")
+      .on("value", snapshot => this.fixStuffToState(snapshot.val(), "publist"));
     this.unsubscribe_users = firebase
       .database()
       .ref("/users")
-      .on("child_added", snapshot => this.add);
-    this.unsubscribe_res_add = firebase
+      .on("value", snapshot => this.fixStuffToState(snapshot.val(), "users"));
+    this.unsubscribe_res = firebase
       .database()
       .ref("/reservations")
-      .on("child_added", snapshot =>
-        this.addReservationToState(snapshot.val())
+      .on("value", snapshot =>
+        this.fixStuffToState(snapshot.val(), "reservations")
       );
-    // this.unsubscribe_res_mod = firebase
-    //   .database()
-    //   .ref("/reservations")
-    //   .on("child_changed", snapshot => console.log(snapshot.val()));
   }
+
+  fixStuffToState = (stuff, field) => {
+    let stuffArr = Object.entries(stuff).map(([id, val]) => ({ id, ...val }));
+    this.setState({ [field]: stuffArr });
+  };
 
   componentWillUnmount() {
-    this.unsubscribe_res_add();
-    // this.unsubscribe_res_mod();
+    this.unsubscribe_res();
+    this.unsubscribe_publist();
+    this.unsubscribe_users();
   }
 
-  addReservationToState = reserv => {
-    this.setState({
-      reservations: this.state.reservations.concat([
-        { id: reserv.date, ...reserv }
-      ])
-    });
+  addReservationsToState = reservObj => {
+    let resArr = Object.entries(reservObj).map(([id, val]) => ({ id, ...val }));
+    this.setState({ reservations: resArr });
   };
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }

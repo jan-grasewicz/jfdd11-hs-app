@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import "./AdvancedSearch.css";
 import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
+import { withHamburgerMenu } from "../../contexts/HamburgerMenu/HamburgerMenuContext";
 
 class AdvancedSearch extends Component {
   submitForm = event => {
@@ -47,6 +48,7 @@ class AdvancedSearch extends Component {
       openedFrom,
       openedTill
     );
+    this.props.hamburgerContext.advToggle();
     this.props.history.push("/publist");
   };
 
@@ -81,7 +83,8 @@ class AdvancedSearch extends Component {
             </div>
             <div className="AdvancedSearch-option">
               <label>For how many? </label>
-              <input className="AdvancedSearch-input"
+              <input
+                className="AdvancedSearch-input"
                 value={cout}
                 type="number"
                 name="cout"
@@ -129,4 +132,6 @@ class AdvancedSearch extends Component {
   }
 }
 
-export default withRouter(withAdvancedSearch(AdvancedSearch));
+export default withHamburgerMenu(
+  withRouter(withAdvancedSearch(AdvancedSearch))
+);

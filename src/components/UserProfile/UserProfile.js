@@ -1,19 +1,25 @@
 import React, { Component } from "react";
 import ProfileTabs from "../ProfileTabs";
 import "./UserProfile.css";
-import { Redirect, withRouter } from "react-router-dom";
+import firebase from "firebase";
+import { withRouter } from "react-router-dom";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
 
 class UserProfile extends Component {
+  componentDidMount() {
+    firebase
+      .auth()
+      .onAuthStateChanged(user => user || this.props.history.push("/publist"));
+  }
+
   render() {
     let { user, userData } = this.props.authContext;
 
     return (
       <>
-        {user === null && <Redirect to="/publist" />}
         <div className="menu-container">
           <HamburgerMenu />
         </div>

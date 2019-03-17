@@ -128,109 +128,120 @@ class PubRegistration extends Component {
             id="pub-register"
             onSubmit={this.handleSubmit}
           >
-            <p>
-              <span>NOTE:</span>all fields are required*
+            <p className="required-info">
+              <span>NOTE:</span> all fields are required*
             </p>
-            <label htmlFor="pubname">Pub Name:</label>
-            <input
-              type="text"
-              id="pub-name"
-              name="name"
-              required
-              onChange={this.handleChange}
-              value={name}
-            />
-            <br />
-            <label htmlFor="pub-city">City:</label>
-            <input
-              type="text"
-              id="pub-city"
-              name="city"
-              required
-              value={city}
-              onChange={this.handleChange}
-            />
-            <br />
-            <label htmlFor="pub-adress">Adress:</label>
-            <input
-              type="text"
-              id="pub-adress"
-              name="adress"
-              required
-              value={adress}
-              onChange={this.handleChange}
-            />
-            <br />
-            <p>Operating hours</p>
-            <label htmlFor="pub-oHours">from: </label>
-            <input
-              type="time"
-              id="pub-oHours"
-              name="openhour"
-              min="00:00"
-              max="23:00"
-              step="3600"
-              required
-              value={openhour}
-              onChange={this.handleChange}
-            />
-            <label htmlFor="pub-cHours">to:</label>
-            <input
-              type="time"
-              id="pub-cHours"
-              name="closehour"
-              min="00:00"
-              max="23:30"
-              step="3600"
-              required
-              value={closehour}
-              onChange={this.handleChange}
-            />
-            <br />
-            <label htmlFor="pub-email">E-mail:</label>
-            <input
-              type="email"
-              id="pub-email"
-              name="email"
-              required
-              value={email}
-              onChange={this.handleChange}
-            />
-            <br />
-            <label htmlFor="pub-space">Available space:</label>
-            <input
-              type="number"
-              id="pub-space"
-              name="space"
-              min="5"
-              max="100"
-              required
-              value={space}
-              onChange={this.handleChange}
-            />
-            <br />
-            <label htmlFor="pub-phone">Phone number:</label>
-            <input
-              type="tel"
-              id="pub-phone"
-              name="phone"
-              minLength="9"
-              maxLength="11"
-              pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
-              required
-              value={phone}
-              onChange={this.handleChange}
-            />
-            <span>Format: 123-456-789</span>
-            <br />
-            <label htmlFor="pub-img">Upload Your Pub Img:</label>
-            <input
-              type="file"
-              id="pub-img"
-              name="img"
-              accept="image/png, image/jpeg"
-              onChange={this.handleFile}
-            />
+            <div className="name">
+              <label htmlFor="pubname">Pub Name:</label>
+              <input
+                type="text"
+                id="pub-name"
+                name="name"
+                required
+                onChange={this.handleChange}
+                value={name}
+              />
+            </div>
+            <div className="city">
+              <label htmlFor="pub-city">City:</label>
+              <input
+                type="text"
+                id="pub-city"
+                name="city"
+                required
+                value={city}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="address">
+              <label htmlFor="pub-address">Address:</label>
+              <input
+                type="text"
+                id="pub-address"
+                name="address"
+                required
+                value={adress}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className="hours">
+              <p>Operating hours:</p>
+              <label htmlFor="pub-oHours">from: </label>
+              <input
+                type="time"
+                id="pub-oHours"
+                name="openhour"
+                min="00:00"
+                max="23:00"
+                step="3600"
+                required
+                value={openhour}
+                onChange={this.handleChange}
+              />
+              <label htmlFor="pub-cHours">to:</label>
+              <input
+                type="time"
+                id="pub-cHours"
+                name="closehour"
+                min="00:00"
+                max="23:00"
+                step="3600"
+                required
+                value={closehour}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="email">
+              <label htmlFor="pub-email">E-mail:</label>
+              <input
+                type="email"
+                id="pub-email"
+                name="email"
+                required
+                value={email}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="space">
+              <label htmlFor="pub-space">Available space:</label>
+              <input
+                type="number"
+                id="pub-space"
+                name="space"
+                min="5"
+                max="100"
+                required
+                value={space}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="phone">
+              <label htmlFor="pub-phone">Phone number:</label>
+              <input
+                type="tel"
+                id="pub-phone"
+                name="phone"
+                minLength="9"
+                maxLength="11"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"
+                required
+                value={phone}
+                onChange={this.handleChange}
+              />
+              <span>Format: 123-456-789</span>
+            </div>
+            <div className="img">
+              <label htmlFor="pub-img">Upload Your Pub Img:</label>
+              <input
+                type="file"
+                id="pub-img"
+                name="img"
+                accept="image/png, image/jpeg"
+                onChange={this.handleFile}
+              />
+            </div>
+
             <div className="img_wrapper">
               <img
                 className="pub_img"
@@ -238,22 +249,23 @@ class PubRegistration extends Component {
                 alt="preview of your uploaded pub view "
               />
             </div>
-
-            <br />
-            <label htmlFor="pub-about">About:</label>
-            <br />
-            <textarea
-              id="pub-about"
-              name="about"
-              maxLength="250"
-              rows="8"
-              cols="40"
-              placeholder="write few words about your pub (maximum 250 characters)"
-              required
-              value={about}
-              onChange={this.handleChange}
-            />
-            <input type="submit" value="Submit Form" />
+            <div className="about">
+              <label htmlFor="pub-about">About:</label>
+              <br />
+              <p>write something nice about your pub</p>
+              <textarea
+                id="pub-about"
+                name="about"
+                maxLength="250"
+                rows="8"
+                cols="40"
+                placeholder="(maximum 250 characters)"
+                required
+                value={about}
+                onChange={this.handleChange}
+              />
+            </div>
+            <input type="submit" value="Submit Form" className="submit" />
           </form>
           {this.state.success && (
             <Redirect to={`/publist/${this.state.newPubId}`} />

@@ -17,7 +17,6 @@
 
 .PubRegistration-form {
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
     width: 90%;
     margin-left: 5%;
@@ -26,8 +25,32 @@
     color: white;
     border: 3px solid #cdaf82;
     border-radius: 4px;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+}
+
+.PubRegistration-form .name, .city, .address, .email, .space, .phone {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.PubRegistration-form label {
+    width: 30%;
+}
+
+.PubRegistration-form input {
+    /* margin-left: 50px; */
+    border: none;
+    background-color: transparent;
+    outline: 0;
+    border-bottom: 1px solid #cdaf82;
+    color: gray;
+}
+
+.PubRegistration-form .hours {
+    margin-bottom: 1rem;
 }
 
 .PubRegistration-form .img_wrapper {
@@ -37,7 +60,7 @@
     border: 2px solid #cdaf82;
 }
 
-.pub_img {
+.PubRegistration-form .pub_img {
     width: 100%;
     height: 100%;
 }

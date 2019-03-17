@@ -11,10 +11,14 @@ import { withAuth } from "../../contexts/AuthContext/AuthContext";
 
 const SignUpOrLogIn = () => {
   return (
-    <div className='PubScreen-login-signup-container'>
+    <div className="PubScreen-login-signup-container">
       <p>To make a reservation, log in or sign up first</p>
-      <Link className='PubScreen-login-signup-btns' to={'/login'}>Log In</Link>
-      <Link className='PubScreen-login-signup-btns' to={'/signup'}>Sign Up</Link>
+      <Link className="PubScreen-login-signup-btns" to={"/login"}>
+        Log In
+      </Link>
+      <Link className="PubScreen-login-signup-btns" to={"/signup"}>
+        Sign Up
+      </Link>
     </div>
   );
 };

@@ -14,7 +14,6 @@ class SignUp extends Component {
     surname: "",
     phone: "",
     isGoogleSingUpInProgress: false,
-    isOwner: false,
     error: null,
     success: null
   };
@@ -34,8 +33,7 @@ class SignUp extends Component {
           .set({
             name: this.state.name,
             surname: this.state.surname,
-            phone: this.state.phone,
-            isOwner: this.state.isOwner
+            phone: this.state.phone
           });
         this.setState({ error: null, success: true });
       })
@@ -118,27 +116,9 @@ class SignUp extends Component {
                   value={this.state.phone}
                   label="Phone number"
                 />
-                <div className="SignUp-form-owner">
-                  I'm an owner
-                  <input
-                    onChange={() =>
-                      this.state.isOwner
-                        ? this.setState({ isOwner: false })
-                        : this.setState({ isOwner: true })
-                    }
-                    type="checkbox"
-                    name="isOwner"
-                    value={this.state.isOwner}
-                  />
-                </div>
               </div>
               <div className="SignUp-form-button">
-                <input
-                  
-                  type="submit"
-                  name="submit"
-                  value="Sign in"
-                />
+                <input type="submit" name="submit" value="Sign in" />
               </div>
               <p className="SignUp-form-p">OR</p>
               <div className="SignUp-form-google">

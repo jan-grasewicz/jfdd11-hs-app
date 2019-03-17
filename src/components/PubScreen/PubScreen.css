@@ -71,26 +71,6 @@
   font-weight: bold;
 }
 
-.PubScreen-iconWrap {
-  position: fixed;
-  bottom: -15px;
-  left: -15px;
-  border-radius: 50%;
-  z-index: 100000;
-  width: 70px;
-  height: 70px;
-  background-color: #fff;
-}
-
-.PubScreen-icon-back {
-  color: #cdaf82;
-  font-size: 35px;
-  position: absolute;
-  z-index: 100000;
-  bottom: 20px;
-  left: 20px;
-}
-
 .PubScreen-login-signup-container {
   text-align: center;
 }

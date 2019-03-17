@@ -18,22 +18,21 @@
 .PubRegistration-form {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     width: 90%;
-    margin-left: 5%;
-    margin-bottom: 5%;
+    margin: 0 5%;
     background-color: rgba(0, 0, 0, 0.76);
     color: white;
     border: 3px solid #cdaf82;
     border-radius: 4px;
-    justify-content: center;
-    align-items: center;
 }
 
 .PubRegistration-form .name, .city, .address, .email, .space, .phone {
-    margin-bottom: 1rem;
     display: flex;
-    justify-content: space-between;
-    width: 90%;
+    justify-content: space-around;
+    width: 80%;
+    margin-bottom: 1rem;
 }
 
 .PubRegistration-form label {
@@ -41,7 +40,6 @@
 }
 
 .PubRegistration-form input {
-    /* margin-left: 50px; */
     border: none;
     background-color: transparent;
     outline: 0;
@@ -51,6 +49,15 @@
 
 .PubRegistration-form .hours {
     margin-bottom: 1rem;
+    text-align: center;
+}
+
+.PubRegistration-form .hours p {
+    margin: 5px;
+}
+
+.PubRegistration-form .hours input {
+    margin: 10px;
 }
 
 .PubRegistration-form .img_wrapper {

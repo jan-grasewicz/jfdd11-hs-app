@@ -11,15 +11,6 @@ class MyPubs extends Component {
     return user.name + " " + user.surname;
   };
 
-  changeReservationState = ajdi => {
-    console.log(
-      firebase
-        .database()
-        .ref("reservations")
-        .child(`${ajdi}`)
-    );
-  };
-
   sortByStatus = reservationsArr => {
     let pendingResArr = reservationsArr.filter(res => res.status === "pending");
     let acceptedResArr = reservationsArr.filter(

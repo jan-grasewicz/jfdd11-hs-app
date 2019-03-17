@@ -85,30 +85,25 @@ export default class AdvancedSearchProvider extends Component {
     this.unsubscribe_res_add = firebase
       .database()
       .ref("/reservations")
-      .on("child_added", snapshot =>
-        this.addReservationToState(snapshot.val())
-      );
-    // this.unsubscribe_res_mod = firebase
-    //   .database()
-    //   .ref("/reservations")
-    //   .on("child_changed", snapshot => console.log(snapshot.val()));
+      .on("value", snapshot => this.addReservationsToState(snapshot.val()));
+    this.unsubscribe_res_mod = firebase
+      .database()
+      .ref("/reservations")
+      .on("child_changed", snapshot => console.log(snapshot.val()));
   }
 
   componentWillUnmount() {
     this.unsubscribe_res_add();
-    // this.unsubscribe_res_mod();
+    this.unsubscribe_res_mod();
   }
 
-  addReservationToState = reserv => {
-    this.setState({
-      reservations: this.state.reservations.concat([
-        { id: reserv.date, ...reserv }
-      ])
-    });
+  addReservationsToState = reservObj => {
+    let resArr = Object.entries(reservObj).map(([id, val]) => ({ id, ...val }));
+    this.setState({ reservations: resArr });
   };
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }

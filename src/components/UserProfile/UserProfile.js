@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ProfileTabs from "../ProfileTabs";
 import "./UserProfile.css";
+import { Redirect, withRouter } from "react-router-dom";
 import { withAuth } from "../../contexts/AuthContext/AuthContext";
 // import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
@@ -11,6 +12,7 @@ class UserProfile extends Component {
     let { user, userData } = this.props.authContext;
     return (
       <>
+        {user === null && <Redirect to="/publist" />}
         <div className="menu-container">
           <HamburgerMenu />
         </div>
@@ -44,4 +46,4 @@ class UserProfile extends Component {
   }
 }
 
-export default withAuth(UserProfile);
+export default withRouter(withAuth(UserProfile));

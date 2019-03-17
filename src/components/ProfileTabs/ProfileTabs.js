@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import Reservations from "../Reservations";
 import MyPubs from "../MyPubs";
 
-import { withAuth } from "../../contexts/AuthContext/AuthContext";
-
+// import { withAuth } from "../../contexts/AuthContext/AuthContext";
+import { withAdvancedSearch } from "../../contexts/AdvancedSearch/AdvancedSearch";
 import "./ProfileTabs.css";
+
 class ProfileTabs extends Component {
   state = {
     tab: "reservations"
@@ -13,10 +14,13 @@ class ProfileTabs extends Component {
   };
   render() {
     const { tab } = this.state;
-    let { userData } = this.props.authContext;
+    // let { userData } = this.props.authContext;
+    let {publist}=this.props.advancedSearchContext
+    let myPubList = publist.filter(pub => pub.owner === this.props.user.uid);
+    console.log(myPubList.length)
     return (
       <div className="ProfileTabs">
-        {userData && userData.isOwner ? (
+        {publist && myPubList.length>0 ? (
           <>
             <button
               className={
@@ -64,4 +68,4 @@ class ProfileTabs extends Component {
   }
 }
 
-export default withAuth(ProfileTabs);
+export default withAdvancedSearch(ProfileTabs);

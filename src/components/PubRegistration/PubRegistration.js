@@ -164,6 +164,17 @@ class PubRegistration extends Component {
                 onChange={this.handleChange}
               />
             </div>
+            <div className="email">
+              <label htmlFor="pub-email">E-mail:</label>
+              <input
+                type="email"
+                id="pub-email"
+                name="email"
+                required
+                value={email}
+                onChange={this.handleChange}
+              />
+            </div>
 
             <div className="hours">
               <p>Operating hours:</p>
@@ -192,17 +203,7 @@ class PubRegistration extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <div className="email">
-              <label htmlFor="pub-email">E-mail:</label>
-              <input
-                type="email"
-                id="pub-email"
-                name="email"
-                required
-                value={email}
-                onChange={this.handleChange}
-              />
-            </div>
+
             <div className="space">
               <label htmlFor="pub-space">Available space:</label>
               <input

@@ -10,15 +10,18 @@ class Reservations extends Component {
   render() {
     const { reservations } = this.props.advancedSearchContext;
     const { getPub } = this;
-    // console.log("adv context", this.props.advancedSearchContext);
     let reservationsArr = reservations.filter(
       res => res.userUid === this.props.user.uid
     );
-
+    let pendingResArr=reservationsArr.filter(res=>res.status==='pending')
+    let acceptedResArr=reservationsArr.filter(res=>res.status==='accepted')
+    let rejectedResArr=reservationsArr.filter(res=>res.status==='rejected')
+    let reservationsArrSorted =pendingResArr.concat(acceptedResArr).concat(rejectedResArr)
+    
     return (
       <div className="Reservations">
         <ul>
-          {reservationsArr.map(res => (
+          {reservationsArrSorted.map(res => (
             <li key={res.id}>
               <div className="Reservations-reservation">
                 <h2 className="Reservations-pubname">

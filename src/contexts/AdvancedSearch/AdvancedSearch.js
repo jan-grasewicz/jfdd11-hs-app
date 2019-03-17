@@ -78,8 +78,34 @@ export default class AdvancedSearchProvider extends Component {
   componentDidMount() {
     this.fetchStuff("publist");
     this.fetchStuff("users");
-    this.fetchStuff("reservations");
+    this.unsubscribe_users = firebase
+      .database()
+      .ref("/users")
+      .on("child_added", snapshot => this.add);
+    this.unsubscribe_res_add = firebase
+      .database()
+      .ref("/reservations")
+      .on("child_added", snapshot =>
+        this.addReservationToState(snapshot.val())
+      );
+    // this.unsubscribe_res_mod = firebase
+    //   .database()
+    //   .ref("/reservations")
+    //   .on("child_changed", snapshot => console.log(snapshot.val()));
   }
+
+  componentWillUnmount() {
+    this.unsubscribe_res_add();
+    // this.unsubscribe_res_mod();
+  }
+
+  addReservationToState = reserv => {
+    this.setState({
+      reservations: this.state.reservations.concat([
+        { id: reserv.date, ...reserv }
+      ])
+    });
+  };
 
   render() {
     // console.log(this.state);

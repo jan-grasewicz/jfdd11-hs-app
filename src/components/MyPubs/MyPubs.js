@@ -53,7 +53,8 @@ class MyPubs extends Component {
                     <li key={reservation.id} className="MyPubs-reservation-li">
                       <div className="MyPubs-reservation">
                         <h3 className="MyPubs-userName">
-                          {this.getUser(reservation)}
+                          {this.getUser(reservation)} for {reservation.places}{" "}
+                          people
                         </h3>
                         <button
                           className={`MyPubs-btn MyPubs-btn-reject ${reservation.status !==

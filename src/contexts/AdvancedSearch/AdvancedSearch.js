@@ -57,16 +57,6 @@ export default class AdvancedSearchProvider extends Component {
       });
   };
 
-  fetchStuff = thing => {
-    firebase
-      .database()
-      .ref(thing)
-      .once("value")
-      .then(snap => snap.val())
-      .then(stuff => Object.entries(stuff).map(([id, val]) => ({ id, ...val })))
-      .then(stuff => this.setState({ [thing]: stuff }));
-  };
-
   changeReservationState = (ajdi, newState) => {
     firebase
       .database()
@@ -76,8 +66,6 @@ export default class AdvancedSearchProvider extends Component {
   };
 
   componentDidMount() {
-    // this.fetchStuff("publist");
-    // this.fetchStuff("users");
     this.unsubscribe_publist = firebase
       .database()
       .ref("/publist")
@@ -105,13 +93,7 @@ export default class AdvancedSearchProvider extends Component {
     this.unsubscribe_users();
   }
 
-  addReservationsToState = reservObj => {
-    let resArr = Object.entries(reservObj).map(([id, val]) => ({ id, ...val }));
-    this.setState({ reservations: resArr });
-  };
-
   render() {
-    console.log(this.state);
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }

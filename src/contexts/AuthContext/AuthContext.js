@@ -38,7 +38,6 @@ export default class AuthContextProvider extends Component {
   }
 
   render() {
-    console.log(this.state.user);
     return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }

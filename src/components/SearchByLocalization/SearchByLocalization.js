@@ -40,7 +40,7 @@ class SearchByLocalization extends Component {
           {pubCoordinates.map(pub => {
             return (
               <Marker key={pub.id} position={[pub.coordinates.latitude, pub.coordinates.longitude]}>
-              <Popup><NavLink className='SearchByLocalization-link' to={`/publist/${pub.id}`}>Welcome to {pub.name}. Call us: {pub.phone} or reach us at {pub.address}</NavLink> </Popup>
+              <Popup><NavLink className='SearchByLocalization-link' to={`/publist/${pub.id}`}>Welcome to {pub.name}. Call us: {pub.phone} or reach us at {pub.adress}</NavLink> </Popup>
             </Marker>
             )
           })}

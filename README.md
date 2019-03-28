@@ -7,11 +7,11 @@ http://app.hs.jfdd11.is-academy.pl/
 ( designed for mobile )
 
 ---
-### Check out also our Landing page:
+#### Check out also our Landing page:
 https://infoshareacademy.github.io/jfdd11-hs/
 ( view on desktop or mobile )
-### and JS Game:
+#### and JS Game:
 https://infoshareacademy.github.io/jfdd11-hs/game/index.html 
 ( only for desktop )
-#### and if you're interested in our Landing Page and Game code:
-https://github.com/jan-grasewicz/jfdd11-hs/blob/master/README.md
+##### and if you're interested in their code:
+https://github.com/jan-grasewicz/jfdd11-hs

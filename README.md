@@ -12,5 +12,5 @@ https://infoshareacademy.github.io/jfdd11-hs/
 #### and JS Game:
 https://infoshareacademy.github.io/jfdd11-hs/game/index.html 
 ( only for desktop )
-##### and if you're interested in it's code:
+##### If you're interested in it's code:
 https://github.com/jan-grasewicz/jfdd11-hs
